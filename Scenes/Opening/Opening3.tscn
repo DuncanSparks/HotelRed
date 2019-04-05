@@ -53,4 +53,5 @@ texture = ExtResource( 3 )
 position = Vector2( 192, 1536 )
 scale = Vector2( 9, 2 )
 targetScene = ExtResource( 5 )
+targetDirection = 1
 
