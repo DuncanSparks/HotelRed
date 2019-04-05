@@ -27,6 +27,10 @@ public class SceneTag : Label
 
 	public override void _Ready()
 	{
-		Controller.PlayMusic(sceneMusic);
+		if (sceneMusic != Controller.CurrentMusic)
+		{
+			Controller.PlayMusic(sceneMusic);
+			Controller.CurrentMusic = sceneMusic;
+		}
 	}
 }

@@ -29,6 +29,8 @@ public class Controller : Node
 		
 	} */
 
+	private AudioStream currentMusic = null;
+
 	// Refs
 	private PackedScene DialogueRef = GD.Load<PackedScene>("res://Instances/System/Dialogue.tscn");
 	private PackedScene SoundBurstRef = GD.Load<PackedScene>("res://Instances/System/SoundBurst.tscn");
@@ -39,6 +41,10 @@ public class Controller : Node
 	// Sounds
 	private AudioStreamPlayer SoundSysHover;
 	private AudioStreamPlayer SoundSysSelect;
+
+	// ================================================================
+
+	public static AudioStream CurrentMusic { get { return Controller.Main.currentMusic; } set { Controller.Main.currentMusic = value; } }
 
 	// ================================================================
 
@@ -88,7 +94,7 @@ public class Controller : Node
 		Controller.Main.GetNode<Timer>("TimerSceneGoto").Start();
 	}
 	
-	public static void SceneGo(String targetScene)
+	public static void SceneGoto(string targetScene)
 	{
 		Controller.Main.SceneGotoPre();
 		Controller.Main.GetTree().ChangeScene(targetScene);

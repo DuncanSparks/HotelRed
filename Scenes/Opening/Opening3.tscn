@@ -28,6 +28,7 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -4000
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 24, 24 )
 format = 1
@@ -37,13 +38,12 @@ __meta__ = {
 }
 
 [node name="SceneTag" parent="." instance=ExtResource( 2 )]
-text = "Opening 2"
-sceneName = "Alley 2"
+text = "Opening 3"
+sceneName = "Alley 3"
 displayName = false
 cameraLimitBottom = 1584
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 material = SubResource( 2 )
 position = Vector2( 300, 540 )
 texture = ExtResource( 3 )
@@ -51,5 +51,8 @@ texture = ExtResource( 3 )
 [node name="Transition" parent="." instance=ExtResource( 4 )]
 position = Vector2( 192, 1536 )
 scale = Vector2( 9, 2 )
-targetScene = "res://Scenes/Opening/Opening1.tscn"
+targetScene = "res://Scenes/Opening/Opening2.tscn"
+targetPosition = Vector2( 300, 0 )
+targetDirection = 1
+walk = true
 

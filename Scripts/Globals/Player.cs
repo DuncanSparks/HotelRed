@@ -61,6 +61,7 @@ public class Player : KinematicBody2D
 
 	// Constants
 	private const float WalkSpeed = 180f;
+	private const float StepSoundInterval = (1f / 7f) * 2f;
 
 	// Refs
 	private AnimatedSprite Spr;
@@ -97,7 +98,7 @@ public class Player : KinematicBody2D
 		if (walking && TimerStepSound.IsStopped())
 		{
 			FootstepSound();
-			TimerStepSound.SetWaitTime((1f / 7f) * 2f);
+			TimerStepSound.SetWaitTime(StepSoundInterval);
 			TimerStepSound.Start();
 		}
 		else if (!walking)
