@@ -57,8 +57,8 @@ public class Controller : Node
 		TimerEndTransitionRef = GetNode<Timer>("TimerEndTransition");
 		TimerEndTransition2Ref = GetNode<Timer>("TimerEndTransition2");
     
+		// Other stuff
 		GD.Randomize();
-		
 	}
 
 

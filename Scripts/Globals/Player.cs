@@ -146,12 +146,6 @@ public class Player : KinematicBody2D
 		Player.Main.GetNode<Camera2D>("Camera").Current = enable;
 	}
 
-
-	/* public static void StopWalking()
-	{
-		Player.Main.walking = false;
-	} */
-
 	// ================================================================
 
 	private void Movement()

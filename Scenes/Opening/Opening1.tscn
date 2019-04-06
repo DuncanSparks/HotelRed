@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -9,6 +9,23 @@
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Events/Event_opening_a1.cs" type="Script" id=8]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=9]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 200, 400, 1 )
+flag_disable_z = true
+gravity = Vector3( -400, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+color_ramp = SubResource( 6 )
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -61,6 +78,9 @@ tracks/1/keys = {
 extents = Vector2( 24, 132 )
 
 [node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -4000
@@ -100,6 +120,15 @@ scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening2.tscn"
 targetPosition = Vector2( 300, 776 )
 walk = true
+
+[node name="PartsRainSplashes" type="Particles2D" parent="."]
+position = Vector2( 395, 213 )
+rotation = -1.5708
+amount = 64
+lifetime = 0.75
+randomness = 0.1
+visibility_rect = Rect2( -300, -450, 600, 900 )
+process_material = SubResource( 4 )
 
 [node name="PartsRain" type="Particles2D" parent="."]
 position = Vector2( 396, -361 )

@@ -51,7 +51,7 @@ walk = true
 position = Vector2( 192, 0 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening3.tscn"
-targetPosition = Vector2( 300, 1568 )
+targetPosition = Vector2( 300, 1504 )
 walk = true
 
 [node name="PartsRain" type="Particles2D" parent="."]

@@ -29,7 +29,6 @@ public class Transition : Area2D
 
 	// ================================================================
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         TimerFadeOut = GetNode<Timer>("TimerFadeOut");
@@ -98,41 +97,6 @@ public class Transition : Area2D
 	{
 		Controller.SceneGoto(targetScene);
 		
-		/* if (walk)
-		{
-			switch (targetDirection)
-				{
-					case Direction.Up:
-					{
-						float x = Player.Main.Position.x;
-						Player.Main.Position = new Vector2(x, targetPosition.y);
-						break;
-					}
-					case Direction.Down:
-					{
-						float x = Player.Main.Position.x;
-						Player.Main.Position = new Vector2(x, targetPosition.y);
-						break;
-					}
-					case Direction.Left:
-					{
-						float y = Player.Main.Position.y;
-						Player.Main.Position = new Vector2(targetPosition.x, y);
-						break;
-					}
-					case Direction.Right:
-					{
-						float y = Player.Main.Position.y;
-						Player.Main.Position = new Vector2(targetPosition.x, y);
-						break;
-					}
-					default:
-						Player.Main.Position = targetPosition;
-						break;
-				}
-		}
-		else */
-		
 		if (!walk)
 			Player.Main.Position = targetPosition;
 		else
@@ -165,10 +129,4 @@ public class Transition : Area2D
 	{
 		Controller.Fade(true, false, 0.25f);
 	}
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }
