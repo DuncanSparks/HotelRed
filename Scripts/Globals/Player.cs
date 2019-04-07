@@ -183,7 +183,8 @@ public class Player : KinematicBody2D
 			Controller.Dialogue(debugDialogueFile2, 0, "Ravia", "#2391ef",  debugSpriteFrames2);
 	
 		if (Input.IsActionJustPressed("debug_2"))
-			Controller.Fade(false, false, 1);
+			//Controller.Fade(false, false, 1);
+			Controller.ShowBubble(Controller.BubbleType.EXCLAMATION, new Vector2(Player.Main.Position.x + 6, Player.Main.Position.y - 56));
 
 		if (Input.IsActionJustPressed("debug_3"))
 			Controller.Fade(true, false, 1);

@@ -370,10 +370,10 @@ public class Dialogue : Node2D
 			while (!file.EofReached())
 			{
 				string line = file.GetLine();
-				if (line[0] == '[')
+				if (line.Length > 0 && line[0] == '[')
 					currentIndex = line[1].ToString().ToInt();
 				
-				if (line[0] == '}' && read)
+				if (line.Length > 0 && line[0] == '}' && read)
 				{
 					read = false;
 					break;
@@ -388,7 +388,7 @@ public class Dialogue : Node2D
 					text.Add(currentLine.Groups[4].ToString());
 				}
 				
-				if (line[0] == '{' && currentIndex == textSet)
+				if (line.Length > 0 && line[0] == '{' && currentIndex == textSet)
 					read = true;
 			}
 		}

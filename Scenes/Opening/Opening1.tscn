@@ -10,24 +10,25 @@
 [ext_resource path="res://Scripts/Events/Event_opening_a1.cs" type="Script" id=8]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=9]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 200, 400, 1 )
 flag_disable_z = true
 gravity = Vector3( -400, 0, 0 )
 initial_velocity = 100.0
+angular_velocity = 0.000169926
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 2
 emission_box_extents = Vector3( 396, 4, 1 )
 flag_disable_z = true
@@ -38,8 +39,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 1, 1, 1, 0.588235 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Event"
+[sub_resource type="Animation" id=5]
 length = 5.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -74,7 +74,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 132 )
 
 [node name="Scene" type="Node2D"]
@@ -128,7 +128,7 @@ amount = 64
 lifetime = 0.75
 randomness = 0.1
 visibility_rect = Rect2( -300, -450, 600, 900 )
-process_material = SubResource( 4 )
+process_material = SubResource( 3 )
 
 [node name="PartsRain" type="Particles2D" parent="."]
 position = Vector2( 396, -361 )
@@ -137,7 +137,7 @@ amount = 320
 lifetime = 1.8
 preprocess = 2.0
 visibility_rect = Rect2( -398, -100, 800, 822 )
-process_material = SubResource( 1 )
+process_material = SubResource( 4 )
 texture = ExtResource( 6 )
 
 [node name="Event" parent="." instance=ExtResource( 7 )]
@@ -146,7 +146,7 @@ scale = Vector2( 2, 9 )
 destroy = false
 
 [node name="AnimationPlayer" parent="Event" index="1"]
-anims/Event = SubResource( 2 )
+anims/Event = SubResource( 5 )
 script = ExtResource( 8 )
 dialogueFile = "res://Dialogue/scene_intro_a1.txt"
 raviaPortrait = ExtResource( 9 )
@@ -155,7 +155,7 @@ raviaPortrait = ExtResource( 9 )
 position = Vector2( -24, 228 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 disabled = true
 __meta__ = {
 "_edit_lock_": true

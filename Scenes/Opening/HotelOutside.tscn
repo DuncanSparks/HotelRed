@@ -1,9 +1,134 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Props/Hotel Exterior base 2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Props/Streetlamp.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Environment/LIGHT.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=8]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Events/Event_opening_a2.cs" type="Script" id=10]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=11]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 15 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 150.0
+orbit_velocity = 1.0
+orbit_velocity_random = 0.0
+tangential_accel = 10.0
+tangential_accel_random = 0.5
+scale = 2.0
+
+[sub_resource type="Animation" id=8]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.6, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.6, 1.0 ]
+}
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.512563, 1 )
+colors = PoolColorArray( 0.615686, 0.360784, 0.360784, 0, 0.615686, 0.360784, 0.360784, 1, 0.615686, 0.360784, 0.360784, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 320, 500, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 120.0
+initial_velocity_random = 0.5
+angular_velocity = 100.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.5
+color_ramp = SubResource( 6 )
+hue_variation = 0.05
+hue_variation_random = 1.0
+
+[sub_resource type="Animation" id=9]
+resource_name = "Event"
+length = 12.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.6, 2.2, 4.9, 5.8, 6.9, 8.2, 9.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "Event_TurnUp"
+}, {
+"args": [  ],
+"method": "Event_Exclamation"
+}, {
+"args": [  ],
+"method": "Event_WalkUp1"
+}, {
+"args": [  ],
+"method": "Event_StopWalking"
+}, {
+"args": [  ],
+"method": "Event_Dialogue1"
+}, {
+"args": [  ],
+"method": "Event_WalkUp2"
+}, {
+"args": [  ],
+"method": "Event_StopWalking"
+}, {
+"args": [  ],
+"method": "Event_Dialogue2"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -4000
@@ -20,3 +145,194 @@ sceneName = "Hotel Exterior"
 displayName = false
 cameraLimitBottom = 720
 
+[node name="Hotel" type="StaticBody2D" parent="."]
+position = Vector2( 300, 168 )
+
+[node name="Sprite" type="Sprite" parent="Hotel"]
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotel"]
+polygon = PoolVector2Array( -300, 99, -255, 99, -255, 63, -177, 63, -177, 99, -114, 99, -114, 63, -57, 63, -57, 90, -36, 90, -36, 9, 36, 9, 36, 90, 57, 90, 57, 63, 114, 63, 114, 99, 177, 99, 177, 63, 255, 63, 255, 99, 300, 99, 300, -168, -300, -168 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lamp" type="StaticBody2D" parent="."]
+position = Vector2( 215, 206 )
+
+[node name="Sprite" type="Sprite" parent="Lamp"]
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light" type="Sprite" parent="Lamp"]
+modulate = Color( 1, 0.866667, 0.552941, 0.392157 )
+material = SubResource( 1 )
+position = Vector2( 0, -48 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D" type="Light2D" parent="Lamp"]
+position = Vector2( 0, -48 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.866667, 0.552941, 1 )
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
+position = Vector2( -1, 46 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="Lamp"]
+position = Vector2( -1, -34 )
+amount = 3
+preprocess = 2.0
+speed_scale = 0.75
+process_material = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lamp"]
+autoplay = "Idle"
+anims/Idle = SubResource( 8 )
+
+[node name="Lamp2" type="StaticBody2D" parent="."]
+position = Vector2( 385, 206 )
+
+[node name="Sprite" type="Sprite" parent="Lamp2"]
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light" type="Sprite" parent="Lamp2"]
+modulate = Color( 1, 0.866667, 0.552941, 0.392157 )
+material = SubResource( 1 )
+position = Vector2( 0, -48 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D" type="Light2D" parent="Lamp2"]
+position = Vector2( 0, -48 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.866667, 0.552941, 1 )
+energy = 0.6
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp2"]
+position = Vector2( -1, 46 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lamp2"]
+autoplay = "Idle"
+anims/Idle = SubResource( 4 )
+
+[node name="PartsFog" type="Particles2D" parent="."]
+position = Vector2( 300, 360 )
+z_index = 1250
+amount = 12
+lifetime = 3.0
+preprocess = 2.0
+visibility_rect = Rect2( -300, -400, 600, 800 )
+process_material = SubResource( 7 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PartsFog2" type="Particles2D" parent="."]
+position = Vector2( 300, 360 )
+z_index = 1250
+amount = 12
+lifetime = 3.0
+preprocess = 2.0
+visibility_rect = Rect2( -300, -400, 600, 800 )
+process_material = SubResource( 7 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PartsFog3" type="Particles2D" parent="."]
+position = Vector2( 300, 360 )
+z_index = 1250
+amount = 12
+lifetime = 3.0
+preprocess = 2.0
+visibility_rect = Rect2( -300, -400, 600, 800 )
+process_material = SubResource( 7 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.788235, 0.596078, 0.596078, 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 84, 126 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.960784, 0.521569, 1 )
+energy = 1.2
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 516, 126 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.960784, 0.521569, 1 )
+energy = 1.2
+
+[node name="Light2D3" type="Light2D" parent="."]
+position = Vector2( 282, 67 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.960784, 0.521569, 1 )
+energy = 0.65
+
+[node name="Light2D5" type="Light2D" parent="."]
+position = Vector2( 274, 25 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.960784, 0.521569, 1 )
+energy = 0.65
+
+[node name="Light2D4" type="Light2D" parent="."]
+position = Vector2( 318, 67 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.960784, 0.521569, 1 )
+energy = 0.65
+
+[node name="Light2D6" type="Light2D" parent="."]
+position = Vector2( 324, 25 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.960784, 0.521569, 1 )
+energy = 0.65
+
+[node name="Event" parent="." instance=ExtResource( 9 )]
+position = Vector2( 192, 576 )
+scale = Vector2( 9, 2 )
+destroy = false
+autoStart = true
+
+[node name="AnimationPlayer" parent="Event" index="1"]
+anims/Event = SubResource( 9 )
+script = ExtResource( 10 )
+dialogueFile = "res://Dialogue/scene_intro_a2.txt"
+raviaPortrait = ExtResource( 11 )
+
+
+[editable path="Event"]

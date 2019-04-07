@@ -2,7 +2,8 @@
 --------------------------------------------------------------------------
 SET FORMAT
 --------------------------------------------------------------------------
-A set is one continuous chain of dialogue before the dialogue box closes again. Any time there's a break in the dialogue, make a new set.
+A set is one continuous chain of dialogue before the dialogue box closes again.
+Any time there's a break in the dialogue, make a new set.
 
 [Index of this dialogue set]
 {

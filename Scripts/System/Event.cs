@@ -9,6 +9,9 @@ public class Event : Area2D
 	[Export]
 	private string destroyFlag = string.Empty;
 
+	[Export]
+	private bool autoStart = false;
+
 	private bool running = false;
 
 	// Refs
@@ -22,7 +25,20 @@ public class Event : Area2D
 			QueueFree();
 
 		AnimPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+
+		SetProcess(autoStart);
     }
+
+
+	public override void _Process(float delta)
+	{
+		if (Player.State == Player.ST.MOVE)
+		{
+			StartEvent();
+			running = true;
+			SetProcess(false);
+		}
+	}
 
 	// ================================================================
 
@@ -68,7 +84,7 @@ public class Event : Area2D
 
 	private void BodyEntered(PhysicsBody2D body)
 	{
-		if (!running && body.IsInGroup("Player"))
+		if (!autoStart && !running && body.IsInGroup("Player") && Player.State == Player.ST.MOVE)
 		{
 			StartEvent();
 			running = true;

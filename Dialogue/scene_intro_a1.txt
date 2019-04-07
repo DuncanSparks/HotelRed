@@ -1,6 +1,7 @@
 [0]
 {
 	<0 talk _>It's not here.
-	<0 talk _>I wonder if they lied to me just so I'd never find them.
-	<0 talk _>Ugh...{ Where $sis $0this place?
+	<0 sad _>$sUgh...
+	<0 sad _>Maybe they lied to me.
+	<0 talk _>Where $sis $0this place?
 }

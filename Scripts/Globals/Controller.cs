@@ -20,6 +20,7 @@ public class Controller : Node
 	};
 
 	public enum Sound {HOVER, SELECT};
+	public enum BubbleType {EXCLAMATION, QUESTION, SILENCE};
 
 	/* public struct DialogueParams
 	{
@@ -34,6 +35,7 @@ public class Controller : Node
 	// Refs
 	private PackedScene DialogueRef = GD.Load<PackedScene>("res://Instances/System/Dialogue.tscn");
 	private PackedScene SoundBurstRef = GD.Load<PackedScene>("res://Instances/System/SoundBurst.tscn");
+	private PackedScene BubbleRef = GD.Load<PackedScene>("res://Instances/System/Bubble.tscn");
 
 	private Timer TimerEndTransitionRef;
 	private Timer TimerEndTransition2Ref;
@@ -124,6 +126,24 @@ public class Controller : Node
 				break;
 			
 		}
+	}
+
+
+	public static void ShowBubble(BubbleType type, Vector2 position)
+	{
+		var bubble = Controller.Main.BubbleRef.Instance() as Bubble;
+		switch (type)
+		{
+			case BubbleType.EXCLAMATION:
+				bubble.PlayAnimation("Exclamation");
+				break;
+			default:
+				bubble.PlayAnimation("Exclamation");
+				break;
+		}
+
+		bubble.Position = position;
+		Controller.Main.GetTree().GetRoot().AddChild(bubble);
 	}
 
 
