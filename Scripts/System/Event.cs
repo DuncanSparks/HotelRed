@@ -19,15 +19,15 @@ public class Event : Area2D
 
 	// ================================================================
 
-    public override void _Ready()
-    {
-        if (destroy && Controller.Flag(destroyFlag))
+	public override void _Ready()
+	{
+		if (destroy && Controller.Flag(destroyFlag))
 			QueueFree();
 
 		AnimPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
 		SetProcess(autoStart);
-    }
+	}
 
 
 	public override void _Process(float delta)

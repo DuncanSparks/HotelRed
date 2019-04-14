@@ -28,22 +28,6 @@ tangential_accel = 10.0
 tangential_accel_random = 0.5
 scale = 2.0
 
-[sub_resource type="Animation" id=8]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.6, 1.0 ]
-}
-
 [sub_resource type="Animation" id=4]
 length = 3.0
 loop = true
@@ -60,14 +44,30 @@ tracks/0/keys = {
 "values": [ 0.6, 1.0 ]
 }
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Animation" id=5]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.6, 1.0 ]
+}
+
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.512563, 1 )
 colors = PoolColorArray( 0.615686, 0.360784, 0.360784, 0, 0.615686, 0.360784, 0.360784, 1, 0.615686, 0.360784, 0.360784, 0 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 320, 500, 1 )
 flag_disable_z = true
@@ -82,7 +82,7 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 7 )
 hue_variation = 0.05
 hue_variation_random = 1.0
 
@@ -203,7 +203,7 @@ process_material = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lamp"]
 autoplay = "Idle"
-anims/Idle = SubResource( 8 )
+anims/Idle = SubResource( 4 )
 
 [node name="Lamp2" type="StaticBody2D" parent="."]
 position = Vector2( 385, 206 )
@@ -242,7 +242,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lamp2"]
 autoplay = "Idle"
-anims/Idle = SubResource( 4 )
+anims/Idle = SubResource( 5 )
 
 [node name="PartsFog" type="Particles2D" parent="."]
 position = Vector2( 300, 360 )
@@ -251,7 +251,7 @@ amount = 12
 lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -400, 600, 800 )
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
@@ -264,7 +264,7 @@ amount = 12
 lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -400, 600, 800 )
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -277,7 +277,7 @@ amount = 12
 lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -400, 600, 800 )
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
