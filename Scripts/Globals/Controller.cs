@@ -166,7 +166,10 @@ public class Controller : Node
 		dlg.RestoreMovement = restoreMovement;
 
 		if (rightClientPortrait != null)
+		{
+			dlg.TextLeft += 35;
 			dlg.LineEnd = 248;
+		}
 		else
 		{
 			dlg.TextLeft += 35;

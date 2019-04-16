@@ -5,7 +5,7 @@
 	<1 idle talk>We're delighted that you've decided to stay with us today.
 	<0 talk idle>Um{.|.|.{ Hello.
 	<0 talk idle>I'm sorry,| but I'm not interested in-
-	<1 idle talk>My name is $bNeftali$0,| and I'm here to ensure your stay is a grand one.
+	<1 idle talk>My name is $bNeftali,| and I'm here to ensure your stay is a grand one.
 	<0 idle idle>...
 	<0 talk idle>I'm not interested in staying.{ I'm just here to see someone.
 	<0 talk idle>Two people,| actually.
