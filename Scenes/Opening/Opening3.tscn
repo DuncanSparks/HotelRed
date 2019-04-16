@@ -8,14 +8,14 @@
 [ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=7]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.512563, 1 )
 colors = PoolColorArray( 0.615686, 0.360784, 0.360784, 0, 0.615686, 0.360784, 0.360784, 1, 0.615686, 0.360784, 0.360784, 0 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 320, 1150, 1 )
 flag_disable_z = true
@@ -30,11 +30,11 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.05
 hue_variation_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 2
 emission_box_extents = Vector3( 320, 1150, 1 )
 flag_disable_z = true
@@ -49,11 +49,11 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.05
 hue_variation_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 320, 1150, 1 )
 flag_disable_z = true
@@ -68,12 +68,11 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.05
 hue_variation_random = 1.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Fade to red"
+[sub_resource type="Animation" id=6]
 length = 7.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasModulate:color")
@@ -169,7 +168,7 @@ amount = 20
 lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -1150, 600, 2300 )
-process_material = SubResource( 7 )
+process_material = SubResource( 3 )
 texture = ExtResource( 5 )
 
 [node name="PartsFog2" type="Particles2D" parent="."]
@@ -180,7 +179,7 @@ amount = 20
 lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -1150, 600, 2300 )
-process_material = SubResource( 8 )
+process_material = SubResource( 4 )
 texture = ExtResource( 6 )
 
 [node name="PartsFog3" type="Particles2D" parent="."]
@@ -191,7 +190,7 @@ amount = 20
 lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -1150, 600, 2300 )
-process_material = SubResource( 9 )
+process_material = SubResource( 5 )
 texture = ExtResource( 7 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -199,5 +198,5 @@ color = Color( 0.952941, 0.91024, 0.91024, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade to red"
-"anims/Fade to red" = SubResource( 1 )
+"anims/Fade to red" = SubResource( 6 )
 
