@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=3]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=5]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,6 +30,30 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Event"
+length = 12.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6, 3, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "Event_WalkUp"
+}, {
+"args": [  ],
+"method": "Event_StopWalking"
+}, {
+"args": [  ],
+"method": "Event_Dialogue1"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -53,9 +81,10 @@ __meta__ = {
 [node name="SceneTag" parent="." instance=ExtResource( 2 )]
 text = "F1 - Foyer"
 sceneName = "Foyer"
+cameraLimitBottom = 672
 
 [node name="Actor" type="KinematicBody2D" parent="."]
-position = Vector2( 300, 470 )
+position = Vector2( 300, 256 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Actor"]
 scale = Vector2( 3, 3 )
@@ -65,3 +94,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Event" parent="." instance=ExtResource( 4 )]
+position = Vector2( 240, 624 )
+scale = Vector2( 5, 2 )
+destroy = false
+autoStart = true
+
+[node name="AnimationPlayer" parent="Event" index="1"]
+anims/Event = SubResource( 2 )
+script = ExtResource( 5 )
+dialogueFile = "res://Dialogue/scene_chapter1_a1.txt"
+raviaPortrait = ExtResource( 6 )
+neftaliPortrait = ExtResource( 7 )
+
+
+[editable path="Event"]

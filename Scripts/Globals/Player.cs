@@ -30,7 +30,6 @@ public class Player : KinematicBody2D
 
 	// Movement
 	private Vector2 motion = new Vector2(0, 0);
-	//private Vector2 face = new Vector2(1, 1);
 	private SpriteDirection face = SpriteDirection.DOWN;
 	private bool walking = false;
 	private bool teleporting = false;

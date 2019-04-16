@@ -97,8 +97,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.6, 2.2, 4.9, 5.8, 6.9, 8.2, 9.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.2, 0.6, 2.2, 4.9, 5.8, 6.9, 8.2, 9.9, 11.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_TurnUp"
@@ -123,6 +123,9 @@ tracks/0/keys = {
 }, {
 "args": [  ],
 "method": "Event_Dialogue2"
+}, {
+"args": [  ],
+"method": "Event_Transition"
 } ]
 }
 
@@ -334,6 +337,7 @@ anims/Event = SubResource( 9 )
 script = ExtResource( 10 )
 dialogueFile = "res://Dialogue/scene_intro_a2.txt"
 raviaPortrait = ExtResource( 11 )
+targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
 
 
 [editable path="Event"]

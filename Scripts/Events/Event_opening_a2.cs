@@ -9,6 +9,9 @@ public class Event_opening_a2 : AnimationPlayer
 	[Export]
 	private SpriteFrames raviaPortrait;
 
+	[Export(PropertyHint.File, "*.tscn")]
+	private string targetScene = string.Empty;
+
 	// ================================================================
 
 	private void Resume()
@@ -66,5 +69,13 @@ public class Event_opening_a2 : AnimationPlayer
 	{
 		GetParent<Event>().PauseEvent();
 		Controller.Dialogue(dialogueFile, 1, "Ravia", "#2391ef",  raviaPortrait, signalConnection: this, signalMethod: "Resume", restoreMovement: false);
+	}
+
+
+	public void Event_Transition()
+	{
+		Player.State = Player.ST.MOVE;
+		Controller.SceneGoto(targetScene);
+		Player.Main.Position = new Vector2(300, 652);
 	}
 }
