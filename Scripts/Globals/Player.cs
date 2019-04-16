@@ -44,8 +44,6 @@ public class Player : KinematicBody2D
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
 	private SpriteSet currentSpriteSet = SpriteSet.NORMAL;
 
-	private Queue<string> keyQueue = new Queue<string>();
-
 	private static readonly string[] spriteSetNormal = {"up", "down", "left", "right"};
 	private static readonly string[] spriteSetNormalWalk = {"walkup", "walkdown", "walkleft", "walkright"};
 	private static readonly string[] spriteSetPaper = {"up", "down_paper", "left", "right_paper"};
@@ -125,7 +123,7 @@ public class Player : KinematicBody2D
 			}
 		}
 
-		Animation();
+		Spr.Play(GetSprite(currentSpriteSet, face, walking));
 
 		if (!motionOverride)
 			motion = MoveAndSlide(motion * WalkSpeed * delta * 60f);
@@ -150,9 +148,7 @@ public class Player : KinematicBody2D
 
 	private void Movement()
 	{
-		// Movement direction
-		//Vector2 previous = new Vector2(motion.x, motion.y);
-
+		// Movement
 		int lMove = Input.IsActionPressed("move_left") ? 1 : 0;
 		int rMove = Input.IsActionPressed("move_right") ? 1 : 0;
 		motion.x = rMove - lMove;
@@ -161,120 +157,31 @@ public class Player : KinematicBody2D
 		int dMove = Input.IsActionPressed("move_down") ? 1 : 0;
 		motion.y = dMove - uMove;
 
-		//ChangeFace(previous);
-		if (Input.IsActionJustReleased("move_up") || Input.IsActionJustReleased("move_down") || Input.IsActionJustReleased("move_left") || Input.IsActionJustReleased("move_right"))
-			ChangeFace();
-		
-		/* if (Input.IsActionJustPressed("move_up"))
-			face = SpriteDirection.UP;
-
-		if (Input.IsActionJustPressed("move_down"))
-			face = SpriteDirection.DOWN;
-
-		if (Input.IsActionJustPressed("move_left"))
-			face = SpriteDirection.LEFT;
-
-		if (Input.IsActionJustPressed("move_right"))
-			face = SpriteDirection.RIGHT; */
-
-		// Debug
-		if (Input.IsActionJustPressed("debug_1"))
-			//Controller.Dialogue(debugDialogueFile, 0, "Ravia", "#2391ef",  debugSpriteFrames2, "Neftali", "#ff0000", debugSpriteFrames);
-			Controller.Dialogue(debugDialogueFile2, 0, "Ravia", "#2391ef",  debugSpriteFrames2);
-	
-		if (Input.IsActionJustPressed("debug_2"))
-			//Controller.Fade(false, false, 1);
-			Controller.ShowBubble(Controller.BubbleType.EXCLAMATION, new Vector2(Player.Main.Position.x + 6, Player.Main.Position.y - 56));
-
-		if (Input.IsActionJustPressed("debug_3"))
-			Controller.Fade(true, false, 1);
-	}
-
-
-	private void ChangeFace()  // REFACTOR THIS AWFULNESS LATER
-	//private void ChangeFace()
-	{
-		/* if (previous.x != motion.x)
+		// Change face direction
+		if (motion.x == 0)
 		{
-			if (motion.x != 0)
+			switch (motion.y)
 			{
-				if (previous.y == motion.y && motion.y == 0)
-				{
-					face.x = Mathf.Sign(motion.x);
-					face.y = 0;
-				}
-				else
-				{
-					face.x = 0;
-					if (motion.y != 0)
-						face.y = Mathf.Sign(motion.y);
-				}
-			}
-			else if (motion.y != 0)
-			{
-				face.y = Mathf.Sign(motion.y);
-				face.x = 0;
+				case -1:
+					face = SpriteDirection.UP;
+					break;
+				case 1:
+					face = SpriteDirection.DOWN;
+					break;
 			}
 		}
-		else if (previous.y != motion.y)
+		else if (motion.y == 0)
 		{
-			if (motion.y != 0)
+			switch (motion.x)
 			{
-				if (previous.x == motion.x && motion.x == 0)
-				{
-					face.y = Mathf.Sign(motion.y);
-					face.x = 0;
-				}
-				else
-				{
-					face.y = 0;
-					if (motion.x != 0)
-						face.x = Mathf.Sign(motion.x);
-				}
+				case -1:
+					face = SpriteDirection.LEFT;
+					break;
+				case 1:
+					face = SpriteDirection.RIGHT;
+					break;
 			}
-			else if (motion.x != 0)
-			{
-				face.x = Mathf.Sign(motion.x);
-				face.y = 0;
-			}
-		}*/
-
-		/* switch (previous)
-		{
-			case SpriteDirection.UP:
-			{
-				if (motion.y > 0)
-					face = SpriteDirection.
-			}
-		}*/
-
-		if (motion.y > 0)
-			face = motion.x < 0 ? SpriteDirection.LEFT : motion.x > 0 ? SpriteDirection.RIGHT : SpriteDirection.DOWN;
-		else if (motion.y < 0)
-			face = motion.x < 0 ? SpriteDirection.LEFT : motion.x > 0 ? SpriteDirection.RIGHT : SpriteDirection.UP;
-	}
-
-
-	private void Animation()
-	{
-		/* if (face == Vector2.Up)
-		{
-			Spr.Play(GetSprite(currentSpriteSet, SpriteDirection.UP, walking));
 		}
-		else if (face == Vector2.Down)
-		{
-			Spr.Play(GetSprite(currentSpriteSet, SpriteDirection.DOWN, walking));
-		}
-		else if (face == Vector2.Left)
-		{
-			Spr.Play(GetSprite(currentSpriteSet, SpriteDirection.LEFT, walking));
-		}
-		else if (face == Vector2.Right)
-		{
-			Spr.Play(GetSprite(currentSpriteSet, SpriteDirection.RIGHT, walking));
-		}*/
-
-		Spr.Play(GetSprite(currentSpriteSet, face, walking));
 	}
 
 

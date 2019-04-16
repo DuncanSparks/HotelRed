@@ -33,7 +33,7 @@ public class TitleScreen : Control
 			Controller.SceneGoto(StartScene);
 			Player.Main.Position = StartPosition;
 		}
-			
+		
 
 		Shader = (ShaderMaterial)GetNode<CanvasLayer>("CanvasLayer").GetNode<ColorRect>("Shader").Material;
 	}
