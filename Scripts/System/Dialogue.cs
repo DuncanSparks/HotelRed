@@ -258,8 +258,14 @@ public class Dialogue : Node2D
 							case 'r':
 								modifier = Modifier.RED;
 								break;
+							case 'b':
+								modifier = Modifier.BLUE;
+								break;
 							case 'g':
 								modifier = Modifier.GREEN;
+								break;
+							case 'y':
+								modifier = Modifier.YELLOW;
 								break;
 							case 's':
 								modifier = Modifier.SHAKE;
