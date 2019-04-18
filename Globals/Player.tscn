@@ -1,35 +1,23 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia left.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia right.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia down.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown 1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown 2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia right paper.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkleft 1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkleft 2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright 1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright 2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia down paper.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown paper 1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown paper 2.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkup 1.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkup 2.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright paper 1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright paper 2.png" type="Texture" id=19]
-[ext_resource path="res://Audio/Step 1.ogg" type="AudioStream" id=20]
-[ext_resource path="res://Audio/Step 2.ogg" type="AudioStream" id=21]
-[ext_resource path="res://Audio/Step 3.ogg" type="AudioStream" id=22]
-[ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=23]
-[ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Audio/Step 1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Step 2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Step 3.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ null ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "talk",
 "speed": 5.0
 }, {
 "frames": [ null ],
@@ -51,11 +39,6 @@ animations = [ {
 "loop": true,
 "name": "idle_delighted",
 "speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
-"name": "talk",
-"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -69,69 +52,6 @@ animations = [ {
 "loop": true,
 "name": "talk",
 "speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walkdown",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "right_paper",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walkleft",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "walkright",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "down_paper",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "walkdown_paper",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "walkup",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "walkright_paper",
-"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -152,7 +72,7 @@ debugDialogueFile2 = "res://Dialogue/scene_intro_a1.txt"
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
-frames = SubResource( 3 )
+frames = ExtResource( 2 )
 animation = "walkdown"
 __meta__ = {
 "_edit_lock_": true
@@ -177,19 +97,19 @@ __meta__ = {
 }
 
 [node name="SoundStep1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
+stream = ExtResource( 3 )
 
 [node name="SoundStep2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
+stream = ExtResource( 4 )
 
 [node name="SoundStep3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 22 )
+stream = ExtResource( 5 )
 
 [node name="SoundStep4" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 23 )
+stream = ExtResource( 6 )
 
 [node name="SoundStep5" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 24 )
+stream = ExtResource( 7 )
 
 [node name="TimerStepSound" type="Timer" parent="."]
 wait_time = 0.29
