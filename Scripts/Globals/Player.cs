@@ -63,7 +63,10 @@ public class Player : KinematicBody2D
 	// Refs
 	private AnimatedSprite Spr;
 	private Timer TimerStepSound;
-
+	private Label ItemName;
+    private HBoxContainer Images;
+    private Label ItemDescription;
+	private CanvasLayer Canvas;
 	// ================================================================
 
 	public static ST State { get { return Player.Main.state; } set { Player.Main.state = value; } }
@@ -85,9 +88,21 @@ public class Player : KinematicBody2D
 	public override void _Ready()
 	{
 		// Refs
+		
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
-		var key = Player.Main.RoomKeyRef.Instance();
+
+		// Canvas = GetNode<CanvasLayer>("CanvasLayer");
+		// ItemName = Canvas.GetNode<Container>("Inventory").GetNode<Label>("Name");
+        // Images = Canvas.GetNode<Container>("Inventory").GetNode<HBoxContainer>("Container");
+        // ItemDescription = Canvas.GetNode<Container>("Inventory").GetNode<Label>("Description");
+
+		// var RoomKey = RoomKeyRef.Instance() as Item;
+		// ItemName.SetText(RoomKey.GetNode<Label>("Name").GetText());
+		// ItemDescription.SetText(RoomKey.GetNode<Label>("Description").GetText());
+		// TextureButton button = new TextureButton();
+		// button.SetHoverTexture(RoomKey.GetNode<Sprite>("Image").GetTexture());
+		// Images.AddChild(button);
 
 	}
 

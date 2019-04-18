@@ -14,6 +14,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ null, null ],
+"loop": true,
+"name": "talk",
+"speed": 5.0
+}, {
 "frames": [ null ],
 "loop": true,
 "name": "idle_annoyed",
@@ -32,11 +37,6 @@ animations = [ {
 "frames": [ null ],
 "loop": true,
 "name": "idle_delighted",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
-"name": "talk",
 "speed": 5.0
 } ]
 
@@ -57,17 +57,17 @@ animations = [ {
 animations = [ {
 "frames": [ null ],
 "loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
 "name": "left",
 "speed": 5.0
 }, {
 "frames": [ null ],
 "loop": true,
 "name": "right",
-"speed": 5.0
-}, {
-"frames": [ null ],
-"loop": true,
-"name": "up",
 "speed": 5.0
 }, {
 "frames": [ null ],
@@ -82,26 +82,6 @@ animations = [ {
 }, {
 "frames": [ null, null, null, null ],
 "loop": true,
-"name": "walkdown_paper",
-"speed": 7.0
-}, {
-"frames": [ null, null, null, null ],
-"loop": true,
-"name": "walkleft",
-"speed": 7.0
-}, {
-"frames": [ null ],
-"loop": true,
-"name": "down_paper",
-"speed": 5.0
-}, {
-"frames": [ null, null, null, null ],
-"loop": true,
-"name": "walkdown",
-"speed": 7.0
-}, {
-"frames": [ null, null, null, null ],
-"loop": true,
 "name": "walkright",
 "speed": 7.0
 }, {
@@ -110,9 +90,29 @@ animations = [ {
 "name": "right_paper",
 "speed": 5.0
 }, {
+"frames": [ null ],
+"loop": true,
+"name": "down_paper",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null ],
+"loop": true,
+"name": "walkdown_paper",
+"speed": 7.0
+}, {
+"frames": [ null, null, null, null ],
+"loop": true,
+"name": "walkdown",
+"speed": 7.0
+}, {
 "frames": [ null, null, null, null ],
 "loop": true,
 "name": "walkright_paper",
+"speed": 7.0
+}, {
+"frames": [ null, null, null, null ],
+"loop": true,
+"name": "walkleft",
 "speed": 7.0
 } ]
 
