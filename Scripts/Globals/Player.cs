@@ -67,6 +67,7 @@ public class Player : KinematicBody2D
     private HBoxContainer Images;
     private Label CurrentItemDescription;
 	private CanvasLayer Canvas;
+	private int numItems = 0;
 	// ================================================================
 
 	public static ST State { get { return Player.Main.state; } set { Player.Main.state = value; } }
@@ -78,12 +79,12 @@ public class Player : KinematicBody2D
 	public static bool Walking { get { return Player.Main.walking; } set { Player.Main.walking = value; } }
 	public static bool Teleporting { get { return Player.Main.teleporting; } set { Player.Main.teleporting = value; } }
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
-
+	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
 	// ================================================================
 
 	// Inventory
 
-	private PackedScene RoomKeyRef = GD.Load<PackedScene>("res://Instances/Items/RoomKey.tscn");
+	// private PackedScene RoomKeyRef = GD.Load<PackedScene>("res://Instances/Items/RoomKey.tscn");
 	// ================================================================
 	public override void _Ready()
 	{
@@ -94,16 +95,19 @@ public class Player : KinematicBody2D
 
 		Canvas = GetNode<CanvasLayer>("CanvasLayer");
 		CurrentItemName = Canvas.GetNode<Control>("Inventory").GetNode<Label>("CurrentItem");
-        Images = Canvas.GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container");
+        // Images = Canvas.GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container");
         CurrentItemDescription = Canvas.GetNode<Control>("Inventory").GetNode<Label>("CurrentDescription");
 
-		var RoomKey = Player.Main.RoomKeyRef.Instance() as Item;
-		CurrentItemName.SetText(RoomKey.ItemName);
-		CurrentItemDescription.SetText(RoomKey.ItemDescription);
-		// TextureButton button = new TextureButton();
-		// button.SetNormalTexture(RoomKey.Image.GetTexture());
-		// button.SetHoverTexture(RoomKey.Image.GetTexture());
-
+		var cont = Canvas.GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container");
+		// var RoomKey = Player.Main.RoomKeyRef.Instance() as Item;
+		
+		//.CurrentItemName.SetText(cont.GetNode<TextureButton>("RoomKey").);
+		CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
+		CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
+		numItems += 1;
+		// Images.GetNode<TextureRect>("Item1")
+		// GetTree().GetRoot().AddChild(RoomKey);
+		//Images.GetNode<TextureRect>("Item1").SetTexture(RoomKey.Image.Texture);
 	}
 
 	public override void _Process(float delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
 [ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Audio/Step 3.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Instances/Items/RoomKey.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,14 +21,14 @@ animations = [ {
 "name": "talk",
 "speed": 5.0
 }, {
-"frames": [ null ],
-"loop": true,
-"name": "idle_annoyed",
-"speed": 5.0
-}, {
 "frames": [ null, null ],
 "loop": true,
 "name": "delighted",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "idle_delighted",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
@@ -37,7 +38,7 @@ animations = [ {
 }, {
 "frames": [ null ],
 "loop": true,
-"name": "idle_delighted",
+"name": "idle_annoyed",
 "speed": 5.0
 } ]
 
@@ -54,7 +55,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 9, 9 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -80,7 +81,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 27 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -127,6 +128,9 @@ margin_left = 100.0
 margin_top = 320.0
 margin_right = 500.0
 margin_bottom = 360.0
+
+[node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_bottom = 40.0
 
 [node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
 margin_left = 100.0
