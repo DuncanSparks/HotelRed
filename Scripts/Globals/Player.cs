@@ -78,11 +78,17 @@ public class Player : KinematicBody2D
 
 	// ================================================================
 
+	// Inventory
+
+	private PackedScene RoomKeyRef = GD.Load<PackedScene>("res://Instances/Items/RoomKey.tscn");
+	// ================================================================
 	public override void _Ready()
 	{
 		// Refs
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
+		var key = Player.Main.RoomKeyRef.Instance();
+
 	}
 
 	public override void _Process(float delta)
