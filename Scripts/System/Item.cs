@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Item : Node
+public class Item : Control
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -20,7 +20,7 @@ public class Item : Node
     public string ItemDescription { get { return itemDescription; } set { itemDescription = value; } }
     public override void _Ready()
     {
-        
+        GetNode<Sprite>("Image").SetTexture(image.Texture);
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

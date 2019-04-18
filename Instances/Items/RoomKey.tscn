@@ -3,9 +3,11 @@
 [ext_resource path="res://Scripts/System/Item.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=2]
 
-[node name="Item" type="Node"]
+[node name="RoomKey" type="TextureButton"]
 script = ExtResource( 1 )
 image = ExtResource( 2 )
 itemName = "Room Key"
-itemDescription = "Testing the Auto wrap functionality of the lkabel I hope it wqorks cuxz then 'I wont have to worry about it AYAYAYAYAYAYAYya"
+itemDescription = "Opens Room"
+
+[node name="Image" type="Sprite" parent="."]
 
