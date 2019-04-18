@@ -63,9 +63,9 @@ public class Player : KinematicBody2D
 	// Refs
 	private AnimatedSprite Spr;
 	private Timer TimerStepSound;
-	private Label ItemName;
+	private Label CurrentItemName;
     private HBoxContainer Images;
-    private Label ItemDescription;
+    private Label CurrentItemDescription;
 	private CanvasLayer Canvas;
 	// ================================================================
 
@@ -92,17 +92,17 @@ public class Player : KinematicBody2D
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
 
-		// Canvas = GetNode<CanvasLayer>("CanvasLayer");
-		// ItemName = Canvas.GetNode<Container>("Inventory").GetNode<Label>("Name");
-        // Images = Canvas.GetNode<Container>("Inventory").GetNode<HBoxContainer>("Container");
-        // ItemDescription = Canvas.GetNode<Container>("Inventory").GetNode<Label>("Description");
+		Canvas = GetNode<CanvasLayer>("CanvasLayer");
+		CurrentItemName = Canvas.GetNode<Control>("Inventory").GetNode<Label>("CurrentItem");
+        Images = Canvas.GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container");
+        CurrentItemDescription = Canvas.GetNode<Control>("Inventory").GetNode<Label>("CurrentDescription");
 
-		// var RoomKey = RoomKeyRef.Instance() as Item;
-		// ItemName.SetText(RoomKey.GetNode<Label>("Name").GetText());
-		// ItemDescription.SetText(RoomKey.GetNode<Label>("Description").GetText());
+		var RoomKey = Player.Main.RoomKeyRef.Instance() as Item;
+		CurrentItemName.SetText(RoomKey.ItemName);
+		CurrentItemDescription.SetText(RoomKey.ItemDescription);
 		// TextureButton button = new TextureButton();
-		// button.SetHoverTexture(RoomKey.GetNode<Sprite>("Image").GetTexture());
-		// Images.AddChild(button);
+		// button.SetNormalTexture(RoomKey.Image.GetTexture());
+		// button.SetHoverTexture(RoomKey.Image.GetTexture());
 
 	}
 
