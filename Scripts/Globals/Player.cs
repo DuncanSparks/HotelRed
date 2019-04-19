@@ -62,13 +62,23 @@ public class Player : KinematicBody2D
 
 	// Refs
 	private AnimatedSprite Spr;
+
 	private Timer TimerStepSound;
+
+	// Inventory refs
 	private Label CurrentItemName;
+
     private HBoxContainer Images;
+
     private Label CurrentItemDescription;
 
 	private Control ItemList;
+
+	private bool inventoryLock = true;
+
 	private int numItems = 0;
+
+
 
 
 	// ================================================================
@@ -83,6 +93,8 @@ public class Player : KinematicBody2D
 	public static bool Teleporting { get { return Player.Main.teleporting; } set { Player.Main.teleporting = value; } }
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
 	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
+
+	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
 	// ================================================================
 
 	// Inventory
@@ -112,7 +124,7 @@ public class Player : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		if(Input.IsActionJustPressed("open_inventory"))
+		if(Input.IsActionJustPressed("open_inventory") && !inventoryLock)
 		{
 			if(ItemList.IsVisible())
 				ItemList.SetVisible(false);

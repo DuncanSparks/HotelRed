@@ -62,6 +62,7 @@ public class Event : Area2D
 			Player.MotionOverride = false;
 			QueueFree();
 		}
+		Player.InventoryLock = false;
 	}
 
 
@@ -80,6 +81,7 @@ public class Event : Area2D
 	{
 		StopPlayer(Player.Face);
 		AnimPlayer.Play("Event");
+		Player.InventoryLock = true;
 	}
 
 	private void BodyEntered(PhysicsBody2D body)
