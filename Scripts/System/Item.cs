@@ -17,6 +17,6 @@ public class Item : TextureButton
 
     public override void _Ready()
     {
-		GetNode<TextureRect>("TextureRect").Texture = itemTexture;
+      SetNormalTexture(itemTexture);
     }
 }

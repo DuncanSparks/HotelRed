@@ -66,8 +66,11 @@ public class Player : KinematicBody2D
 	private Label CurrentItemName;
     private HBoxContainer Images;
     private Label CurrentItemDescription;
-	private CanvasLayer Canvas;
+
+	private Control ItemList;
 	private int numItems = 0;
+
+
 	// ================================================================
 
 	public static ST State { get { return Player.Main.state; } set { Player.Main.state = value; } }
@@ -93,25 +96,29 @@ public class Player : KinematicBody2D
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
 
-		Canvas = GetNode<CanvasLayer>("CanvasLayer");
-		CurrentItemName = Canvas.GetNode<Control>("Inventory").GetNode<Label>("CurrentItem");
-        // Images = Canvas.GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container");
-        CurrentItemDescription = Canvas.GetNode<Control>("Inventory").GetNode<Label>("CurrentDescription");
+		ItemList = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
+		CurrentItemName = ItemList.GetNode<Label>("CurrentItem");
+        Images = ItemList.GetNode<HBoxContainer>("Container");
+        CurrentItemDescription = ItemList.GetNode<Label>("CurrentDescription");
 
-		var cont = Canvas.GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container");
-		// var RoomKey = Player.Main.RoomKeyRef.Instance() as Item;
-		
-		//.CurrentItemName.SetText(cont.GetNode<TextureButton>("RoomKey").);
+		var cont = ItemList.GetNode<HBoxContainer>("Container");
 		CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
 		CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
-		numItems += 1;
+		// numItems += 1;
 		// Images.GetNode<TextureRect>("Item1")
 		// GetTree().GetRoot().AddChild(RoomKey);
-		//Images.GetNode<TextureRect>("Item1").SetTexture(RoomKey.Image.Texture);
+		// Images.GetNode<TextureRect>("Item1").SetTexture(RoomKey.Image.Texture);
 	}
 
 	public override void _Process(float delta)
 	{
+		if(Input.IsActionJustPressed("open_inventory"))
+		{
+			if(ItemList.IsVisible())
+				ItemList.SetVisible(false);
+			else
+				ItemList.SetVisible(true);
+		}
 		if (walking)
 			sound += 1 * delta;
 		else
@@ -229,4 +236,8 @@ public class Player : KinematicBody2D
 				return walking ? spriteSetNormalWalk[(int)direction] : spriteSetNormal[(int)direction];
 		}
 	}
+
+    private class RoomKey
+    {
+    }
 }
