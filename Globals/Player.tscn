@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
 [ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://Audio/Step 3.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Instances/Items/RoomKey.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -18,17 +19,12 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "talk",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
 "name": "delighted",
 "speed": 5.0
 }, {
 "frames": [ null ],
 "loop": true,
-"name": "idle_delighted",
+"name": "idle_annoyed",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
@@ -38,7 +34,12 @@ animations = [ {
 }, {
 "frames": [ null ],
 "loop": true,
-"name": "idle_annoyed",
+"name": "idle_delighted",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "talk",
 "speed": 5.0
 } ]
 
@@ -131,6 +132,7 @@ margin_bottom = 360.0
 
 [node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
 margin_bottom = 40.0
+itemTexture = ExtResource( 9 )
 
 [node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
 margin_left = 100.0
