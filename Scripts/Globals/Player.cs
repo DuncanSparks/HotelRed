@@ -72,7 +72,7 @@ public class Player : KinematicBody2D
 
     private Label CurrentItemDescription;
 
-	private Control ItemList;
+	private Control Inventory;
 
 	private bool inventoryLock = true;
 
@@ -93,7 +93,6 @@ public class Player : KinematicBody2D
 	public static bool Teleporting { get { return Player.Main.teleporting; } set { Player.Main.teleporting = value; } }
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
 	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
-
 	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
 	// ================================================================
 
@@ -108,14 +107,15 @@ public class Player : KinematicBody2D
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
 
-		ItemList = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
-		CurrentItemName = ItemList.GetNode<Label>("CurrentItem");
-        Images = ItemList.GetNode<HBoxContainer>("Container");
-        CurrentItemDescription = ItemList.GetNode<Label>("CurrentDescription");
+		Inventory = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
+		CurrentItemName = Inventory.GetNode<Label>("CurrentItem");
+        Images = Inventory.GetNode<HBoxContainer>("Container");
+        CurrentItemDescription = Inventory.GetNode<Label>("CurrentDescription");
 
-		var cont = ItemList.GetNode<HBoxContainer>("Container");
+		var cont = Inventory.GetNode<HBoxContainer>("Container");
 		CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
 		CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
+		// Inventory.SetVisible(false);
 		// numItems += 1;
 		// Images.GetNode<TextureRect>("Item1")
 		// GetTree().GetRoot().AddChild(RoomKey);
@@ -126,15 +126,15 @@ public class Player : KinematicBody2D
 	{
 		if(Input.IsActionJustPressed("open_inventory") && !inventoryLock)
 		{
-			if(ItemList.IsVisible())
+			if(Inventory.IsVisible())
 			{
 				FreePlayer();
-				ItemList.SetVisible(false);
+				Inventory.SetVisible(false);
 			}
 			else
 			{
 				StopPlayer();
-				ItemList.SetVisible(true);
+				Inventory.SetVisible(true);
 			}
 		}
 		if (walking)

@@ -131,6 +131,7 @@ margin_left = 105.0
 margin_top = 320.0
 margin_right = 505.0
 margin_bottom = 360.0
+custom_constants/separation = 0
 
 [node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
 margin_bottom = 40.0
@@ -139,14 +140,10 @@ itemName = "ROOM KEY"
 itemDescription = "OPENS ROOM"
 
 [node name="Rav" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 4.0
-margin_right = 4.0
 margin_bottom = 40.0
 itemTexture = ExtResource( 9 )
 
 [node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 8.0
-margin_right = 8.0
 margin_bottom = 40.0
 itemTexture = ExtResource( 9 )
 
@@ -166,9 +163,9 @@ autowrap = true
 [node name="ItemCase" type="TextureRect" parent="CanvasLayer/Inventory"]
 show_behind_parent = true
 margin_left = 100.0
-margin_top = 315.264
+margin_top = 314.0
 margin_right = 510.0
-margin_bottom = 360.264
+margin_bottom = 360.0
 texture = ExtResource( 10 )
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]
