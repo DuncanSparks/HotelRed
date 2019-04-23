@@ -8,8 +8,8 @@
 [ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia down paper.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/System/TestItem.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/System/ItemBack.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,12 +20,12 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "delighted",
+"name": "talk",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "annoyed",
+"name": "delighted",
 "speed": 5.0
 }, {
 "frames": [ null ],
@@ -40,7 +40,7 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "talk",
+"name": "annoyed",
 "speed": 5.0
 } ]
 
@@ -120,15 +120,16 @@ wait_time = 0.29
 [node name="TimerTeleport" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Container" type="HBoxContainer" parent="CanvasLayer/Inventory"]
-margin_left = 100.0
+margin_left = 105.0
 margin_top = 320.0
-margin_right = 500.0
+margin_right = 505.0
 margin_bottom = 360.0
 
 [node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
@@ -141,7 +142,13 @@ itemDescription = "OPENS ROOM"
 margin_left = 4.0
 margin_right = 4.0
 margin_bottom = 40.0
-itemTexture = ExtResource( 10 )
+itemTexture = ExtResource( 9 )
+
+[node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 8.0
+margin_right = 8.0
+margin_bottom = 40.0
+itemTexture = ExtResource( 9 )
 
 [node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
 margin_left = 100.0
@@ -155,5 +162,13 @@ margin_top = 75.0
 margin_right = 400.0
 margin_bottom = 300.0
 autowrap = true
+
+[node name="ItemCase" type="TextureRect" parent="CanvasLayer/Inventory"]
+show_behind_parent = true
+margin_left = 100.0
+margin_top = 315.264
+margin_right = 510.0
+margin_bottom = 360.264
+texture = ExtResource( 10 )
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]

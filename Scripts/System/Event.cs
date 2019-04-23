@@ -58,8 +58,7 @@ public class Event : Area2D
 	{
 		if (anim_name == "Event")
 		{
-			Player.State = Player.ST.MOVE;
-			Player.MotionOverride = false;
+			Player.FreePlayer();
 			QueueFree();
 		}
 		Player.InventoryLock = false;
@@ -68,11 +67,7 @@ public class Event : Area2D
 
 	public void StopPlayer(Player.SpriteDirection direction)
 	{
-		Player.Walking = false;
-		Player.State = Player.ST.NO_INPUT;
-		Player.Motion = new Vector2(0, 0);
-		Player.MotionOverrideVec = new Vector2(0, 0);
-		Player.Face = direction;
+		Player.StopPlayer();
 	}
 
 	// ================================================================

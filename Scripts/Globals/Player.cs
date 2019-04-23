@@ -127,9 +127,15 @@ public class Player : KinematicBody2D
 		if(Input.IsActionJustPressed("open_inventory") && !inventoryLock)
 		{
 			if(ItemList.IsVisible())
+			{
+				FreePlayer();
 				ItemList.SetVisible(false);
+			}
 			else
+			{
+				StopPlayer();
 				ItemList.SetVisible(true);
+			}
 		}
 		if (walking)
 			sound += 1 * delta;
@@ -175,7 +181,19 @@ public class Player : KinematicBody2D
 	}
 
 	// ================================================================
+	public static void StopPlayer()
+	{
+		Player.Walking = false;
+		Player.State = Player.ST.NO_INPUT;
+		Player.Motion = new Vector2(0, 0);
+		Player.MotionOverrideVec = new Vector2(0, 0);
+	}
 
+	public static void FreePlayer()
+	{
+		Player.State = Player.ST.MOVE;
+		Player.MotionOverride = false;
+	}
 	public static Camera2D GetCamera()
 	{
 		return Player.Main.GetNode<Camera2D>("Camera");
