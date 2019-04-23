@@ -21,7 +21,7 @@ public class Event : Area2D
 
 	public override void _Ready()
 	{
-		if (destroy && Controller.Flag(destroyFlag))
+		if (destroy && Controller.Flag(destroyFlag) == 0)
 			QueueFree();
 
 		AnimPlayer = GetNode<AnimationPlayer>("AnimationPlayer");

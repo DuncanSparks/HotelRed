@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public class Controller : Node
 {
@@ -14,23 +15,20 @@ public class Controller : Node
 
 	// ================================================================
 
-	private Dictionary<string, bool> flag = new Dictionary<string, bool>()
+	private Dictionary<string, int> flag = new Dictionary<string, int>()
 	{
-		// Put flags here
+		{"Hello", 0},
+		{"World", 1},
+		{"Spaghetti", 2},
+		{"Sauce", 3}
 	};
 
 	public enum Sound {HOVER, SELECT};
 	public enum BubbleType {EXCLAMATION, QUESTION, SILENCE};
 
-	/* public struct DialogueParams
-	{
-		string sourceFile;
-		int dialogueSet;
-		string leftClientName;
-		
-	} */
-
 	private AudioStream currentMusic = null;
+
+	private static Regex loadRegex = new Regex(@"^(.*) (\d*)$");
 
 	// Refs
 	private PackedScene DialogueRef = GD.Load<PackedScene>("res://Instances/System/Dialogue.tscn");
@@ -71,13 +69,13 @@ public class Controller : Node
 
 	// ================================================================
 
-	public static bool Flag(string flag)
+	public static int Flag(string flag)
 	{
 		return Controller.Main.flag[flag];
 	}
 
 
-	public static void SetFlag(string flag, bool value)
+	public static void SetFlag(string flag, int value)
 	{
 		Controller.Main.flag[flag] = value;
 	}
@@ -219,6 +217,54 @@ public class Controller : Node
 	{
 		Controller.Main.TimerEndTransitionRef.Start();
 		Fade(true, false, 0.25f);
+	}
+
+
+	public static void SaveGame()
+	{
+		File saveFile = new File();
+		try
+		{
+			saveFile.OpenEncryptedWithPass("user://data.hr", (int)File.ModeFlags.Write, OS.GetUniqueId());
+
+			// Player position
+			saveFile.StoreLine($"{Player.Main.Position.x} {Player.Main.Position.y}");
+
+			// Flags
+			foreach (var pair in Controller.Main.flag)
+				saveFile.StoreLine($"{pair.Key} {pair.Value}");
+		}
+		finally
+		{
+			if (saveFile.IsOpen())
+				saveFile.Close();
+		}
+	}
+
+
+	public static void LoadGame()
+	{
+		File loadFile = new File();
+		try
+		{
+			loadFile.OpenEncryptedWithPass("user://data.hr", (int)File.ModeFlags.Read, OS.GetUniqueId());
+			while (!loadFile.EofReached())
+			{
+				string line = loadFile.GetLine();
+				string key = Controller.loadRegex.Match(line).Groups[1].ToString();
+				int value = Controller.loadRegex.Match(line).Groups[2].ToString().ToInt();
+				Controller.SetFlag(key, value);
+			}
+		}
+		catch
+		{
+			GD.Print("FILE NOT FOUND");
+		}
+		finally
+		{
+			if (loadFile.IsOpen())
+				loadFile.Close();
+		}
 	}
 
 	// ================================================================

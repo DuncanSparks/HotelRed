@@ -148,6 +148,9 @@ public class Player : KinematicBody2D
 		}
 		else if (!walking)
 			TimerStepSound.Stop();
+
+		if (Input.IsActionJustPressed("debug_1"))
+			Controller.SaveGame();
 	}
 
 	public override void _PhysicsProcess(float delta)
