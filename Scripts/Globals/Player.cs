@@ -78,9 +78,6 @@ public class Player : KinematicBody2D
 
 	private int numItems = 0;
 
-
-
-
 	// ================================================================
 
 	public static ST State { get { return Player.Main.state; } set { Player.Main.state = value; } }
@@ -94,6 +91,7 @@ public class Player : KinematicBody2D
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
 	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
 	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
+	
 	// ================================================================
 
 	// Inventory
@@ -150,6 +148,9 @@ public class Player : KinematicBody2D
 		}
 		else if (!walking)
 			TimerStepSound.Stop();
+
+		if (Input.IsActionJustPressed("debug_1"))
+			Controller.SaveGame();
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -189,11 +190,14 @@ public class Player : KinematicBody2D
 		Player.MotionOverrideVec = new Vector2(0, 0);
 	}
 
+
 	public static void FreePlayer()
 	{
 		Player.State = Player.ST.MOVE;
 		Player.MotionOverride = false;
 	}
+
+
 	public static Camera2D GetCamera()
 	{
 		return Player.Main.GetNode<Camera2D>("Camera");
@@ -266,8 +270,4 @@ public class Player : KinematicBody2D
 				return walking ? spriteSetNormalWalk[(int)direction] : spriteSetNormal[(int)direction];
 		}
 	}
-
-    private class RoomKey
-    {
-    }
 }
