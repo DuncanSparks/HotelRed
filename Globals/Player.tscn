@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
 [ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
@@ -10,12 +10,19 @@
 [ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/System/TestItem.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/System/ItemBack.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/System/ItemTextBox.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ null ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "talk",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
@@ -37,11 +44,6 @@ animations = [ {
 "loop": true,
 "name": "annoyed",
 "speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
-"name": "talk",
-"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -59,6 +61,9 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 9, 9 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 12 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -147,19 +152,6 @@ itemTexture = ExtResource( 9 )
 margin_bottom = 40.0
 itemTexture = ExtResource( 9 )
 
-[node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
-margin_left = 100.0
-margin_top = 50.0
-margin_right = 100.0
-margin_bottom = 64.0
-
-[node name="CurrentDescription" type="Label" parent="CanvasLayer/Inventory"]
-margin_left = 100.0
-margin_top = 75.0
-margin_right = 400.0
-margin_bottom = 300.0
-autowrap = true
-
 [node name="ItemCase" type="TextureRect" parent="CanvasLayer/Inventory"]
 show_behind_parent = true
 margin_left = 100.0
@@ -167,5 +159,27 @@ margin_top = 314.0
 margin_right = 510.0
 margin_bottom = 360.0
 texture = ExtResource( 10 )
+
+[node name="ItemTextBox" type="TextureRect" parent="CanvasLayer/Inventory"]
+margin_left = 95.0
+margin_top = 43.0
+margin_right = 295.0
+margin_bottom = 83.0
+texture = ExtResource( 11 )
+
+[node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 300.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 4 )
+text = "First Memory Tape"
+
+[node name="CurrentDescription" type="Label" parent="CanvasLayer/Inventory"]
+margin_left = 100.0
+margin_top = 75.0
+margin_right = 400.0
+margin_bottom = 300.0
+autowrap = true
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]
