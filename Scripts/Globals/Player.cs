@@ -72,11 +72,13 @@ public class Player : KinematicBody2D
 
     private Label CurrentItemDescription;
 
-	private Control Inventory;
+	private Control inventory;
 
 	private bool inventoryLock = true;
 
 	private int numItems = 0;
+
+	private bool canViewInventory = false;
 
 	// ================================================================
 
@@ -91,7 +93,8 @@ public class Player : KinematicBody2D
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
 	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
 	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
-	
+	public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
+	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
 	// ================================================================
 
 	// Inventory
@@ -105,12 +108,12 @@ public class Player : KinematicBody2D
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
 
-		Inventory = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
-		CurrentItemName = Inventory.GetNode<Label>("CurrentItem");
-        Images = Inventory.GetNode<HBoxContainer>("Container");
-        CurrentItemDescription = Inventory.GetNode<Label>("CurrentDescription");
+		inventory = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
+		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
+        Images = inventory.GetNode<HBoxContainer>("Container");
+        CurrentItemDescription = inventory.GetNode<Label>("CurrentDescription");
 
-		var cont = Inventory.GetNode<HBoxContainer>("Container");
+		var cont = inventory.GetNode<HBoxContainer>("Container");
 		CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
 		CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
 		// Inventory.SetVisible(false);
@@ -122,17 +125,17 @@ public class Player : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		if(Input.IsActionJustPressed("open_inventory") && !inventoryLock)
+		if (Input.IsActionJustPressed("open_inventory") && !inventoryLock && canViewInventory)
 		{
-			if(Inventory.IsVisible())
+			if (inventory.IsVisible())
 			{
 				FreePlayer();
-				Inventory.SetVisible(false);
+				inventory.SetVisible(false);
 			}
 			else
 			{
 				StopPlayer();
-				Inventory.SetVisible(true);
+				inventory.SetVisible(true);
 			}
 		}
 		if (walking)

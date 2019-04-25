@@ -20,4 +20,15 @@ public class Item : TextureButton
       // SetNormalTexture(itemTexture);
     }
 
+    public void _on_Item_mouse_entered()
+    {
+      Player.Inventory.GetNode<Label>("CurrentItem").Text = itemName;
+      Player.Inventory.GetNode<Label>("CurrentDescription").Text = itemDescription;
+    }
+
+    public void _on_Item_mouse_exited()
+    {
+      Player.Inventory.GetNode<Label>("CurrentItem").Text = string.Empty;
+      Player.Inventory.GetNode<Label>("CurrentDescription").Text = string.Empty;
+    }
 }

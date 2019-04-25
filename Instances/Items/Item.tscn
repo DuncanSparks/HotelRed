@@ -5,3 +5,5 @@
 [node name="Item" type="TextureButton"]
 script = ExtResource( 1 )
 
+[connection signal="mouse_entered" from="." to="." method="_on_Item_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Item_mouse_exited"]
