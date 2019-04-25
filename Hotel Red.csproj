@@ -61,6 +61,7 @@
     <Compile Include="Scripts\System\Dialogue.cs" />
     <Compile Include="Scripts\System\Event.cs" />
     <Compile Include="Scripts\System\Item.cs" />
+    <Compile Include="Scripts\System\NPC.cs" />
     <Compile Include="Scripts\System\SceneTag.cs" />
     <Compile Include="Scripts\System\Transition.cs" />
     <Compile Include="Scripts\Tools.cs" />
