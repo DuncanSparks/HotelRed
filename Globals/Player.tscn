@@ -8,8 +8,8 @@
 [ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/System/TestItem.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Items/water_black.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Items/water_black.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Items/water_white.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/System/ItemTextBox.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Sprites/System/ItemBack.png" type="Texture" id=13]
@@ -126,7 +126,6 @@ wait_time = 0.29
 [node name="TimerTeleport" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
@@ -140,18 +139,28 @@ margin_bottom = 360.0
 custom_constants/separation = 0
 
 [node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_right = 40.0
 margin_bottom = 40.0
-itemTexture = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
 itemName = "ROOM KEY"
 itemDescription = "OPENS ROOM"
 
 [node name="Rav" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 40.0
+margin_right = 80.0
 margin_bottom = 40.0
-itemTexture = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
 
 [node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 80.0
+margin_right = 120.0
 margin_bottom = 40.0
-itemTexture = ExtResource( 10 )
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
 
 [node name="NameBox" type="TextureRect" parent="CanvasLayer/Inventory"]
 margin_left = 95.0
@@ -180,6 +189,7 @@ margin_left = 100.0
 margin_top = 315.264
 margin_right = 510.0
 margin_bottom = 361.264
+mouse_filter = 2
 texture = ExtResource( 13 )
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]

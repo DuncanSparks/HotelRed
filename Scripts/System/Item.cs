@@ -3,8 +3,8 @@ using System;
 
 public class Item : TextureButton
 {
-    [Export]
-    private Texture itemTexture;
+    // [Export]
+    // private Texture itemTexture;
 
     [Export]
     private string itemName = "Item Name";
@@ -17,6 +17,7 @@ public class Item : TextureButton
 
     public override void _Ready()
     {
-      SetNormalTexture(itemTexture);
+      // SetNormalTexture(itemTexture);
     }
+
 }
