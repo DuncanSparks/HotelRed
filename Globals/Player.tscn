@@ -26,14 +26,14 @@ animations = [ {
 "name": "talk",
 "speed": 5.0
 }, {
-"frames": [ null, null ],
-"loop": true,
-"name": "delighted",
-"speed": 5.0
-}, {
 "frames": [ null ],
 "loop": true,
 "name": "idle_delighted",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "delighted",
 "speed": 5.0
 }, {
 "frames": [ null ],
@@ -90,6 +90,19 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 27 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sight" type="Area2D" parent="." groups=[
+"PlayerSight",
+]]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sight"]
+polygon = PoolVector2Array( 0, 17, -13, 36, -17, 67, 19, 67, 14, 36 )
 __meta__ = {
 "_edit_lock_": true
 }
