@@ -14,8 +14,6 @@
 [ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=13]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ null ],
@@ -28,11 +26,6 @@ animations = [ {
 "name": "idle_delighted",
 "speed": 5.0
 }, {
-"frames": [ null ],
-"loop": true,
-"name": "idle_annoyed",
-"speed": 5.0
-}, {
 "frames": [ null, null ],
 "loop": true,
 "name": "annoyed",
@@ -41,6 +34,11 @@ animations = [ {
 "frames": [ null, null ],
 "loop": true,
 "name": "delighted",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "idle_annoyed",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
@@ -160,6 +158,55 @@ texture_hover = ExtResource( 10 )
 [node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
 margin_left = 80.0
 margin_right = 120.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 120.0
+margin_right = 160.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 160.0
+margin_right = 200.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item4" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 200.0
+margin_right = 240.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 240.0
+margin_right = 280.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item6" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 280.0
+margin_right = 320.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item7" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 320.0
+margin_right = 360.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item8" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 360.0
+margin_right = 400.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
