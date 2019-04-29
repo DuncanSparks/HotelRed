@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ItemBack.png-fd517722a51bb33ca530145d061393ff.stex"
+path="res://.import/water_white.png-03bee15da2c5e89110e55671f30445eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/System/ItemBack.png"
-dest_files=[ "res://.import/ItemBack.png-fd517722a51bb33ca530145d061393ff.stex" ]
+source_file="res://Sprites/Items/water_white.png"
+dest_files=[ "res://.import/water_white.png-03bee15da2c5e89110e55671f30445eb.stex" ]
 
 [params]
 

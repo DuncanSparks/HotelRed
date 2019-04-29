@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TestItem.png-c99fac3118d9430ba7e1ed4e35be49ea.stex"
+path="res://.import/TestItem.png-1163a3c5ce31dc47091957879db0dd72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/System/TestItem.png"
-dest_files=[ "res://.import/TestItem.png-c99fac3118d9430ba7e1ed4e35be49ea.stex" ]
+source_file="res://Sprites/Items/TestItem.png"
+dest_files=[ "res://.import/TestItem.png-1163a3c5ce31dc47091957879db0dd72.stex" ]
 
 [params]
 

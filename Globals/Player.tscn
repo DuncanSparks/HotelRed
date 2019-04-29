@@ -7,12 +7,12 @@
 [ext_resource path="res://Audio/Step 3.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Resources/Items/water_black.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Items/water_white.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/System/ItemTextBox.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Item.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Items/water_black.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Items/water_white.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Items/ItemTextBox.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://Sprites/System/ItemBack.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,14 +26,19 @@ animations = [ {
 "name": "talk",
 "speed": 5.0
 }, {
+"frames": [ null, null ],
+"loop": true,
+"name": "delighted",
+"speed": 5.0
+}, {
 "frames": [ null ],
 "loop": true,
-"name": "idle_delighted",
+"name": "idle_annoyed",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "delighted",
+"name": "annoyed",
 "speed": 5.0
 } ]
 
@@ -165,6 +170,55 @@ margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
+[node name="Item3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 120.0
+margin_right = 160.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 160.0
+margin_right = 200.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item4" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 200.0
+margin_right = 240.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 240.0
+margin_right = 280.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item6" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 280.0
+margin_right = 320.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item7" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 320.0
+margin_right = 360.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="Item8" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+margin_left = 360.0
+margin_right = 400.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
 [node name="NameBox" type="TextureRect" parent="CanvasLayer/Inventory"]
 margin_left = 95.0
 margin_top = 43.0
@@ -189,9 +243,9 @@ autowrap = true
 [node name="ItemCase" type="TextureRect" parent="CanvasLayer/Inventory"]
 show_behind_parent = true
 margin_left = 100.0
-margin_top = 315.264
+margin_top = 314.0
 margin_right = 510.0
-margin_bottom = 361.264
+margin_bottom = 360.0
 mouse_filter = 2
 texture = ExtResource( 13 )
 
