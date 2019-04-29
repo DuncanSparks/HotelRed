@@ -78,7 +78,7 @@ public class Player : KinematicBody2D
 
 	private int numItems = 0;
 
-	private bool canViewInventory = false;
+	// private bool canViewInventory = true;
 
 	// ================================================================
 
@@ -93,7 +93,7 @@ public class Player : KinematicBody2D
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
 	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
 	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
-	public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
+	// public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
 	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
 	// ================================================================
 
@@ -107,15 +107,14 @@ public class Player : KinematicBody2D
 		
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
-
 		inventory = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
 		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
         Images = inventory.GetNode<HBoxContainer>("Container");
         CurrentItemDescription = inventory.GetNode<Label>("CurrentDescription");
 
-		var cont = inventory.GetNode<HBoxContainer>("Container");
-		CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
-		CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
+		// var cont = inventory.GetNode<HBoxContainer>("Container");
+		// CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
+		// CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
 		// Inventory.SetVisible(false);
 		// numItems += 1;
 		// Images.GetNode<TextureRect>("Item1")
@@ -125,7 +124,7 @@ public class Player : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		if (Input.IsActionJustPressed("open_inventory") && !inventoryLock && canViewInventory)
+		if (Input.IsActionJustPressed("open_inventory") && !inventoryLock)
 		{
 			if (inventory.IsVisible())
 			{
@@ -271,6 +270,36 @@ public class Player : KinematicBody2D
 			
 			default:
 				return walking ? spriteSetNormalWalk[(int)direction] : spriteSetNormal[(int)direction];
+		}
+	}
+
+	public void AddItem(int i)
+	{
+		switch(i)
+		{
+			case 0:
+				
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9:
+				break;
+			case 10:
+				break;
 		}
 	}
 }

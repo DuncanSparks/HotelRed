@@ -14,7 +14,6 @@
 [ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=13]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ null ],
@@ -29,17 +28,17 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "annoyed",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
 "name": "delighted",
 "speed": 5.0
 }, {
 "frames": [ null ],
 "loop": true,
 "name": "idle_annoyed",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "annoyed",
 "speed": 5.0
 }, {
 "frames": [ null, null ],
