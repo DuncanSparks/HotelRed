@@ -215,6 +215,7 @@ public class Controller : Node
 
 	public static void EndTransition()
 	{
+		Player.InventoryLock = false;
 		Controller.Main.TimerEndTransitionRef.Start();
 		Fade(true, false, 0.25f);
 	}

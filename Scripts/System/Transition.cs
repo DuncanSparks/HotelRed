@@ -31,6 +31,7 @@ public class Transition : Area2D
 
     public override void _Ready()
     {
+		Player.InventoryLock = true;
         TimerFadeOut = GetNode<Timer>("TimerFadeOut");
 		TimerTransition = GetNode<Timer>("TimerTransition");
 		TimerFadeIn = GetNode<Timer>("TimerFadeIn");

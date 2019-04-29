@@ -235,9 +235,9 @@ autowrap = true
 [node name="ItemCase" type="TextureRect" parent="CanvasLayer/Inventory"]
 show_behind_parent = true
 margin_left = 100.0
-margin_top = 315.264
+margin_top = 314.0
 margin_right = 510.0
-margin_bottom = 361.264
+margin_bottom = 360.0
 mouse_filter = 2
 texture = ExtResource( 13 )
 
