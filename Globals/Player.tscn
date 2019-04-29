@@ -21,29 +21,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ null ],
-"loop": true,
-"name": "idle_delighted",
-"speed": 5.0
-}, {
-"frames": [ null ],
-"loop": true,
-"name": "idle_delighted",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
-"name": "delighted",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
-"name": "delighted",
-"speed": 5.0
-}, {
 "frames": [ null, null ],
 "loop": true,
 "name": "talk",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "idle_delighted",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "delighted",
 "speed": 5.0
 } ]
 
