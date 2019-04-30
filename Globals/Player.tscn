@@ -31,14 +31,14 @@ animations = [ {
 "name": "annoyed",
 "speed": 5.0
 }, {
+"frames": [ null, null ],
+"loop": true,
+"name": "annoyed",
+"speed": 5.0
+}, {
 "frames": [ null ],
 "loop": true,
 "name": "idle_annoyed",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
-"name": "delighted",
 "speed": 5.0
 } ]
 

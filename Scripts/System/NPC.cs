@@ -7,10 +7,26 @@ public class NPC : KinematicBody2D
 	private string npcName;
 
 	[Export]
+	private Color npcColor = new Color(1, 1, 1);
+
+	[Export]
 	private SpriteFrames npcSprite;
+
+	[Export]
+	private SpriteFrames npcPortrait;
+
+	[Export]
+	private int maxDialogueSet;
+
+	[Export]
+	private bool autoAdvanceSet;
 
 	[Export(PropertyHint.File, "*.txt")]
 	private string dialogueFile;
+
+	private int dialogueSet = 0;
+	private string npcColorStr;
+	private SpriteFrames raviaPortrait = GD.Load<SpriteFrames>("res://Resources/Portrait Sets/Portraits_Ravia.tres");
 
 	// Refs
 	private AnimatedSprite spr;
@@ -22,12 +38,32 @@ public class NPC : KinematicBody2D
     {
 		spr = GetNode<AnimatedSprite>("Sprite");
 		interact = GetNode<Sprite>("Interact");
+		npcColorStr = $"#{npcColor.ToArgb32().ToString("X").Substring(2)}";
 
 		spr.Frames = npcSprite;
 		interact.Hide();
     }
 
+
+	public override void _Process(float delta)
+	{
+		if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
+		{
+			Player.State = Player.ST.NO_INPUT;
+			interact.Hide();
+			Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue");
+		}
+	}
+
 	// ================================================================
+
+	private void EndDialogue()
+	{
+		Player.State = Player.ST.MOVE;
+		interact.Show();
+		dialogueSet = Mathf.Min(dialogueSet + 1, maxDialogueSet);
+	}
+
 
 	private void InteractAreaEntered(Area2D area)
 	{
