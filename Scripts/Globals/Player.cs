@@ -65,6 +65,8 @@ public class Player : KinematicBody2D
 
 	private Timer TimerStepSound;
 
+	private Area2D Sight;
+
 	// Inventory refs
 	private Label CurrentItemName;
 
@@ -107,6 +109,7 @@ public class Player : KinematicBody2D
 		
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
+		Sight = GetNode<Area2D>("Sight");
 		inventory = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
 		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
         Images = inventory.GetNode<HBoxContainer>("Container");
@@ -184,6 +187,7 @@ public class Player : KinematicBody2D
 	}
 
 	// ================================================================
+	
 	public static void StopPlayer()
 	{
 		Player.Walking = false;
@@ -248,6 +252,23 @@ public class Player : KinematicBody2D
 					face = SpriteDirection.RIGHT;
 					break;
 			}
+		}
+
+		// Change sight face
+		switch (face)
+		{
+			case SpriteDirection.UP:
+				Sight.RotationDegrees = 180;
+				break;
+			case SpriteDirection.DOWN:
+				Sight.RotationDegrees = 0;
+				break;
+			case SpriteDirection.LEFT:
+				Sight.RotationDegrees = 90;
+				break;
+			case SpriteDirection.RIGHT:
+				Sight.RotationDegrees = 270;
+				break;
 		}
 	}
 

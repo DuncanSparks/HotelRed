@@ -4,11 +4,10 @@
 [ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Sprites/System/Interact.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 33 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Interact"
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Interact:frame")
@@ -52,7 +51,7 @@ animation = "down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2( 0, 3 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Interact" type="Sprite" parent="."]
 position = Vector2( -10, -59.7611 )
@@ -65,7 +64,7 @@ frame = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Interact"
 playback_speed = 0.8
-anims/Interact = SubResource( 1 )
+anims/Interact = SubResource( 2 )
 
 [connection signal="area_entered" from="InteractionArea" to="." method="InteractAreaEntered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="InteractAreaExited"]

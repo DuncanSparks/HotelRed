@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Events/Event_opening_a1.cs" type="Script" id=8]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=11]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
@@ -76,6 +78,9 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 132 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 9, 10 )
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -161,5 +166,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="NPC" parent="." instance=ExtResource( 10 )]
+position = Vector2( 417, 126 )
+npcName = "Neftali"
+npcSprite = ExtResource( 11 )
+
+[node name="CollisionShape2D" parent="NPC" index="1"]
+position = Vector2( 0, 26 )
+shape = SubResource( 7 )
+
 
 [editable path="Event"]
+
+[editable path="NPC"]
