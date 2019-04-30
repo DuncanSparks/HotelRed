@@ -186,8 +186,13 @@ shape = SubResource( 7 )
 
 [node name="NPC2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 419.116, 235.108 )
+npcName = "Ravia2"
+npcColor = Color( 0, 0.0392157, 1, 1 )
 npcSprite = ExtResource( 13 )
 npcPortrait = ExtResource( 9 )
+maxDialogueSet = 1
+autoAdvanceSet = true
+dialogueFile = "res://Dialogue/test2.txt"
 
 [node name="CollisionShape2D" parent="NPC2" index="1"]
 position = Vector2( 0, 20 )
