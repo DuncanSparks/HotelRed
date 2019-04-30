@@ -4,7 +4,7 @@ using System;
 public class NPC : KinematicBody2D
 {
 	[Export]
-	private string npcName;
+	private string npcName = string.Empty;
 
 	[Export]
 	private Color npcColor = new Color(1, 1, 1);
@@ -22,7 +22,7 @@ public class NPC : KinematicBody2D
 	private bool autoAdvanceSet;
 
 	[Export(PropertyHint.File, "*.txt")]
-	private string dialogueFile;
+	private string dialogueFile = string.Empty;
 
 	private int dialogueSet = 0;
 	private string npcColorStr;
@@ -48,7 +48,7 @@ public class NPC : KinematicBody2D
 	public override void _Process(float delta)
 	{
 		ZIndex = (int)Position.y;
-		
+
 		if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
 		{
 			Player.State = Player.ST.NO_INPUT;
