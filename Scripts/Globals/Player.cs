@@ -98,11 +98,7 @@ public class Player : KinematicBody2D
 	// public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
 	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
 	// ================================================================
-
-	// Inventory
-
-	// private PackedScene RoomKeyRef = GD.Load<PackedScene>("res://Instances/Items/RoomKey.tscn");
-	// ================================================================
+	
 	public override void _Ready()
 	{
 		// Refs
@@ -114,15 +110,6 @@ public class Player : KinematicBody2D
 		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
         Images = inventory.GetNode<HBoxContainer>("Container");
         CurrentItemDescription = inventory.GetNode<Label>("CurrentDescription");
-
-		// var cont = inventory.GetNode<HBoxContainer>("Container");
-		// CurrentItemName.Text = cont.GetNode<Item>("RoomKey").ItemName;
-		// CurrentItemDescription.Text = cont.GetNode<Item>("RoomKey").ItemDescription;
-		// Inventory.SetVisible(false);
-		// numItems += 1;
-		// Images.GetNode<TextureRect>("Item1")
-		// GetTree().GetRoot().AddChild(RoomKey);
-		// Images.GetNode<TextureRect>("Item1").SetTexture(RoomKey.Image.Texture);
 	}
 
 	public override void _Process(float delta)

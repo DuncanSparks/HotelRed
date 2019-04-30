@@ -28,7 +28,7 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "delighted",
+"name": "annoyed",
 "speed": 5.0
 }, {
 "frames": [ null ],
@@ -38,7 +38,7 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "annoyed",
+"name": "delighted",
 "speed": 5.0
 } ]
 
@@ -136,6 +136,7 @@ wait_time = 0.29
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
