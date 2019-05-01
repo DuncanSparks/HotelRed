@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -32,6 +32,8 @@ tracks/0/keys = {
 "method": "Event_Dialogue1"
 } ]
 }
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -84,10 +86,18 @@ dialogueFile = "res://Dialogue/scene_chapter1_a1.txt"
 raviaPortrait = ExtResource( 5 )
 neftaliPortrait = ExtResource( 6 )
 
-[node name="NPC" parent="." instance=ExtResource( 7 )]
+[node name="NPCNeftali" parent="." instance=ExtResource( 7 )]
+position = Vector2( 984, 480 )
+npcName = "Neftali"
 npcColor = Color( 1, 0, 0, 1 )
 npcSprite = ExtResource( 8 )
 npcPortrait = ExtResource( 6 )
 
+[node name="CollisionShape2D" parent="NPCNeftali" index="1"]
+position = Vector2( 0, 26 )
+shape = SubResource( 2 )
+
 
 [editable path="Event"]
+
+[editable path="NPCNeftali"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -9,10 +9,6 @@
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Events/Event_opening_a1.cs" type="Script" id=8]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=9]
-[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=11]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=12]
-[ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=13]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
@@ -80,11 +76,6 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 132 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 9, 10 )
-
-[sub_resource type="RectangleShape2D" id=8]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -170,37 +161,5 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NPC" parent="." instance=ExtResource( 10 )]
-position = Vector2( 417, 126 )
-npcName = "Test Guy"
-npcColor = Color( 1, 0.819608, 0, 1 )
-npcSprite = ExtResource( 11 )
-npcPortrait = ExtResource( 12 )
-maxDialogueSet = 1
-autoAdvanceSet = true
-dialogueFile = "res://Dialogue/test2.txt"
-
-[node name="CollisionShape2D" parent="NPC" index="1"]
-position = Vector2( 0, 26 )
-shape = SubResource( 7 )
-
-[node name="NPC2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 419.116, 235.108 )
-npcName = "Ravia2"
-npcColor = Color( 0, 0.0392157, 1, 1 )
-npcSprite = ExtResource( 13 )
-npcPortrait = ExtResource( 9 )
-maxDialogueSet = 1
-autoAdvanceSet = true
-dialogueFile = "res://Dialogue/test2.txt"
-
-[node name="CollisionShape2D" parent="NPC2" index="1"]
-position = Vector2( 0, 20 )
-shape = SubResource( 8 )
-
 
 [editable path="Event"]
-
-[editable path="NPC"]
-
-[editable path="NPC2"]
