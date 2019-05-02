@@ -72,7 +72,7 @@ public class Event : Area2D
 
 	// ================================================================
 
-	private void StartEvent()
+	public void StartEvent()
 	{
 		StopPlayer(Player.Face);
 		AnimPlayer.Play("Event");

@@ -165,8 +165,22 @@ public class Controller : Node
 
 		if (rightClientPortrait != null)
 		{
-			dlg.TextLeft += 35;
-			dlg.LineEnd = 248;
+			dlg.TextLeft -= 2;
+			dlg.LineEnd = 230;
+
+			// Shift box positions (start)
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Start").TrackSetKeyValue(0, 0, new Vector2(335 - 36, 424));
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Start").TrackSetKeyValue(0, 1, new Vector2(335 - 36, 284));
+			
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Start").TrackSetKeyValue(1, 0, new Vector2(83 - 36, 368));
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Start").TrackSetKeyValue(1, 1, new Vector2(83 - 36, 228));
+		
+			// Shift box positions (finish)
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Finish").TrackSetKeyValue(0, 0, new Vector2(335 - 36, 284));
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Finish").TrackSetKeyValue(0, 1, new Vector2(335 - 36, 424));
+			
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Finish").TrackSetKeyValue(1, 0, new Vector2(83 - 36, 228));
+			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Finish").TrackSetKeyValue(1, 1, new Vector2(83 - 36, 368));
 		}
 		else
 		{
