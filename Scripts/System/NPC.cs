@@ -78,6 +78,12 @@ public class NPC : KinematicBody2D
 		}
 	}
 
+
+	public override void _PhysicsProcess(float delta)
+	{
+		motion = MoveAndSlide(motion * walkSpeed * delta * 60f);
+	}
+
 	// ================================================================
 
 	private void EndDialogue()
@@ -91,18 +97,14 @@ public class NPC : KinematicBody2D
 	private void InteractAreaEntered(Area2D area)
 	{
 		if (area.IsInGroup("PlayerSight") && Player.State == Player.ST.MOVE)
-		{
 			interact.Show();
-		}
 	}
 
 
 	private void InteractAreaExited(Area2D area)
 	{
 		if (area.IsInGroup("PlayerSight"))
-		{
 			interact.Hide();
-		}
 	}
 
 
