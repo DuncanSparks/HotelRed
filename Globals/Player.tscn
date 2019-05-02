@@ -146,7 +146,8 @@ margin_right = 505.0
 margin_bottom = 360.0
 custom_constants/separation = 0
 
-[node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="RaviaKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
@@ -155,66 +156,67 @@ texture_hover = ExtResource( 10 )
 itemName = "ROOM KEY"
 itemDescription = "OPENS ROOM"
 
-[node name="Rav" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 40.0
-margin_right = 80.0
+[node name="SleeperKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 80.0
-margin_right = 120.0
+[node name="Water" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 120.0
-margin_right = 160.0
+[node name="Hearts" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 160.0
-margin_right = 200.0
+[node name="RippedPaper" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item4" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 200.0
-margin_right = 240.0
+[node name="Hearts2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 240.0
-margin_right = 280.0
+[node name="SlotMachineHandle" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_left = 40.0
+margin_right = 80.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item6" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 280.0
-margin_right = 320.0
+[node name="Tape1" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item7" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 320.0
-margin_right = 360.0
+[node name="Tape2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
-[node name="Item8" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
-margin_left = 360.0
-margin_right = 400.0
+[node name="Tape3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
