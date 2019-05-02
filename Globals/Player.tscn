@@ -1,18 +1,22 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
 [ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://Audio/Step 1.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Audio/Step 2.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Audio/Step 3.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Audio/Step 4.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Audio/Step 5.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Instances/Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Items/water_black.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Items/water_white.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Items/ItemTextBox.png" type="Texture" id=11]
-[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=13]
+[ext_resource path="res://Audio/Footsteps/Step 1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Footsteps/Step 2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Footsteps/Step 3.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Footsteps/Step 4.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Footsteps/Step 5.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Footsteps/Step 1 conc.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Footsteps/Step 2 conc.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Footsteps/Step 3 conc.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Footsteps/Step 4 conc.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Instances/Item.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/Items/water_black.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Items/water_white.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Items/ItemTextBox.png" type="Texture" id=15]
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,17 +27,17 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "talk",
-"speed": 5.0
-}, {
-"frames": [ null, null ],
-"loop": true,
 "name": "annoyed",
 "speed": 5.0
 }, {
 "frames": [ null ],
 "loop": true,
 "name": "idle_annoyed",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "talk",
 "speed": 5.0
 } ]
 
@@ -54,7 +58,7 @@ animations = [ {
 extents = Vector2( 9, 9 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 12 )
+font_data = ExtResource( 16 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -123,6 +127,18 @@ stream = ExtResource( 6 )
 [node name="SoundStep5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
+[node name="SoundStepConc1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="SoundStepConc2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="SoundStepConc3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="SoundStepConc4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
 [node name="TimerStepSound" type="Timer" parent="."]
 wait_time = 0.29
 
@@ -142,85 +158,85 @@ margin_right = 505.0
 margin_bottom = 360.0
 custom_constants/separation = 0
 
-[node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_right = 40.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
 itemName = "ROOM KEY"
 itemDescription = "OPENS ROOM"
 
-[node name="Rav" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Rav" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 40.0
 margin_right = 80.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 80.0
 margin_right = 120.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 120.0
 margin_right = 160.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 160.0
 margin_right = 200.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item4" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item4" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 200.0
 margin_right = 240.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 240.0
 margin_right = 280.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item6" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item6" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 280.0
 margin_right = 320.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item7" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item7" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 320.0
 margin_right = 360.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Item8" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 8 )]
+[node name="Item8" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
 margin_left = 360.0
 margin_right = 400.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
 [node name="NameBox" type="TextureRect" parent="CanvasLayer/Inventory"]
 margin_left = 95.0
 margin_top = 43.0
 margin_right = 295.0
 margin_bottom = 83.0
-texture = ExtResource( 11 )
+texture = ExtResource( 15 )
 
 [node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
 margin_left = 100.0
@@ -243,6 +259,6 @@ margin_top = 314.0
 margin_right = 510.0
 margin_bottom = 360.0
 mouse_filter = 2
-texture = ExtResource( 13 )
+texture = ExtResource( 17 )
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]

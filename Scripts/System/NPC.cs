@@ -16,6 +16,9 @@ public class NPC : KinematicBody2D
 	private SpriteFrames npcPortrait;
 
 	[Export]
+	private SpriteDirection startDirection = SpriteDirection.DOWN;
+
+	[Export]
 	private int maxDialogueSet;
 
 	[Export]
@@ -56,6 +59,7 @@ public class NPC : KinematicBody2D
 		npcColorStr = $"#{npcColor.ToArgb32().ToString("X").Substring(2)}";
 
 		spr.Frames = npcSprite;
+		face = startDirection;
 		interact.Hide();
     }
 

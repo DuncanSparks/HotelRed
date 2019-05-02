@@ -50,6 +50,10 @@ public class Player : KinematicBody2D
 
 	// Step sounds
 	private static readonly string[] stepSounds = {"SoundStep1", "SoundStep2", "SoundStep3", "SoundStep4", "SoundStep5"};
+	private static readonly string[] stepSoundsConc = {"SoundStepConc1", "SoundStepConc2", "SoundStepConc3", "SoundStepConc4"};
+	public enum Sound {WOOD, CONC};
+	private Sound stepSound = Sound.CONC;
+
 	private float sound = -1;
 
 	// States
@@ -92,11 +96,13 @@ public class Player : KinematicBody2D
 	public static SpriteDirection Face { get { return Player.Main.face; } set { Player.Main.face = value; } }
 	public static bool Walking { get { return Player.Main.walking; } set { Player.Main.walking = value; } }
 	public static bool Teleporting { get { return Player.Main.teleporting; } set { Player.Main.teleporting = value; } }
+	public static Sound StepSound{ get { return Player.Main.stepSound; } set { Player.Main.stepSound = value; } }
 	public static SpriteSet CurrentSpriteSet { get { return Player.Main.currentSpriteSet; } set { Player.Main.currentSpriteSet = value; } }
 	public static int NumItems { get { return Player.Main.numItems; } set { Player.Main.numItems = value; } }
 	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
 	// public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
 	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
+	
 	// ================================================================
 	
 	public override void _Ready()
@@ -262,7 +268,15 @@ public class Player : KinematicBody2D
 
 	private void FootstepSound()
 	{
-		Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(Tools.Choose<string>(stepSounds)).Stream, volume: -4f, pitch: (float)GD.RandRange(0.9, 1.1));
+		switch (stepSound)
+		{
+			case Sound.WOOD:
+				Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(Tools.Choose<string>(stepSounds)).Stream, volume: -4f, pitch: (float)GD.RandRange(0.9, 1.1));
+				break;
+			case Sound.CONC:
+				Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(Tools.Choose<string>(stepSoundsConc)).Stream, volume: 1f, pitch: (float)GD.RandRange(0.9, 1.1));
+				break;
+		}
 	}
 
 
