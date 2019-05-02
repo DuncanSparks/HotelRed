@@ -39,6 +39,6 @@ public class Event_chapter1_a1 : AnimationPlayer
 
 	public void Event_Dialogue1()
 	{
-		Controller.Dialogue(dialogueFile, 0, "Ravia", "#2391ef",  raviaPortrait, "Neftali", "#ff0000", neftaliPortrait, signalConnection: this, signalMethod: "Resume", restoreMovement: false);
+		Controller.Dialogue(dialogueFile, 0, "Ravia", "#2391ef",  raviaPortrait, restoreMovement: false);//, "Neftali", "#ff0000", neftaliPortrait, signalConnection: this, signalMethod: "Resume", restoreMovement: false);
 	}
 }

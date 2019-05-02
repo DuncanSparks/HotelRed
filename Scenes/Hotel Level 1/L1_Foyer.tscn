@@ -1,39 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=3]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=5]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=6]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=7]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=8]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-} ]
+[sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Event"
-length = 12.0
+length = 3.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -41,7 +21,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.6, 3, 4.9 ),
+"times": PoolRealArray( 0.6, 1.8, 2.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -93,29 +73,32 @@ sceneName = "Lobby"
 cameraLimitRight = 1104
 cameraLimitBottom = 672
 
-[node name="Actor" type="KinematicBody2D" parent="."]
+[node name="NPCNeftali" parent="." instance=ExtResource( 3 )]
 position = Vector2( 984, 480 )
+npcName = "Neftali"
+npcColor = Color( 1, 0, 0, 1 )
+npcSprite = ExtResource( 4 )
+npcPortrait = ExtResource( 5 )
+startDirection = 2
 
-[node name="Sprite" type="AnimatedSprite" parent="Actor"]
-scale = Vector2( 3, 3 )
-frames = SubResource( 1 )
-animation = "down"
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="CollisionShape2D" parent="NPCNeftali" index="1"]
+position = Vector2( 0, 26 )
+shape = SubResource( 2 )
 
-[node name="Event" parent="." instance=ExtResource( 4 )]
+[node name="Event" parent="." instance=ExtResource( 6 )]
 position = Vector2( 480, 624 )
 scale = Vector2( 6, 2 )
 destroy = false
 autoStart = true
 
 [node name="AnimationPlayer" parent="Event" index="1"]
-anims/Event = SubResource( 2 )
-script = ExtResource( 5 )
-dialogueFile = "res://Dialogue/scene_chapter1_a1.txt"
-raviaPortrait = ExtResource( 6 )
-neftaliPortrait = ExtResource( 7 )
+anims/Event = SubResource( 1 )
+script = ExtResource( 7 )
+dialogueFile = "res://Dialogue/scene_chapter1_walkin.txt"
+raviaPortrait = ExtResource( 8 )
+neftaliPortrait = ExtResource( 5 )
 
+
+[editable path="NPCNeftali"]
 
 [editable path="Event"]

@@ -1,0 +1,9 @@
+[0]
+{
+	<1 idle talk>$wHELLO $sTHERE!!!!!
+}
+
+[1]
+{
+	<1 idle talk>$wHELLO $rAGAIN!!!!
+}
