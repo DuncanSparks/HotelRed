@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Joker's Jive.ogg-ed7739c665e33d7609e4a890ea9233af.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Joker's Jive.ogg"
+dest_files=[ "res://.import/Joker's Jive.ogg-ed7739c665e33d7609e4a890ea9233af.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
