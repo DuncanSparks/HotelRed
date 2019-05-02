@@ -76,6 +76,6 @@ public class Event_opening_a2 : AnimationPlayer
 	{
 		Player.State = Player.ST.MOVE;
 		Controller.SceneGoto(targetScene);
-		Player.Main.Position = new Vector2(300, 652);
+		Player.Main.Position = new Vector2(552, 652);
 	}
 }

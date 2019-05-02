@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=20 format=2]
+
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -80,8 +82,10 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 132 )
 
+
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 9, 10 )
+
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -185,3 +189,4 @@ shape = SubResource( 7 )
 [editable path="Event"]
 
 [editable path="NPC"]
+

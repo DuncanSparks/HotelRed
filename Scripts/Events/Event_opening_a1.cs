@@ -20,7 +20,7 @@ public class Event_opening_a1 : AnimationPlayer
 
 	public void Event_WalkRight()
 	{
-		Player.CurrentSpriteSet = Player.SpriteSet.PAPER;
+		//Player.CurrentSpriteSet = Player.SpriteSet.PAPER;
 		Player.Walking = true;
 		Player.MotionOverride = true;
 		Player.MotionOverrideVec = new Vector2(1, 0);
