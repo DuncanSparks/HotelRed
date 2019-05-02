@@ -107,7 +107,7 @@ public class Player : KinematicBody2D
 	
 	public override void _Ready()
 	{
-		// Refs
+		// Refs	
 		
 		Spr = GetNode<AnimatedSprite>("Sprite");
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
@@ -116,6 +116,7 @@ public class Player : KinematicBody2D
 		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
         Images = inventory.GetNode<HBoxContainer>("Container");
         CurrentItemDescription = inventory.GetNode<Label>("CurrentDescription");
+		AddItem(0);
 	}
 
 	public override void _Process(float delta)
@@ -297,31 +298,32 @@ public class Player : KinematicBody2D
 
 	public void AddItem(int i)
 	{
-		switch(i)
-		{
-			case 0:
-				
-				break;
-			case 1:
-				break;
-			case 2:
-				break;
-			case 3:
-				break;
-			case 4:
-				break;
-			case 5:
-				break;
-			case 6:
-				break;
-			case 7:
-				break;
-			case 8:
-				break;
-			case 9:
-				break;
-			case 10:
-				break;
-		}
+		inventory.GetChild<HBoxContainer>(0).GetChild<TextureButton>(i).SetVisible(true);
+		// switch(i)
+		// {
+		// 	case 0:
+		// 		container.GetNode<TextureButton>(i).SetVisible(true);
+		// 		break;
+		// 	case 1:
+		// 		break;
+		// 	case 2:
+		// 		break;
+		// 	case 3:
+		// 		break;
+		// 	case 4:
+		// 		break;
+		// 	case 5:
+		// 		break;
+		// 	case 6:
+		// 		break;
+		// 	case 7:
+		// 		break;
+		// 	case 8:
+		// 		break;
+		// 	case 9:
+		// 		break;
+		// 	case 10:
+		// 		break;
+		// }
 	}
 }
