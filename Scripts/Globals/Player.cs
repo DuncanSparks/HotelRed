@@ -51,8 +51,8 @@ public class Player : KinematicBody2D
 	// Step sounds
 	private static readonly string[] stepSounds = {"SoundStep1", "SoundStep2", "SoundStep3", "SoundStep4", "SoundStep5"};
 	private static readonly string[] stepSoundsConc = {"SoundStepConc1", "SoundStepConc2", "SoundStepConc3", "SoundStepConc4"};
-	public enum Sound {WOOD, CONC};
-	private Sound stepSound = Sound.CONC;
+	public enum Sound {WOOD, CONCRETE, CARPET};
+	private Sound stepSound = Sound.CONCRETE;
 
 	private float sound = -1;
 
@@ -273,7 +273,7 @@ public class Player : KinematicBody2D
 			case Sound.WOOD:
 				Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(Tools.Choose<string>(stepSounds)).Stream, volume: -4f, pitch: (float)GD.RandRange(0.9, 1.1));
 				break;
-			case Sound.CONC:
+			case Sound.CONCRETE:
 				Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(Tools.Choose<string>(stepSoundsConc)).Stream, volume: 1f, pitch: (float)GD.RandRange(0.9, 1.1));
 				break;
 		}
