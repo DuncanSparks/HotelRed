@@ -46,10 +46,10 @@ public class EventNPC : KinematicBody2D
 
 	// ================================================================
 
-	public Vector2 Motion { get; set; }
-	public SpriteDirection Face { get; set; }
-	public bool Walking { get; set; }
-	public float WalkSpeed { get; set; }
+	public Vector2 Motion { get { return motion; } set { motion = value; } }
+	public SpriteDirection Face { get { return face; } set { face = value; } }
+	public bool Walking { get { return walking; } set { walking = value; } }
+	public float WalkSpeed { get { return walkSpeed; } set { walkSpeed = value; } }
 
 	// ================================================================
 

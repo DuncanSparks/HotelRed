@@ -45,11 +45,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_Dialogue1"
+}, {
+"args": [  ],
+"method": "Event_NeftaliWalkUp"
 } ]
 }
 
@@ -104,27 +107,28 @@ dialogueFile = "res://Dialogue/scene_chapter1_walkin.txt"
 raviaPortrait = ExtResource( 5 )
 neftaliPortrait = ExtResource( 6 )
 
-[node name="EventNPC" parent="." instance=ExtResource( 7 )]
+[node name="EventNPCNeftali" parent="." instance=ExtResource( 7 )]
 position = Vector2( 984, 480 )
 npcName = "Neftali"
 npcColor = Color( 1, 0, 0, 1 )
 npcSprite = ExtResource( 8 )
 startDirection = 2
 
-[node name="CollisionShape2D" parent="EventNPC" index="1"]
+[node name="CollisionShape2D" parent="EventNPCNeftali" index="1"]
 position = Vector2( 0, 26 )
 shape = SubResource( 4 )
 
-[node name="AnimationPlayer" parent="EventNPC/Event" index="1"]
+[node name="AnimationPlayer" parent="EventNPCNeftali/Event" index="1"]
 anims/Event = SubResource( 5 )
 script = ExtResource( 9 )
 raviaFrames = ExtResource( 5 )
 neftaliFrames = ExtResource( 6 )
 dialogueFile = "res://Dialogue/scene_chapter1_neftali.txt"
+neftaliInstance = NodePath("../../../EventNPCNeftali")
 
 
 [editable path="Event"]
 
-[editable path="EventNPC"]
+[editable path="EventNPCNeftali"]
 
-[editable path="EventNPC/Event"]
+[editable path="EventNPCNeftali/Event"]

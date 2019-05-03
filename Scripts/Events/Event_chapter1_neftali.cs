@@ -15,6 +15,16 @@ public class Event_chapter1_neftali : AnimationPlayer
 	[Export]
 	private NodePath neftaliInstance;
 
+	// Refs
+	private EventNPC neftaliNPC;
+
+	// ================================================================
+
+	public override void _Ready()
+	{
+		neftaliNPC = GetParent<Event>().GetParent<EventNPC>();//GetNode<EventNPC>(neftaliInstance);
+	}
+
 	// ================================================================
 
 	private void Resume()
@@ -33,6 +43,9 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_NeftaliWalkUp()
 	{
-		
+		GD.Print("TEST");
+		neftaliNPC.WalkSpeed = 180f;
+		neftaliNPC.Motion = new Vector2(0, -1);
+		neftaliNPC.Walking = true;
 	}
 }
