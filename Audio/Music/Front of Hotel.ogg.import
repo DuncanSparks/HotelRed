@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Front of Hotel.ogg-d1f86776bf46cbafdbfa00063a787abf.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Front of Hotel.ogg"
+dest_files=[ "res://.import/Front of Hotel.ogg-d1f86776bf46cbafdbfa00063a787abf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

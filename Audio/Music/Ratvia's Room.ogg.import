@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ratvia's Room.ogg-bc366c5a7c15c7573f689cdf8dd263a6.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Ratvia's Room.ogg"
+dest_files=[ "res://.import/Ratvia's Room.ogg-bc366c5a7c15c7573f689cdf8dd263a6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
