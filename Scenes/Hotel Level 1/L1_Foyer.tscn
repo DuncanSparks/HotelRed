@@ -10,7 +10,7 @@
 [ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=9]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 3.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -33,9 +33,9 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Event"
 length = 5.0
 tracks/0/type = "method"
@@ -45,14 +45,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1.05, 1.4, 1.65, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_Dialogue1"
 }, {
 "args": [  ],
 "method": "Event_NeftaliWalkUp"
+}, {
+"args": [  ],
+"method": "Event_RaviaSilence"
+}, {
+"args": [  ],
+"method": "Event_NeftaliWalkLeft"
+}, {
+"args": [  ],
+"method": "Event_RaviaTurnUp"
+}, {
+"args": [  ],
+"method": "Event_NeftaliWalkDown"
+}, {
+"args": [  ],
+"method": "Event_NeftaliStop"
+}, {
+"args": [  ],
+"method": "Event_Dialogue2"
 } ]
 }
 
@@ -101,7 +119,7 @@ destroy = false
 autoStart = true
 
 [node name="AnimationPlayer" parent="Event" index="1"]
-anims/Event = SubResource( 2 )
+anims/Event = SubResource( 1 )
 script = ExtResource( 4 )
 dialogueFile = "res://Dialogue/scene_chapter1_walkin.txt"
 raviaPortrait = ExtResource( 5 )
@@ -116,10 +134,10 @@ startDirection = 2
 
 [node name="CollisionShape2D" parent="EventNPCNeftali" index="1"]
 position = Vector2( 0, 26 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="EventNPCNeftali/Event" index="1"]
-anims/Event = SubResource( 5 )
+anims/Event = SubResource( 3 )
 script = ExtResource( 9 )
 raviaFrames = ExtResource( 5 )
 neftaliFrames = ExtResource( 6 )

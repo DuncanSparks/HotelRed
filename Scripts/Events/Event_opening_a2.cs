@@ -29,7 +29,7 @@ public class Event_opening_a2 : AnimationPlayer
 
 	public void Event_Exclamation()
 	{
-		Controller.ShowBubble(Controller.BubbleType.EXCLAMATION, new Vector2(Player.Main.Position.x + 6, Player.Main.Position.y - 56));
+		Controller.ShowBubble(Controller.BubbleType.EXCLAMATION, Player.BubblePosition);
 	}
 
 

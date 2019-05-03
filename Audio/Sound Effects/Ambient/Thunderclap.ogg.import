@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Thunderclap.ogg-bad172e46d466a276a2252e65a563bb6.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Ambient/Thunderclap.ogg"
+dest_files=[ "res://.import/Thunderclap.ogg-bad172e46d466a276a2252e65a563bb6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

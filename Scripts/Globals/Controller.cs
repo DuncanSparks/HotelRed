@@ -135,6 +135,12 @@ public class Controller : Node
 			case BubbleType.EXCLAMATION:
 				bubble.PlayAnimation("Exclamation");
 				break;
+			case BubbleType.QUESTION:
+				bubble.PlayAnimation("Question");
+				break;
+			case BubbleType.SILENCE:
+				bubble.PlayAnimation("Silence");
+				break;
 			default:
 				bubble.PlayAnimation("Exclamation");
 				break;

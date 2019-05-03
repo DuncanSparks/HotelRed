@@ -22,7 +22,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public override void _Ready()
 	{
-		neftaliNPC = GetParent<Event>().GetParent<EventNPC>();//GetNode<EventNPC>(neftaliInstance);
+		neftaliNPC = GetNode<EventNPC>(neftaliInstance);//GetNode<EventNPC>(neftaliInstance);
 	}
 
 	// ================================================================
@@ -43,9 +43,50 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_NeftaliWalkUp()
 	{
-		GD.Print("TEST");
-		neftaliNPC.WalkSpeed = 180f;
+		neftaliNPC.WalkSpeed = 140f;
 		neftaliNPC.Motion = new Vector2(0, -1);
+		neftaliNPC.Face = EventNPC.SpriteDirection.UP;
 		neftaliNPC.Walking = true;
+	}
+
+
+	public void Event_RaviaSilence()
+	{
+		Controller.ShowBubble(Controller.BubbleType.SILENCE, Player.BubblePosition);
+	}
+
+
+	public void Event_NeftaliWalkLeft()
+	{
+		neftaliNPC.Motion = new Vector2(-1, 0);
+		neftaliNPC.Face = EventNPC.SpriteDirection.LEFT;
+	}
+
+
+	public void Event_RaviaTurnUp()
+	{
+		Player.Face = Player.SpriteDirection.UP;
+	}
+
+
+	public void Event_NeftaliWalkDown()
+	{
+		neftaliNPC.Motion = new Vector2(0, 1);
+		neftaliNPC.Face = EventNPC.SpriteDirection.DOWN;
+	}
+
+
+	public void Event_NeftaliStop()
+	{
+		neftaliNPC.Motion = new Vector2(0, 0);
+		neftaliNPC.WalkSpeed = 0f;
+		neftaliNPC.Walking = false;
+	}
+
+
+	public void Event_Dialogue2()
+	{
+		GetParent<Event>().PauseEvent();
+		Controller.Dialogue(dialogueFile, 1, "Ravia", "#2391ef",  raviaFrames, "Neftali", "#ff0000", neftaliFrames, false, this, "Resume");
 	}
 }

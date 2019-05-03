@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Netfali's Office.ogg-0c145e69319fc23440db871f04ca5f6e.oggstr"
+path="res://.import/Netfali's Office.ogg-43bc4d382d53ef9930205ba463868e08.oggstr"
 
 [deps]
 
-source_file="res://Audio/Music/Netfali's Office.ogg"
-dest_files=[ "res://.import/Netfali's Office.ogg-0c145e69319fc23440db871f04ca5f6e.oggstr" ]
+source_file="res://Audio/MUSIC/Netfali's Office.ogg"
+dest_files=[ "res://.import/Netfali's Office.ogg-43bc4d382d53ef9930205ba463868e08.oggstr" ]
 
 [params]
 

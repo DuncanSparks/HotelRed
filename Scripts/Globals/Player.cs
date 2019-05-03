@@ -103,6 +103,9 @@ public class Player : KinematicBody2D
 	// public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
 	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
 	
+	// Utility properties
+	public static Vector2 BubblePosition { get { return new Vector2(Player.Main.Position.x + 6, Player.Main.Position.y - 56); } }
+
 	// ================================================================
 	
 	public override void _Ready()

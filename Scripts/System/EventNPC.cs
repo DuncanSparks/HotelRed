@@ -83,7 +83,7 @@ public class EventNPC : KinematicBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
-		motion = MoveAndSlide(motion * walkSpeed * delta * 60f);
+		MoveAndSlide(motion * walkSpeed * delta * 60f);
 	}
 
 	// ================================================================
