@@ -45,32 +45,47 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1.05, 1.4, 1.65, 2, 2.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1.05, 1.4, 1.65, 2, 2.2, 2.4, 2.6, 2.62, 3.4, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "Event_Dialogue1"
+"args": [ 0 ],
+"method": "Event_Dialogue"
 }, {
-"args": [  ],
-"method": "Event_NeftaliWalkUp"
+"args": [ 140.0, 0, -1, 0 ],
+"method": "Event_NeftaliWalk"
 }, {
-"args": [  ],
-"method": "Event_RaviaSilence"
+"args": [ 2 ],
+"method": "Event_RaviaBubble"
 }, {
-"args": [  ],
-"method": "Event_NeftaliWalkLeft"
+"args": [ 140.0, -1, 0, 2 ],
+"method": "Event_NeftaliWalk"
 }, {
-"args": [  ],
-"method": "Event_RaviaTurnUp"
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
 }, {
-"args": [  ],
-"method": "Event_NeftaliWalkDown"
+"args": [ 140.0, 0, 1, 1 ],
+"method": "Event_NeftaliWalk"
 }, {
 "args": [  ],
 "method": "Event_NeftaliStop"
 }, {
+"args": [ 1 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 140.0, 0, -1, 0 ],
+"method": "Event_NeftaliWalk"
+}, {
 "args": [  ],
-"method": "Event_Dialogue2"
+"method": "Event_NeftaliStop"
+}, {
+"args": [ 2 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 1 ],
+"method": "Event_NeftaliTurn"
+}, {
+"args": [ 3 ],
+"method": "Event_Dialogue"
 } ]
 }
 

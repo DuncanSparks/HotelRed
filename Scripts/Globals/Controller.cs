@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 public class Controller : Node
 {
 	private static Controller inst;
-    private static Controller Main { get { return inst; } }
+	private static Controller Main { get { return inst; } }
 
 	Controller()
 	{
@@ -17,10 +17,7 @@ public class Controller : Node
 
 	private Dictionary<string, int> flag = new Dictionary<string, int>()
 	{
-		{"Hello", 0},
-		{"World", 1},
-		{"Spaghetti", 2},
-		{"Sauce", 3}
+		// Flags go here
 	};
 
 	public enum Sound {HOVER, SELECT};
@@ -48,9 +45,9 @@ public class Controller : Node
 
 	// ================================================================
 
-    public override void _Ready()
-    {
-        // Refs
+	public override void _Ready()
+	{
+		// Refs
 		SoundSysHover = GetNode<AudioStreamPlayer>("SoundSysHover");
 		SoundSysSelect = GetNode<AudioStreamPlayer>("SoundSysSelect");
 
@@ -60,12 +57,6 @@ public class Controller : Node
 		// Other stuff
 		GD.Randomize();
 	}
-
-
-	/* public override void _Process(float delta)
-	{
-
-	}*/
 
 	// ================================================================
 
@@ -94,12 +85,14 @@ public class Controller : Node
 		Controller.Main.GetNode<Timer>("TimerSceneGoto").Start();
 	}
 	
+
 	public static void SceneGoto(string targetScene)
 	{
 		Controller.Main.SceneGotoPre();
 		Controller.Main.GetTree().ChangeScene(targetScene);
 		Controller.Main.GetNode<Timer>("TimerSceneGoto").Start();
 	}
+
 
 	public static void PlaySoundBurst(AudioStream sound, float volume = 0f, float pitch = 1f)
 	{

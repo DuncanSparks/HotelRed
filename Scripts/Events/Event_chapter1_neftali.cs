@@ -34,7 +34,48 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	// ================================================================
 
-	public void Event_Dialogue1()
+	public void Event_Dialogue(int set)
+	{
+		GetParent<Event>().PauseEvent();
+		Controller.Dialogue(dialogueFile, set, "Ravia", "#2391ef",  raviaFrames, "Neftali", "#ff0000", neftaliFrames, false, this, "Resume");
+	}
+
+
+	public void Event_RaviaTurn(int direction)
+	{
+		Player.Face = (Player.SpriteDirection)direction;
+	}
+
+
+	public void Event_NeftaliTurn(int direction)
+	{
+		neftaliNPC.Face = (EventNPC.SpriteDirection)direction;
+	}
+
+
+	public void Event_NeftaliWalk(float speed, int motionX, int motionY, int direction)
+	{
+		neftaliNPC.WalkSpeed = speed;
+		neftaliNPC.Motion = new Vector2(motionX, motionY);
+		neftaliNPC.Face = (EventNPC.SpriteDirection)direction;
+		neftaliNPC.Walking = true;
+	}
+
+
+	public void Event_RaviaBubble(int type)
+	{
+		Controller.ShowBubble((Controller.BubbleType)type, Player.BubblePosition);
+	}
+
+
+	public void Event_NeftaliStop()
+	{
+		neftaliNPC.Motion = new Vector2(0, 0);
+		neftaliNPC.WalkSpeed = 0f;
+		neftaliNPC.Walking = false;
+	}
+
+	/* public void Event_Dialogue1()
 	{
 		GetParent<Event>().PauseEvent();
 		Controller.Dialogue(dialogueFile, 0, "Ravia", "#2391ef",  raviaFrames, "Neftali", "#ff0000", neftaliFrames, false, this, "Resume");
@@ -89,4 +130,27 @@ public class Event_chapter1_neftali : AnimationPlayer
 		GetParent<Event>().PauseEvent();
 		Controller.Dialogue(dialogueFile, 1, "Ravia", "#2391ef",  raviaFrames, "Neftali", "#ff0000", neftaliFrames, false, this, "Resume");
 	}
+
+
+	public void Event_Dialogue3()
+	{
+		GetParent<Event>().PauseEvent();
+		Controller.Dialogue(dialogueFile, 2, "Ravia", "#2391ef",  raviaFrames, "Neftali", "#ff0000", neftaliFrames, false, this, "Resume");
+	}
+
+
+	public void Event_NeftaliTurnDown()
+	{
+		neftaliNPC.Face = EventNPC.SpriteDirection.DOWN;
+	}
+
+
+	public void Event_Dialogue4()
+	{
+		GetParent<Event>().PauseEvent();
+		Controller.Dialogue(dialogueFile, 3, "Ravia", "#2391ef",  raviaFrames, "Neftali", "#ff0000", neftaliFrames, false, this, "Resume");
+	}
+
+
+	public void Event_Ravia*/
 }
