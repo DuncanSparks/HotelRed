@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Path to Purgatory 1.ogg-592b29bbf441a48bd5aae2b392263aeb.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Path to Purgatory 1.ogg"
+dest_files=[ "res://.import/Path to Purgatory 1.ogg-592b29bbf441a48bd5aae2b392263aeb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

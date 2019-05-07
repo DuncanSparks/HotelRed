@@ -224,6 +224,11 @@ public class Controller : Node
 		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Stream = music;
 		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Play();
 	}
+	
+	public static void StopMusic()
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Stop();
+	}
 
 
 	public static void EndTransition()

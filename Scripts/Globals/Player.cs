@@ -54,6 +54,10 @@ public class Player : KinematicBody2D
 	public enum Sound {WOOD, CONCRETE, CARPET};
 	private Sound stepSound = Sound.CONCRETE;
 
+	//Invetory Sound
+	[Export]
+	private string inventorySound = "InventorySound";
+	
 	private float sound = -1;
 
 	// States
@@ -126,6 +130,7 @@ public class Player : KinematicBody2D
 	{
 		if (Input.IsActionJustPressed("open_inventory") && !inventoryLock)
 		{
+			Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(inventorySound).Stream);
 			if (inventory.IsVisible())
 			{
 				FreePlayer();

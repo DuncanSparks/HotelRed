@@ -8,7 +8,15 @@ public class Event_opening_a1 : AnimationPlayer
 
 	[Export]
 	private SpriteFrames raviaPortrait;
+	
+	[Export]
+	private AudioStream music;
 
+
+	 public override void _Ready()
+	{
+		Controller.PlayMusic(music);
+	}	
     // ================================================================
 
 	private void Resume()

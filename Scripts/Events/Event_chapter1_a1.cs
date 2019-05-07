@@ -11,6 +11,7 @@ public class Event_chapter1_a1 : AnimationPlayer
 
 	[Export]
 	private SpriteFrames neftaliPortrait;
+	
 
 	// ================================================================
 

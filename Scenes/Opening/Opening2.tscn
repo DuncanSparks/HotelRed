@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/Rain loop.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Environment/Rain.png" type="Texture" id=5]
+[ext_resource path="res://Audio/Music/Path to Purgatory 2.ogg" type="AudioStream" id=6]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
@@ -90,4 +91,9 @@ preprocess = 2.0
 visibility_rect = Rect2( -398, -100, 800, 1400 )
 process_material = SubResource( 4 )
 texture = ExtResource( 5 )
+
+[node name="PathToPurgatory2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 2.0
+autoplay = true
 

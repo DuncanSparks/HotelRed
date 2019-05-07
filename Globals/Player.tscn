@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
 [ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
@@ -11,24 +11,25 @@
 [ext_resource path="res://Audio/Footsteps/Step 2 conc.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Audio/Footsteps/Step 3 conc.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Audio/Footsteps/Step 4 conc.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Instances/Item.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Sprites/Items/key_purple_black.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Items/key_purple_white.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Items/3heart_black.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Items/3heart_white.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Items/key_green_black.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Items/key_green_white.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Items/45_black.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Items/45_white.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Items/water_black.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Items/water_white.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Items/coin_black.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Items/coin_white.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Items/cassette_black.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Items/cassette_white.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Items/ItemTextBox.png" type="Texture" id=27]
-[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=28]
-[ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=29]
+[ext_resource path="res://Audio/Sound Effects/Interactive/Inventory Pop-Up.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Instances/Item.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/Items/key_purple_black.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Items/key_purple_white.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Items/3heart_black.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Items/3heart_white.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Items/key_green_black.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Items/key_green_white.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Items/45_black.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Items/45_white.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Items/water_black.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Items/water_white.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Items/coin_black.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Items/coin_white.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Items/cassette_black.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Items/cassette_white.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Items/ItemTextBox.png" type="Texture" id=28]
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=29]
+[ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -70,7 +71,7 @@ animations = [ {
 extents = Vector2( 9, 9 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 28 )
+font_data = ExtResource( 29 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -151,12 +152,16 @@ stream = ExtResource( 10 )
 [node name="SoundStepConc4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 
+[node name="InventorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
 [node name="TimerStepSound" type="Timer" parent="."]
 wait_time = 0.29
 
 [node name="TimerTeleport" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 visible = false
@@ -170,101 +175,101 @@ margin_right = 505.0
 margin_bottom = 360.0
 custom_constants/separation = 0
 
-[node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="RoomKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 14 )
-texture_hover = ExtResource( 14 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
 itemName = "ROOM KEY"
 itemDescription = "OPENS ROOM"
 
-[node name="BatHearts" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="BatHearts" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 40.0
 margin_right = 80.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 16 )
-texture_hover = ExtResource( 16 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
 
-[node name="SleepersKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="SleepersKey" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 80.0
 margin_right = 120.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
 
-[node name="ShreddedPaper" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="ShreddedPaper" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 120.0
 margin_right = 160.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 19 )
-texture_pressed = ExtResource( 20 )
-texture_hover = ExtResource( 20 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
 
-[node name="Water" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="Water" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 160.0
 margin_right = 200.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 21 )
-texture_hover = ExtResource( 22 )
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
 
-[node name="Coin" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="Coin" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 200.0
 margin_right = 240.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 23 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 24 )
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 25 )
+texture_hover = ExtResource( 25 )
 
-[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 240.0
 margin_right = 280.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 21 )
-texture_hover = ExtResource( 22 )
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
 
-[node name="Tape1" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="Tape1" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 280.0
 margin_right = 320.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 26 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 27 )
 
-[node name="Tape2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="Tape2" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 280.0
 margin_right = 320.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 26 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 27 )
 
-[node name="Tape3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 12 )]
+[node name="Tape3" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 13 )]
 visible = false
 margin_left = 280.0
 margin_right = 320.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 26 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 27 )
 
 [node name="NameBox" type="TextureRect" parent="CanvasLayer/Inventory"]
 margin_left = 95.0
 margin_top = 43.0
 margin_right = 295.0
 margin_bottom = 83.0
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="CurrentItem" type="Label" parent="CanvasLayer/Inventory"]
 margin_left = 100.0
@@ -287,6 +292,6 @@ margin_top = 314.0
 margin_right = 510.0
 margin_bottom = 360.0
 mouse_filter = 2
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]

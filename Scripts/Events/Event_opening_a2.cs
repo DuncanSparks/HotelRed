@@ -11,6 +11,12 @@ public class Event_opening_a2 : AnimationPlayer
 
 	[Export(PropertyHint.File, "*.tscn")]
 	private string targetScene = string.Empty;
+	
+	[Export]
+	AudioStream exclamation;
+	
+	[Export]
+	AudioStream music;
 
 	// ================================================================
 
@@ -23,18 +29,21 @@ public class Event_opening_a2 : AnimationPlayer
 
 	public void Event_TurnUp()
 	{
+		Controller.StopMusic();
 		Player.Face = Player.SpriteDirection.UP;
 	}
 
 
 	public void Event_Exclamation()
 	{
+		Controller.PlaySoundBurst(exclamation);
 		Controller.ShowBubble(Controller.BubbleType.EXCLAMATION, Player.BubblePosition);
 	}
 
 
 	public void Event_WalkUp1()
-	{
+	{	
+		Controller.PlaySoundBurst(music, (float)1.5);
 		Player.Walking = true;
 		Player.MotionOverrideVec = new Vector2(0, -1);
 		Player.MotionOverride = true;
