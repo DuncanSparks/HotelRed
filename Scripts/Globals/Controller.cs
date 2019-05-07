@@ -24,6 +24,7 @@ public class Controller : Node
 	public enum BubbleType {EXCLAMATION, QUESTION, SILENCE};
 
 	private AudioStream currentMusic = null;
+	//private AudioStream currentAmbience = null;
 
 	private static Regex loadRegex = new Regex(@"^(.*) (\d*)$");
 
@@ -222,8 +223,17 @@ public class Controller : Node
 	public static void PlayMusic(AudioStream music)
 	{
 		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Stream = music;
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = 0;
 		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Play();
 	}
+
+
+	public static void FadeMusic(float time)
+	{
+		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 1f / time;
+		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").Play("FadeMusic");
+	}
+
 	
 	public static void StopMusic()
 	{

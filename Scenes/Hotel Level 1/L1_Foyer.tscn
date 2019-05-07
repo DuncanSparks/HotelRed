@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=4]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=6]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=8]
-[ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=9]
+[ext_resource path="res://Audio/MUSIC/Lobby.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=10]
+[ext_resource path="res://Audio/MUSIC/Netfali's Office.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -19,8 +21,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.6, 1.8, 2.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.6, 1.8, 2.8, 3.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_WalkUp"
@@ -30,6 +32,9 @@ tracks/0/keys = {
 }, {
 "args": [  ],
 "method": "Event_Dialogue1"
+}, {
+"args": [  ],
+"method": "Event_Music"
 } ]
 }
 
@@ -45,9 +50,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1.05, 1.4, 1.65, 2, 2.2, 2.4, 2.6, 2.62, 3.4, 3.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.6, 3.7, 4.4, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "Event_FadeMusic"
+}, {
+"args": [  ],
+"method": "Event_PlayNeftaliMusic"
+}, {
 "args": [ 0 ],
 "method": "Event_Dialogue"
 }, {
@@ -139,12 +150,13 @@ script = ExtResource( 4 )
 dialogueFile = "res://Dialogue/scene_chapter1_walkin.txt"
 raviaPortrait = ExtResource( 5 )
 neftaliPortrait = ExtResource( 6 )
+lobbyMusic = ExtResource( 7 )
 
-[node name="EventNPCNeftali" parent="." instance=ExtResource( 7 )]
+[node name="EventNPCNeftali" parent="." instance=ExtResource( 8 )]
 position = Vector2( 984, 480 )
 npcName = "Neftali"
 npcColor = Color( 1, 0, 0, 1 )
-npcSprite = ExtResource( 8 )
+npcSprite = ExtResource( 9 )
 startDirection = 2
 
 [node name="CollisionShape2D" parent="EventNPCNeftali" index="1"]
@@ -153,11 +165,12 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="EventNPCNeftali/Event" index="1"]
 anims/Event = SubResource( 3 )
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 raviaFrames = ExtResource( 5 )
 neftaliFrames = ExtResource( 6 )
 dialogueFile = "res://Dialogue/scene_chapter1_neftali.txt"
 neftaliInstance = NodePath("../../../EventNPCNeftali")
+neftaliMusic = ExtResource( 11 )
 
 
 [editable path="Event"]

@@ -11,6 +11,9 @@ public class Event_chapter1_a1 : AnimationPlayer
 
 	[Export]
 	private SpriteFrames neftaliPortrait;
+
+	[Export]
+	private AudioStream lobbyMusic;
 	
 
 	// ================================================================
@@ -42,5 +45,11 @@ public class Event_chapter1_a1 : AnimationPlayer
 	{
 		GetParent<Event>().PauseEvent();
 		Controller.Dialogue(dialogueFile, 0, "Ravia", "#2391ef",  raviaPortrait, signalConnection: this, signalMethod: "Resume", restoreMovement: false);//, "Neftali", "#ff0000", neftaliPortrait,  restoreMovement: false);
+	}
+
+
+	public void Event_Music()
+	{
+		Controller.PlayMusic(lobbyMusic);
 	}
 }

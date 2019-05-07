@@ -15,6 +15,9 @@ public class Event_chapter1_neftali : AnimationPlayer
 	[Export]
 	private NodePath neftaliInstance;
 
+	[Export]
+	private AudioStream neftaliMusic;
+
 	// Refs
 	private EventNPC neftaliNPC;
 
@@ -33,6 +36,18 @@ public class Event_chapter1_neftali : AnimationPlayer
 	}
 
 	// ================================================================
+
+	public void Event_FadeMusic()
+	{
+		Controller.FadeMusic(0.5f);
+	}
+
+
+	public void Event_PlayNeftaliMusic()
+	{
+		Controller.PlayMusic(neftaliMusic);
+	}
+
 
 	public void Event_Dialogue(int set)
 	{

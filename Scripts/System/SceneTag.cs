@@ -32,5 +32,11 @@ public class SceneTag : Label
 			Controller.PlayMusic(sceneMusic);
 			Controller.CurrentMusic = sceneMusic;
 		}
+
+		/* if (sceneAmbience != Controller.currentAmbience)
+		{
+			Controller.PlayAmbience(sceneAmbience);
+			Controller.CurrentAmbience = sceneAmbience;
+		}*/
 	}
 }
