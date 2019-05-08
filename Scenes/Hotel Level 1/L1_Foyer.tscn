@@ -181,6 +181,13 @@ targetPosition = Vector2( 575, 175 )
 targetDirection = 2
 walk = true
 
+[node name="Transition2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 912, 167 )
+scale = Vector2( 3, 1 )
+targetScene = "res://Scenes/Hotel Level 1/Restaurant.tscn"
+targetPosition = Vector2( 160, 350 )
+walk = true
+
 
 [editable path="Event"]
 

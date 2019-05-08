@@ -3,7 +3,7 @@
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="Scene" type="Node2D"]
 
 [node name="SceneTag" parent="." instance=ExtResource( 1 )]
 text = "SleepersRoom
