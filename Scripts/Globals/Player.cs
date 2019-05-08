@@ -207,6 +207,12 @@ public class Player : KinematicBody2D
 	}
 
 
+	public static void ShowInteract(bool show)
+	{
+		Player.Main.GetNode<Sprite>("Interact").Visible = show;
+	}
+
+
 	public static Camera2D GetCamera()
 	{
 		return Player.Main.GetNode<Camera2D>("Camera");

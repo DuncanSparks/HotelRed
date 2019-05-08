@@ -164,6 +164,7 @@ position = Vector2( 984, 480 )
 npcName = "Neftali"
 npcColor = Color( 1, 0, 0, 1 )
 npcSprite = ExtResource( 9 )
+npcPortrait = ExtResource( 6 )
 startDirection = 2
 
 [node name="CollisionShape2D" parent="EventNPCNeftali" index="1"]

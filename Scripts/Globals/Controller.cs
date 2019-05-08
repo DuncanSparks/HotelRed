@@ -262,6 +262,13 @@ public class Controller : Node
 	}
 
 
+	public static void ShowSceneName(string name)
+	{
+		Controller.Main.GetNode<CanvasLayer>("CanvasLayer").GetNode<Label>("Label").Text = name;
+		Controller.Main.GetNode<CanvasLayer>("CanvasLayer").GetNode<AnimationPlayer>("AnimationPlayer2").Play("Text In");
+	}
+
+
 	public static void SaveGame()
 	{
 		File saveFile = new File();

@@ -45,5 +45,8 @@ public class SceneTag : Label
 			Controller.PlayAmbience(sceneAmbience);
 			Controller.CurrentAmbience = sceneAmbience;
 		}
+
+		if (displayName)
+			Controller.ShowSceneName(sceneName);
 	}
 }

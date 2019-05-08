@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Globals/Controller.cs" type="Script" id=1]
-[ext_resource path="res://Audio/Menu hover 2.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Audio/Select.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Audio/Menu hover 2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Select.ogg" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fadein black"
@@ -62,6 +63,39 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Text In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:margin_right")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 300, -31.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "FadeMusic"
 tracks/0/type = "value"
@@ -98,15 +132,29 @@ __meta__ = {
 "anims/Fadeout black" = SubResource( 3 )
 "anims/Fadeout white" = SubResource( 4 )
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
+margin_top = 22.0
+margin_right = 300.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 6 )
+text = "Room Name"
+align = 2
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer"]
+"anims/Text In" = SubResource( 7 )
+
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
 
 [node name="AMBIENCE" type="AudioStreamPlayer" parent="."]
 
 [node name="SoundSysHover" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 
 [node name="SoundSysSelect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadeMusic = SubResource( 5 )

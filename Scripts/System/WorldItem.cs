@@ -45,19 +45,27 @@ public class WorldItem : StaticBody2D
 		Player.AddItem(itemId);
 		Controller.SetFlag(removeFlag, 1);
 		spr.Hide();
+		Player.ShowInteract(false);
 	}
 
 
 	private void SightEntered(Area2D area)
 	{
 		if (area.IsInGroup("PlayerSight"))
+		{
 			inSight = true;
+			Player.ShowInteract(true);
+		}
+			
 	}
 
 
 	private void SightExited(Area2D area)
 	{
 		if (area.IsInGroup("PlayerSight"))
+		{
 			inSight = false;
+			Player.ShowInteract(false);
+		}
 	}
 }

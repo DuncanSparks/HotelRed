@@ -106,7 +106,7 @@ __meta__ = {
 
 [node name="SceneTag" parent="." instance=ExtResource( 2 )]
 text = "Opening 1"
-sceneName = "Alley 1"
+sceneName = "Opening"
 displayName = false
 sceneMusic = ExtResource( 3 )
 sceneAmbience = ExtResource( 4 )
