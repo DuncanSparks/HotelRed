@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/Rain loop.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/Environment/Rain.png" type="Texture" id=5]
-[ext_resource path="res://Audio/Music/Path to Purgatory 2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Audio/MUSIC/Path to Purgatory 1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Rain loop.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Environment/Rain.png" type="Texture" id=6]
+[ext_resource path="res://Audio/Music/Path to Purgatory 2.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
@@ -56,9 +57,10 @@ text = "Opening 2"
 sceneName = "Alley 2"
 displayName = false
 sceneMusic = ExtResource( 3 )
+sceneAmbience = ExtResource( 4 )
 cameraLimitBottom = 864
 
-[node name="Transition" parent="." instance=ExtResource( 4 )]
+[node name="Transition" parent="." instance=ExtResource( 5 )]
 position = Vector2( 192, 816 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening1.tscn"
@@ -66,7 +68,7 @@ targetPosition = Vector2( 660, 32 )
 targetDirection = 1
 walk = true
 
-[node name="Transition2" parent="." instance=ExtResource( 4 )]
+[node name="Transition2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 192, 0 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening3.tscn"
@@ -90,10 +92,10 @@ lifetime = 1.8
 preprocess = 2.0
 visibility_rect = Rect2( -398, -100, 800, 1400 )
 process_material = SubResource( 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="PathToPurgatory2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 2.0
 autoplay = true
 

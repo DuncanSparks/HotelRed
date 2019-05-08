@@ -17,14 +17,14 @@ public class Controller : Node
 
 	private Dictionary<string, int> flag = new Dictionary<string, int>()
 	{
-		// Flags go here
+		{"test_item", 0},
 	};
 
 	public enum Sound {HOVER, SELECT};
 	public enum BubbleType {EXCLAMATION, QUESTION, SILENCE};
 
 	private AudioStream currentMusic = null;
-	//private AudioStream currentAmbience = null;
+	private AudioStream currentAmbience = null;
 
 	private static Regex loadRegex = new Regex(@"^(.*) (\d*)$");
 
@@ -43,6 +43,7 @@ public class Controller : Node
 	// ================================================================
 
 	public static AudioStream CurrentMusic { get { return Controller.Main.currentMusic; } set { Controller.Main.currentMusic = value; } }
+	public static AudioStream CurrentAmbience { get { return Controller.Main.currentAmbience; } set { Controller.Main.currentAmbience = value; } }
 
 	// ================================================================
 
@@ -238,6 +239,19 @@ public class Controller : Node
 	public static void StopMusic()
 	{
 		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Stop();
+	}
+
+
+	public static void PlayAmbience(AudioStream ambience)
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("AMBIENCE").Stream = ambience;
+		Controller.Main.GetNode<AudioStreamPlayer>("AMBIENCE").Play();
+	}
+
+
+	public static void StopAmbience()
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("AMBIENCE").Stop();
 	}
 
 

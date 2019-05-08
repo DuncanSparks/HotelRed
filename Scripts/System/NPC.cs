@@ -31,8 +31,7 @@ public class NPC : KinematicBody2D
 	private bool itemGiver = false;
 	
 	[Export]
-	private int itemIndex = -1;
-
+	private Player.Items itemIndex;
 
 	
 	// Motion
@@ -60,8 +59,8 @@ public class NPC : KinematicBody2D
 
 	// ================================================================
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		spr = GetNode<AnimatedSprite>("Sprite");
 		interact = GetNode<Sprite>("Interact");
 		npcColorStr = $"#{npcColor.ToArgb32().ToString("X").Substring(2)}";
@@ -69,7 +68,7 @@ public class NPC : KinematicBody2D
 		spr.Frames = npcSprite;
 		face = startDirection;
 		interact.Hide();
-    }
+	}
 
 
 	public override void _Process(float delta)
@@ -83,10 +82,8 @@ public class NPC : KinematicBody2D
 			Player.State = Player.ST.NO_INPUT;
 			interact.Hide();
 			Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue");
-			if(itemGiver)
-			{
-				Player.Main.AddItem(itemIndex);
-			}
+			if (itemGiver)
+				Player.AddItem(itemIndex);
 		}
 	}
 

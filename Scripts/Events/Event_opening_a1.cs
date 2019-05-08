@@ -3,7 +3,7 @@ using System;
 
 public class Event_opening_a1 : AnimationPlayer
 {
-    [Export(PropertyHint.File, "*.txt")]
+	[Export(PropertyHint.File, "*.txt")]
 	private string dialogueFile;
 
 	[Export]
@@ -12,12 +12,15 @@ public class Event_opening_a1 : AnimationPlayer
 	[Export]
 	private AudioStream music;
 
+	// ================================================================
 
-	 public override void _Ready()
+	public override void _Ready()
 	{
-		Controller.PlayMusic(music);
-	}	
-    // ================================================================
+		//Controller.PlayMusic(music);
+		//Controller.CurrentMusic = music;
+	}
+
+	// ================================================================
 
 	private void Resume()
 	{
@@ -34,6 +37,7 @@ public class Event_opening_a1 : AnimationPlayer
 		Player.MotionOverrideVec = new Vector2(1, 0);
 		Player.WalkSpeedOverride = 100f;
 		Player.Face = Player.SpriteDirection.RIGHT;
+		//Controller.CurrentMusic = music;
 	}
 
 

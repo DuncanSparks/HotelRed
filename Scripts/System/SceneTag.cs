@@ -10,7 +10,10 @@ public class SceneTag : Label
 	private bool displayName = true;
 
 	[Export]
-	private AudioStream sceneMusic;
+	private AudioStream sceneMusic = null;
+
+	[Export]
+	private AudioStream sceneAmbience = null;
 
 	[Export]
 	private int cameraLimitRight = 600;
@@ -27,16 +30,20 @@ public class SceneTag : Label
 
 	public override void _Ready()
 	{
-		if (sceneMusic != Controller.CurrentMusic)
+		if (sceneMusic == null)
+			Controller.StopMusic();
+		else if (sceneMusic != Controller.CurrentMusic)
 		{
 			Controller.PlayMusic(sceneMusic);
 			Controller.CurrentMusic = sceneMusic;
 		}
 
-		/* if (sceneAmbience != Controller.currentAmbience)
+		if (sceneAmbience == null)
+			Controller.StopAmbience();
+		else if (sceneAmbience != Controller.CurrentAmbience)
 		{
 			Controller.PlayAmbience(sceneAmbience);
 			Controller.CurrentAmbience = sceneAmbience;
-		}*/
+		}
 	}
 }

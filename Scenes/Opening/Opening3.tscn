@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=6]
-[ext_resource path="res://Audio/Music/Path to Purgatory 2.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Audio/Music/Path to Purgatory 3.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Audio/MUSIC/Path to Purgatory 1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=7]
+[ext_resource path="res://Audio/Music/Path to Purgatory 2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Music/Path to Purgatory 3.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.512563, 1 )
@@ -143,9 +144,10 @@ __meta__ = {
 text = "Opening 3"
 sceneName = "Alley 3"
 displayName = false
+sceneMusic = ExtResource( 3 )
 cameraLimitBottom = 1584
 
-[node name="Transition" parent="." instance=ExtResource( 3 )]
+[node name="Transition" parent="." instance=ExtResource( 4 )]
 position = Vector2( 192, 2160 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening2.tscn"
@@ -153,7 +155,7 @@ targetPosition = Vector2( 300, 0 )
 targetDirection = 1
 walk = true
 
-[node name="Transition2" parent="." instance=ExtResource( 3 )]
+[node name="Transition2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 192, 0 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/HotelOutside.tscn"
@@ -169,7 +171,7 @@ lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -1150, 600, 2300 )
 process_material = SubResource( 3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="PartsFog2" type="Particles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.1 )
@@ -180,7 +182,7 @@ lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -1150, 600, 2300 )
 process_material = SubResource( 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="PartsFog3" type="Particles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.1 )
@@ -191,7 +193,7 @@ lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -300, -1150, 600, 2300 )
 process_material = SubResource( 5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.952941, 0.91024, 0.91024, 1 )
@@ -201,12 +203,12 @@ autoplay = "Fade to red"
 "anims/Fade to red" = SubResource( 6 )
 
 [node name="PathToPurgatory2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = 2.0
 autoplay = true
 
 [node name="PathToPurgatory3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = 2.0
 autoplay = true
 

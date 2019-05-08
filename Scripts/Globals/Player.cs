@@ -41,6 +41,7 @@ public class Player : KinematicBody2D
 	// Sprite sets 
 	public enum SpriteSet {NORMAL, PAPER};
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
+	public enum Items {Room_Key, Bat_Hearts, Sleeper_Key, Shredded_Paper, Water, Coin, uh, Tape1, Tape2, Tape3};
 	private SpriteSet currentSpriteSet = SpriteSet.NORMAL;
 
 	private static readonly string[] spriteSetNormal = {"up", "down", "left", "right"};
@@ -217,6 +218,12 @@ public class Player : KinematicBody2D
 		Player.Main.GetNode<Camera2D>("Camera").Current = enable;
 	}
 
+
+	public static void AddItem(Items item)
+	{
+		Player.Inventory.GetChild<HBoxContainer>(0).GetChild<TextureButton>((int)item).SetVisible(true);
+	}
+
 	// ================================================================
 
 	private void Movement()
@@ -304,8 +311,5 @@ public class Player : KinematicBody2D
 		}
 	}
 
-	public void AddItem(int i)
-	{
-		inventory.GetChild<HBoxContainer>(0).GetChild<TextureButton>(i).SetVisible(true);
-	}
+	
 }

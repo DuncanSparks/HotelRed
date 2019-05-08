@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=10]
 [ext_resource path="res://Audio/MUSIC/Netfali's Office.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sprites/Props/Candle 3.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -101,6 +104,9 @@ tracks/0/keys = {
 } ]
 }
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 5, 12 )
+
 [node name="Scene" type="Node2D"]
 __meta__ = {
 "_edit_vertical_guides_": [ 552.0 ]
@@ -188,9 +194,23 @@ targetScene = "res://Scenes/Hotel Level 1/Restaurant.tscn"
 targetPosition = Vector2( 160, 350 )
 walk = true
 
+[node name="WorldItem" parent="." instance=ExtResource( 13 )]
+position = Vector2( 749, 228 )
+itemName = "Candle Key"
+removeFlag = "test_item"
+getSound = ExtResource( 14 )
+
+[node name="Sprite" parent="WorldItem" index="0"]
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" parent="WorldItem/Hitbox" index="0"]
+shape = SubResource( 4 )
+
 
 [editable path="Event"]
 
 [editable path="EventNPCNeftali"]
 
 [editable path="EventNPCNeftali/Event"]
+
+[editable path="WorldItem"]
