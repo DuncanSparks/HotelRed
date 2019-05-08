@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/System/WorldItem.cs" type="Script" id=1]
+
+[node name="WorldItem" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+
+[connection signal="area_entered" from="Hitbox" to="." method="SightEntered"]
+[connection signal="area_exited" from="Hitbox" to="." method="SightExited"]
