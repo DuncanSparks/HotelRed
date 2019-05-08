@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=10]
 [ext_resource path="res://Audio/MUSIC/Netfali's Office.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -171,6 +172,14 @@ neftaliFrames = ExtResource( 6 )
 dialogueFile = "res://Dialogue/scene_chapter1_neftali.txt"
 neftaliInstance = NodePath("../../../EventNPCNeftali")
 neftaliMusic = ExtResource( 11 )
+
+[node name="Transition" parent="." instance=ExtResource( 12 )]
+position = Vector2( 0, 192 )
+scale = Vector2( 1, 4 )
+targetScene = "res://Scenes/Hotel Level 1/Corridor.tscn"
+targetPosition = Vector2( 575, 175 )
+targetDirection = 2
+walk = true
 
 
 [editable path="Event"]

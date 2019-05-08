@@ -43,14 +43,14 @@ animations = [ {
 "name": "talk",
 "speed": 5.0
 }, {
-"frames": [ null, null ],
-"loop": true,
-"name": "annoyed",
-"speed": 5.0
-}, {
 "frames": [ null ],
 "loop": true,
 "name": "idle_annoyed",
+"speed": 5.0
+}, {
+"frames": [ null, null ],
+"loop": true,
+"name": "annoyed",
 "speed": 5.0
 } ]
 
@@ -161,7 +161,6 @@ wait_time = 0.29
 [node name="TimerTeleport" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 visible = false
