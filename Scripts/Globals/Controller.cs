@@ -169,6 +169,7 @@ public class Controller : Node
 			dlg.TextLeft -= 2;
 			dlg.LineEnd = 230;
 
+			// I'm really sorry about this
 			// Shift box positions (start)
 			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Start").TrackSetKeyValue(0, 0, new Vector2(335 - 36, 424));
 			dlg.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Start").TrackSetKeyValue(0, 1, new Vector2(335 - 36, 284));

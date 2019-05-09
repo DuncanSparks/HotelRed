@@ -56,7 +56,6 @@ public class WorldItem : StaticBody2D
 			inSight = true;
 			Player.ShowInteract(true);
 		}
-			
 	}
 
 
