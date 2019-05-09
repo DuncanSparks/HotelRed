@@ -45,7 +45,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_PlayNeftaliMusic()
 	{
-		Controller.PlayMusic(neftaliMusic);
+		Controller.PlayCharacterTheme(neftaliMusic);
 	}
 
 

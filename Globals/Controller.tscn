@@ -149,6 +149,8 @@ align = 2
 
 [node name="AMBIENCE" type="AudioStreamPlayer" parent="."]
 
+[node name="CHARACTERTHEME" type="AudioStreamPlayer" parent="."]
+
 [node name="SoundSysHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
