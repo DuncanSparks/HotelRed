@@ -23,6 +23,8 @@ public class Event : Area2D
 	{
 		if (destroy && Controller.Flag(destroyFlag) == 1)
 			QueueFree();
+		if (destroy && Controller.Flag(destroyFlag) == 0)
+			Controller.SetFlag("enter_foyer", 1);
 
 		AnimPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
