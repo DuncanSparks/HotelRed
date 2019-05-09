@@ -25,6 +25,7 @@ public class Controller : Node
 
 	private AudioStream currentMusic = null;
 	private AudioStream currentAmbience = null;
+	private AudioStream currentCharacterTheme = null;
 
 	private static Regex loadRegex = new Regex(@"^(.*) (\d*)$");
 
@@ -44,6 +45,7 @@ public class Controller : Node
 
 	public static AudioStream CurrentMusic { get { return Controller.Main.currentMusic; } set { Controller.Main.currentMusic = value; } }
 	public static AudioStream CurrentAmbience { get { return Controller.Main.currentAmbience; } set { Controller.Main.currentAmbience = value; } }
+	public static AudioStream CurrentCharacterTheme { get { return Controller.Main.currentCharacterTheme; } set { Controller.Main.currentCharacterTheme = value; } }
 
 	// ================================================================
 
@@ -252,6 +254,19 @@ public class Controller : Node
 	public static void StopAmbience()
 	{
 		Controller.Main.GetNode<AudioStreamPlayer>("AMBIENCE").Stop();
+	}
+	
+	public static void PlayCharacterTheme(AudioStream characterTheme)
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = -60;
+		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Stream = characterTheme;
+		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Play();
+	}
+	
+	public static void StopCharacterTheme()
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Stop();
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = 0;
 	}
 
 
