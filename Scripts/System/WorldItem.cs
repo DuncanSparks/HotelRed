@@ -46,6 +46,7 @@ public class WorldItem : StaticBody2D
 		Controller.SetFlag(removeFlag, 1);
 		spr.Hide();
 		Player.ShowInteract(false);
+		SetVisible(false);
 	}
 
 
