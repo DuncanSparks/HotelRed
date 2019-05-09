@@ -87,6 +87,8 @@ public class Player : KinematicBody2D
 
 	private bool inventoryLock = true;
 
+	private bool canViewInventory = false;
+
 	private int numItems = 0;
 
 	// private bool canViewInventory = true;
@@ -129,7 +131,7 @@ public class Player : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		if (Input.IsActionJustPressed("open_inventory") && !inventoryLock)
+		if (Input.IsActionJustPressed("open_inventory") && !inventoryLock && canViewInventory)
 		{
 			Controller.PlaySoundBurst(GetNode<AudioStreamPlayer>(inventorySound).Stream);
 			if (inventory.IsVisible())
