@@ -149,7 +149,7 @@ cameraLimitBottom = 672
 [node name="Event" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 624 )
 scale = Vector2( 6, 2 )
-destroy = false
+destroyFlag = "enter_foyer"
 autoStart = true
 
 [node name="AnimationPlayer" parent="Event" index="1"]
