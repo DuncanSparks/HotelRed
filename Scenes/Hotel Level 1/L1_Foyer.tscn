@@ -109,7 +109,8 @@ extents = Vector2( 5, 12 )
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_vertical_guides_": [ 552.0 ]
+"_edit_horizontal_guides_": [ 215.369 ],
+"_edit_vertical_guides_": [ 552.0, 951.231 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -192,7 +193,7 @@ walk = true
 position = Vector2( 912, 167 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Restaurant.tscn"
-targetPosition = Vector2( 160, 350 )
+targetPosition = Vector2( 160, 300 )
 walk = true
 
 [node name="WorldItem" parent="." instance=ExtResource( 13 )]
