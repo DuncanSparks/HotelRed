@@ -61,7 +61,7 @@ sceneAmbience = ExtResource( 4 )
 cameraLimitBottom = 864
 
 [node name="Transition" parent="." instance=ExtResource( 5 )]
-position = Vector2( 192, 816 )
+position = Vector2( 192, 840 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening1.tscn"
 targetPosition = Vector2( 660, 32 )
@@ -69,7 +69,7 @@ targetDirection = 1
 walk = true
 
 [node name="Transition2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 192, 0 )
+position = Vector2( 192, -24 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening3.tscn"
 targetPosition = Vector2( 300, 1504 )

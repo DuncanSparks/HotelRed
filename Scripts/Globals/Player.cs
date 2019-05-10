@@ -66,7 +66,7 @@ public class Player : KinematicBody2D
 	private ST state = ST.MOVE;
 
 	// Constants
-	private const float WalkSpeed = 300f;
+	private const float WalkSpeed = 300f; // Set back to 180f after testing
 	private const float StepSoundInterval = (1f / 7f) * 2f;
 
 	// Refs

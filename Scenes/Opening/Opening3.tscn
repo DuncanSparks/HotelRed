@@ -148,7 +148,7 @@ sceneMusic = ExtResource( 3 )
 cameraLimitBottom = 1584
 
 [node name="Transition" parent="." instance=ExtResource( 4 )]
-position = Vector2( 192, 2160 )
+position = Vector2( 192, 2184 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening2.tscn"
 targetPosition = Vector2( 300, 0 )
@@ -156,7 +156,7 @@ targetDirection = 1
 walk = true
 
 [node name="Transition2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 192, 0 )
+position = Vector2( 192, -24 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/HotelOutside.tscn"
 targetPosition = Vector2( 300, 632 )

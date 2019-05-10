@@ -18,6 +18,9 @@ public class TitleScreen : Control
 	[Export]
 	private float ShaderWaveSpeed = 5f;
 
+	[Export]
+	private AudioStream thunderclapSound;
+
 	private bool passToShader = true;
 
 	// Refs
@@ -50,7 +53,6 @@ public class TitleScreen : Control
 
 	// ================================================================
 
-
 	public void ButtonHover()
 	{
 		Controller.PlaySystemSound(Controller.Sound.HOVER);
@@ -59,10 +61,13 @@ public class TitleScreen : Control
 
 	public void ClickNewGame()
 	{
-		Controller.PlaySystemSound(Controller.Sound.SELECT);
+		/* Controller.PlaySystemSound(Controller.Sound.SELECT);
 		Player.EnableCamera(true);
 		Controller.SceneGoto(StartScene);
-		Player.Main.Position = StartPosition;
+		Player.Main.Position = StartPosition; */
+		Controller.PlaySystemSound(Controller.Sound.SELECT);
+		GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 0.6f;
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("Fadeout");
 	}
 
 
@@ -74,18 +79,43 @@ public class TitleScreen : Control
 
 	// ================================================================
 
+	private void TimerIntroTimeout()
+	{
+		Controller.Fade(false, false, 0.1f);
+		Controller.PlaySoundBurst(thunderclapSound);
+	}
+
+
+	private void TimerIntroTimeout2()
+	{
+		Player.EnableCamera(true);
+		Controller.SceneGoto(StartScene);
+		Player.Main.Position = StartPosition;
+	}
+
+
 	private void AnimationFinished(string anim_name)
 	{
-		if (anim_name == "Fadein")
+		switch (anim_name)
 		{
-			passToShader = false;
-			//GetNode<CanvasLayer>("CanvasLayer2").GetNode<ColorRect>("Fadein").QueueFree();
-			GetNode<CanvasLayer>("CanvasLayer").GetNode<ColorRect>("Shader").QueueFree();
-			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fadein 2");
-		}
-		else if (anim_name == "Exit")
-		{
-			GetTree().Quit();
+			case "Fadein":
+			{
+				passToShader = false;
+				GetNode<CanvasLayer>("CanvasLayer").GetNode<ColorRect>("Shader").QueueFree();
+				GetNode<AnimationPlayer>("AnimationPlayer").Play("Fadein 2");
+				break;
+			}
+
+			case "Fadeout":
+			{
+				GetNode<Timer>("TimerIntro").Start();
+				GetNode<Timer>("TimerIntro2").Start();
+				break;
+			}
+
+			case "Exit":
+				GetTree().Quit();
+				break;
 		}
 	}
 }

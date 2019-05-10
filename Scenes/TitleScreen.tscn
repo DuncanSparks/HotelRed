@@ -1,23 +1,24 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Scenes/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Opening/Opening1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Title/Hotel Red Logo small.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Audio/MUSIC/Title 2.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Audio/AMBIENCE/Darkness.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Thunderclap.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Title/Hotel Red Logo small.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Audio/MUSIC/Title 2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/AMBIENCE/Darkness.ogg" type="AudioStream" id=10]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.562842, 1 )
-colors = PoolColorArray( 0.239216, 0.239216, 0.239216, 0, 0.239216, 0.239216, 0.239216, 1, 0.239216, 0.239216, 0.239216, 0 )
+colors = PoolColorArray( 0.509804, 0.509804, 0.509804, 0, 0.509804, 0.509804, 0.509804, 1, 0.509804, 0.509804, 0.509804, 0 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=21]
 emission_shape = 2
 emission_box_extents = Vector3( 360, 240, 1 )
 flag_disable_z = true
@@ -32,7 +33,7 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.5
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 8 )
 
 [sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
@@ -53,17 +54,17 @@ shader = SubResource( 4 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=18]
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=19]
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=20]
 
 [sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="Shader" id=12]
 code = "shader_type canvas_item;
@@ -195,6 +196,58 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=17]
+resource_name = "Fadeout"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/Fadein:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/Fadein:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MusicTitle:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -45.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AmbienceTitle:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, -45.0 ]
+}
+
 [node name="Scene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -205,6 +258,7 @@ __meta__ = {
 StartScene = ExtResource( 2 )
 StartPosition = Vector2( -16, 185 )
 shaderWaveConst = 0.2
+thunderclapSound = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -219,24 +273,41 @@ position = Vector2( 300, 180 )
 amount = 4
 lifetime = 4.0
 preprocess = 2.0
-process_material = SubResource( 3 )
-texture = ExtResource( 3 )
+process_material = SubResource( 21 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D2" type="Particles2D" parent="."]
 position = Vector2( 300, 180 )
 amount = 4
 lifetime = 4.0
 preprocess = 2.0
-process_material = SubResource( 3 )
-texture = ExtResource( 4 )
+process_material = SubResource( 21 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D3" type="Particles2D" parent="."]
 position = Vector2( 300, 180 )
 amount = 4
 lifetime = 4.0
 preprocess = 2.0
-process_material = SubResource( 3 )
-texture = ExtResource( 5 )
+process_material = SubResource( 21 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.686275 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource( 5 )
@@ -258,7 +329,7 @@ margin_left = 140.0
 margin_top = 11.0
 margin_right = 459.0
 margin_bottom = 186.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -280,9 +351,9 @@ margin_bottom = 30.0
 margin_right = 282.0
 margin_bottom = 30.0
 custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
 custom_styles/normal = SubResource( 10 )
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -300,9 +371,9 @@ margin_bottom = 64.0
 margin_right = 282.0
 margin_bottom = 30.0
 custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
 custom_styles/normal = SubResource( 10 )
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -320,9 +391,9 @@ margin_bottom = 98.0
 margin_right = 282.0
 margin_bottom = 30.0
 custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
 custom_styles/normal = SubResource( 10 )
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -340,9 +411,9 @@ margin_bottom = 132.0
 margin_right = 282.0
 margin_bottom = 30.0
 custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
 custom_styles/normal = SubResource( 10 )
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -360,9 +431,9 @@ margin_bottom = 166.0
 margin_right = 282.0
 margin_bottom = 30.0
 custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
 custom_styles/normal = SubResource( 10 )
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -372,11 +443,11 @@ text = "Exit"
 align = 0
 
 [node name="MusicTitle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 autoplay = true
 
 [node name="AmbienceTitle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = -80.0
 pitch_scale = 0.6
 autoplay = true
@@ -409,6 +480,15 @@ autoplay = "Fadein"
 anims/Exit = SubResource( 14 )
 anims/Fadein = SubResource( 15 )
 "anims/Fadein 2" = SubResource( 16 )
+anims/Fadeout = SubResource( 17 )
+
+[node name="TimerIntro" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerIntro2" type="Timer" parent="."]
+wait_time = 3.8
+one_shot = true
 
 [connection signal="mouse_entered" from="VBoxContainer/New Game/Button" to="." method="ButtonHover"]
 [connection signal="pressed" from="VBoxContainer/New Game/Button" to="." method="ClickNewGame"]
@@ -418,3 +498,5 @@ anims/Fadein = SubResource( 15 )
 [connection signal="mouse_entered" from="VBoxContainer/Exit/Button" to="." method="ButtonHover"]
 [connection signal="pressed" from="VBoxContainer/Exit/Button" to="." method="ClickExit"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="AnimationFinished"]
+[connection signal="timeout" from="TimerIntro" to="." method="TimerIntroTimeout"]
+[connection signal="timeout" from="TimerIntro2" to="." method="TimerIntroTimeout2"]

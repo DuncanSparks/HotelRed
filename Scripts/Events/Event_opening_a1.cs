@@ -29,13 +29,19 @@ public class Event_opening_a1 : AnimationPlayer
 
 	// ================================================================
 
+	public void Event_Fadein()
+	{
+		Controller.Fade(true, false, 4.5f);
+	}
+
+
 	public void Event_WalkRight()
 	{
 		//Player.CurrentSpriteSet = Player.SpriteSet.PAPER;
 		Player.Walking = true;
 		Player.MotionOverride = true;
 		Player.MotionOverrideVec = new Vector2(1, 0);
-		Player.WalkSpeedOverride = 100f;
+		Player.WalkSpeedOverride = 80f;
 		Player.Face = Player.SpriteDirection.RIGHT;
 		//Controller.CurrentMusic = music;
 	}

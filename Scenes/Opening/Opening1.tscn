@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Scripts/Events/Event_opening_a1.cs" type="Script" id=9]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=10]
 [ext_resource path="res://Audio/Music/Path to Purgatory 1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=14]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
@@ -42,7 +45,7 @@ orbit_velocity_random = 0.0
 color = Color( 1, 1, 1, 0.588235 )
 
 [sub_resource type="Animation" id=5]
-length = 5.0
+length = 9.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -50,9 +53,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.5, 3, 4.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 2.5, 5.5, 7.5, 8.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "Event_Fadein"
+}, {
 "args": [  ],
 "method": "Event_WalkRight"
 }, {
@@ -70,7 +76,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4.9 ),
+"times": PoolRealArray( 4, 8.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -78,6 +84,64 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 132 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.562842, 1 )
+colors = PoolColorArray( 0.509804, 0.509804, 0.509804, 0, 0.509804, 0.509804, 0.509804, 1, 0.509804, 0.509804, 0.509804, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 500, 240, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.25
+angular_velocity = 40.0
+angular_velocity_random = 0.25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.5
+color_ramp = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 360, 240, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.25
+angular_velocity = 40.0
+angular_velocity_random = 0.25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.5
+color_ramp = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 2
+emission_box_extents = Vector3( 360, 240, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.25
+angular_velocity = 40.0
+angular_velocity_random = 0.25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.5
+color_ramp = SubResource( 8 )
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -118,7 +182,7 @@ position = Vector2( 209, 179 )
 texture = ExtResource( 5 )
 
 [node name="Transition" parent="." instance=ExtResource( 6 )]
-position = Vector2( 552, 0 )
+position = Vector2( 552, -24 )
 scale = Vector2( 9, 2 )
 targetScene = "res://Scenes/Opening/Opening2.tscn"
 targetPosition = Vector2( 300, 776 )
@@ -165,6 +229,39 @@ disabled = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.713726, 0.713726, 0.713726, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 395, 180 )
+z_index = 2000
+amount = 4
+lifetime = 4.0
+preprocess = 2.0
+visibility_rect = Rect2( -500, 1, 1000, 200 )
+process_material = SubResource( 9 )
+texture = ExtResource( 12 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 395, 180 )
+z_index = 2000
+amount = 4
+lifetime = 4.0
+preprocess = 2.0
+visibility_rect = Rect2( -500, 1, 1000, 200 )
+process_material = SubResource( 10 )
+texture = ExtResource( 13 )
+
+[node name="Particles2D3" type="Particles2D" parent="."]
+position = Vector2( 395, 180 )
+z_index = 2000
+amount = 4
+lifetime = 4.0
+preprocess = 2.0
+visibility_rect = Rect2( -500, 1, 1000, 200 )
+process_material = SubResource( 11 )
+texture = ExtResource( 14 )
 
 
 [editable path="Event"]
