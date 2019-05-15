@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/System/ItemName.cs" type="Script" id=2]
+[ext_resource path="res://Sprites/Particles/PartTemp2.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.718593, 1 )
+colors = PoolColorArray( 1, 0.94902, 0.8, 1, 1, 0.94902, 0.8, 1, 1, 0.94902, 0.8, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+gravity = Vector3( -98, 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.5
+angular_velocity = 100.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.67
+scale_random = 0.5
+color_ramp = SubResource( 8 )
+
+[node name="ItemName" type="Label"]
+margin_left = 715.0
+margin_top = 225.0
+margin_right = 786.0
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 5 )
+text = "Itemname"
+align = 1
+script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 34, 8 )
+rotation = -1.5708
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource( 6 )
+texture = ExtResource( 3 )
+

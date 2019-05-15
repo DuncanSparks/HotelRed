@@ -46,7 +46,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Event"
-length = 5.0
+length = 12.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -54,8 +54,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.6, 3.7, 4.4, 4.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.6, 3.7, 4.4, 4.8, 5.8, 5.9, 7.1, 7.2, 7.6, 7.7, 7.8, 8.4, 8.5, 8.6, 8.8, 8.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_FadeMusic"
@@ -100,6 +100,42 @@ tracks/0/keys = {
 "method": "Event_NeftaliTurn"
 }, {
 "args": [ 3 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 180.0, -1, 0, 2 ],
+"method": "Event_NeftaliWalk"
+}, {
+"args": [ 180.0, -1, 0, 2 ],
+"method": "Event_RaviaWalk"
+}, {
+"args": [  ],
+"method": "Event_NeftaliStop"
+}, {
+"args": [  ],
+"method": "Event_RaviaStop"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 1 ],
+"method": "Event_NeftaliTurn"
+}, {
+"args": [ 4 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 1 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 5 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaBubble"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 6 ],
 "method": "Event_Dialogue"
 } ]
 }

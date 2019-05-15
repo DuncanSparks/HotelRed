@@ -43,7 +43,7 @@ public class Event_opening_a2 : AnimationPlayer
 
 	public void Event_WalkUp1()
 	{	
-		Controller.PlaySoundBurst(music, (float)1.5);
+		Controller.PlaySoundBurst(music, 1.5f);
 		Player.Walking = true;
 		Player.MotionOverrideVec = new Vector2(0, -1);
 		Player.MotionOverride = true;

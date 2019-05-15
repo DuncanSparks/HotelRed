@@ -56,7 +56,6 @@
     <Compile Include="Scripts\Events\Event_test.cs" />
     <Compile Include="Scripts\Globals\Controller.cs" />
     <Compile Include="Scripts\Globals\Player.cs" />
-    <Compile Include="Scripts\Scenes\OpeningFog.cs" />
     <Compile Include="Scripts\Scenes\TitleScreen.cs" />
     <Compile Include="Scripts\System\Bubble.cs" />
     <Compile Include="Scripts\System\Dialogue.cs" />
@@ -64,6 +63,7 @@
     <Compile Include="Scripts\System\EventNPC.cs" />
     <Compile Include="Scripts\System\FootstepSoundZone.cs" />
     <Compile Include="Scripts\System\Item.cs" />
+    <Compile Include="Scripts\System\ItemName.cs" />
     <Compile Include="Scripts\System\NPC.cs" />
     <Compile Include="Scripts\System\SceneTag.cs" />
     <Compile Include="Scripts\System\Transition.cs" />

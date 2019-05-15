@@ -77,6 +77,23 @@ public class Event_chapter1_neftali : AnimationPlayer
 	}
 
 
+	public void Event_RaviaWalk(float speed, int motionX, int motionY, int direction)
+	{
+		Player.Walking = true;
+		Player.MotionOverrideVec = new Vector2(motionX, motionY);
+		Player.Face = (Player.SpriteDirection)direction;
+		Player.MotionOverride = true;
+		Player.WalkSpeedOverride = speed;
+	}
+
+
+	public void Event_RaviaStop()
+	{
+		Player.Walking = false;
+		Player.MotionOverrideVec = new Vector2(0, 0);
+	}
+
+
 	public void Event_RaviaBubble(int type)
 	{
 		Controller.ShowBubble((Controller.BubbleType)type, Player.BubblePosition);
@@ -88,6 +105,17 @@ public class Event_chapter1_neftali : AnimationPlayer
 		neftaliNPC.Motion = new Vector2(0, 0);
 		neftaliNPC.WalkSpeed = 0f;
 		neftaliNPC.Walking = false;
+	}
+
+
+	public void Event_BothWalkLeft()
+	{
+		Event_NeftaliWalk(180f, -1, 0, 2);
+		Player.Walking = true;
+		Player.MotionOverrideVec = new Vector2(-1, 0);
+		Player.Face = Player.SpriteDirection.LEFT;
+		Player.MotionOverride = true;
+		Player.WalkSpeedOverride = 180f;
 	}
 
 	/* public void Event_Dialogue1()

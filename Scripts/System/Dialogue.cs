@@ -296,6 +296,9 @@ public class Dialogue : Node2D
 							case Modifier.BLUE:
 								charSpacing += DrawChar(font, new Vector2(textLeft + charSpacing, TextTop + (LineSpacing * line)), text[textPage][i].ToString(), string.Empty, new Color(0, 1f, 1f, textAlpha));
 								break;
+							case Modifier.GREEN:
+								charSpacing += DrawChar(font, new Vector2(textLeft + charSpacing, TextTop + (LineSpacing * line)), text[textPage][i].ToString(), string.Empty, new Color(0, 0.8f, 0, textAlpha));
+								break;
 							case Modifier.YELLOW:
 								charSpacing += DrawChar(font, new Vector2(textLeft + charSpacing, TextTop + (LineSpacing * line)), text[textPage][i].ToString(), string.Empty, new Color(0.9f, 0.57f, 0.11f, textAlpha));
 								break;
@@ -304,8 +307,8 @@ public class Dialogue : Node2D
 								break;
 							case Modifier.WAVE:
 							{
-								float so = (2f * t) + (i * 3);
-								double shift = Math.Sin(so * Math.PI * (1f / 60f)) * 3f;
+								float s = (2f * t) + (i * 3);
+								double shift = Math.Sin(s * Math.PI * (1f / 60f)) * 3f;
 								charSpacing += DrawChar(font, new Vector2(textLeft + charSpacing, TextTop + (LineSpacing * line) + (float)shift), text[textPage][i].ToString(), string.Empty, new Color(1f, 1f, 1f, textAlpha));
 								break;
 							}

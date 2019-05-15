@@ -17,6 +17,8 @@ public class WorldItem : StaticBody2D
 
 	private bool inSight = false;
 
+	private PackedScene itemNameRef = GD.Load<PackedScene>("res://Instances/ItemName.tscn");
+
 	// Refs
 	private Sprite spr;
 
@@ -46,7 +48,10 @@ public class WorldItem : StaticBody2D
 		Controller.SetFlag(removeFlag, 1);
 		spr.Hide();
 		Player.ShowInteract(false);
-		SetVisible(false);
+		var name = itemNameRef.Instance() as ItemName;
+		GetTree().GetRoot().AddChild(name);
+		QueueFree();
+		//SetVisible(false);
 	}
 
 

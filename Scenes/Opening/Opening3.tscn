@@ -86,7 +86,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.596078, 0.596078, 1 ) ]
+"values": [ Color( 0.713726, 0.713726, 0.713726, 1 ), Color( 0.788235, 0.596078, 0.596078, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PartsFog:modulate")
@@ -196,7 +196,7 @@ process_material = SubResource( 5 )
 texture = ExtResource( 7 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.952941, 0.91024, 0.91024, 1 )
+color = Color( 0.713726, 0.713726, 0.713726, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade to red"
