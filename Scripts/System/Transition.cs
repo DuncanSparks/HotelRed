@@ -15,6 +15,11 @@ public class Transition : Area2D
 	[Export]
 	private bool walk;
 
+	[Export]
+	private bool isLocked = false;
+
+	[Export]
+	private int itemIndex = -1;
 	// Constants
 	private const int WalkOffset = 64;
 
@@ -31,6 +36,14 @@ public class Transition : Area2D
 
     public override void _Ready()
     {
+		if (isLocked)
+		{
+			GetChild<CollisionShape2D>(0).SetDisabled(true);
+		}
+		if (isLocked && itemIndex != -1 && Player.itemsCollected[itemIndex] == true)
+		{
+		 	GetChild<CollisionShape2D>(0).SetDisabled(false);
+		}
         TimerFadeOut = GetNode<Timer>("TimerFadeOut");
 		TimerTransition = GetNode<Timer>("TimerTransition");
 		TimerFadeIn = GetNode<Timer>("TimerFadeIn");
