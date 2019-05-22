@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -10,10 +10,9 @@
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Events/Event_opening_a1.cs" type="Script" id=9]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=10]
-[ext_resource path="res://Audio/Music/Path to Purgatory 1.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=13]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.572549, 0.819608, 1, 0.392157, 0.788235, 0.909804, 1, 0 )
@@ -39,7 +38,7 @@ emission_box_extents = Vector3( 396, 4, 1 )
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 980, 0 )
-angular_velocity = 6.33387e-043
+angular_velocity = 6.33387e-43
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 1, 1, 1, 0.588235 )
@@ -217,7 +216,7 @@ anims/Event = SubResource( 5 )
 script = ExtResource( 9 )
 dialogueFile = "res://Dialogue/scene_intro_a1.txt"
 raviaPortrait = ExtResource( 10 )
-music = ExtResource( 11 )
+music = ExtResource( 3 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -241,7 +240,7 @@ lifetime = 4.0
 preprocess = 2.0
 visibility_rect = Rect2( -500, 1, 1000, 200 )
 process_material = SubResource( 9 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="Particles2D2" type="Particles2D" parent="."]
 position = Vector2( 395, 180 )
@@ -251,7 +250,7 @@ lifetime = 4.0
 preprocess = 2.0
 visibility_rect = Rect2( -500, 1, 1000, 200 )
 process_material = SubResource( 10 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="Particles2D3" type="Particles2D" parent="."]
 position = Vector2( 395, 180 )
@@ -261,7 +260,7 @@ lifetime = 4.0
 preprocess = 2.0
 visibility_rect = Rect2( -500, 1, 1000, 200 )
 process_material = SubResource( 11 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
 
 [editable path="Event"]

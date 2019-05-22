@@ -6,7 +6,7 @@
 [ext_resource path="res://Audio/Rain loop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Environment/Rain.png" type="Texture" id=6]
-[ext_resource path="res://Audio/Music/Path to Purgatory 2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Audio/MUSIC/Path to Purgatory 2.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=10]
@@ -35,7 +35,7 @@ emission_box_extents = Vector3( 396, 4, 1 )
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 980, 0 )
-angular_velocity = 6.33387e-043
+angular_velocity = 6.33387e-43
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 1, 1, 1, 0.588235 )
