@@ -12,8 +12,8 @@ public class Event_opening_a2 : AnimationPlayer
 	[Export(PropertyHint.File, "*.tscn")]
 	private string targetScene = string.Empty;
 	
-	[Export]
-	AudioStream exclamation;
+	/* [Export]
+	AudioStream exclamation;*/
 	
 	[Export]
 	AudioStream music;
@@ -36,7 +36,7 @@ public class Event_opening_a2 : AnimationPlayer
 
 	public void Event_Exclamation()
 	{
-		Controller.PlaySoundBurst(exclamation);
+		//Controller.PlaySoundBurst(exclamation);
 		Controller.ShowBubble(Controller.BubbleType.EXCLAMATION, Player.BubblePosition);
 	}
 

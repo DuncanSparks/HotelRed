@@ -20,7 +20,7 @@ public class Controller : Node
 		{"test_item", 0}, {"enter_foyer", 0},
 	};
 
-	public enum Sound {HOVER, SELECT};
+	public enum Sound {HOVER, SELECT, BUBBLE_EXCLAMATION};
 	public enum BubbleType {EXCLAMATION, QUESTION, SILENCE};
 
 	private AudioStream currentMusic = null;
@@ -40,6 +40,7 @@ public class Controller : Node
 	// Sounds
 	private AudioStreamPlayer SoundSysHover;
 	private AudioStreamPlayer SoundSysSelect;
+	private AudioStreamPlayer SoundSysBubbleExclamation;
 
 	// ================================================================
 
@@ -54,6 +55,7 @@ public class Controller : Node
 		// Refs
 		SoundSysHover = GetNode<AudioStreamPlayer>("SoundSysHover");
 		SoundSysSelect = GetNode<AudioStreamPlayer>("SoundSysSelect");
+		SoundSysBubbleExclamation = GetNode<AudioStreamPlayer>("SoundSysBubbleExclamation");
 
 		TimerEndTransitionRef = GetNode<Timer>("TimerEndTransition");
 		TimerEndTransition2Ref = GetNode<Timer>("TimerEndTransition2");
@@ -119,7 +121,9 @@ public class Controller : Node
 			case Controller.Sound.SELECT:
 				PlaySoundBurst(Controller.Main.SoundSysSelect.Stream);
 				break;
-			
+			case Controller.Sound.BUBBLE_EXCLAMATION:
+				PlaySoundBurst(Controller.Main.SoundSysBubbleExclamation.Stream);
+				break;
 		}
 	}
 
@@ -130,8 +134,12 @@ public class Controller : Node
 		switch (type)
 		{
 			case BubbleType.EXCLAMATION:
+			{
 				bubble.PlayAnimation("Exclamation");
+				Controller.PlaySystemSound(Controller.Sound.BUBBLE_EXCLAMATION);
 				break;
+			}
+			
 			case BubbleType.QUESTION:
 				bubble.PlayAnimation("Question");
 				break;

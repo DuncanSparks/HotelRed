@@ -11,8 +11,6 @@ public class FootstepSoundZone : Area2D
 	void PlayerEntered(PhysicsBody2D body)
 	{
 		if (body.IsInGroup("Player"))
-		{
 			Player.StepSound = sound;
-		}
 	}
 }

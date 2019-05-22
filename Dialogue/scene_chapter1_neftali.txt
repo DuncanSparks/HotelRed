@@ -53,7 +53,7 @@
 	<1 idle_angry clever>Ravia,| I think you've forgotten something very important.
 	<1 idle_angry clever>You haven't given me your $gluggage$0.
 	<0 angry idle_clever>{.{.{.{What?
-	<0 angry idle_clever>$sUgh...{ $0I told you:| I'm not here to stay!{ I don't have any luggage!
+	<0 angry idle_clever>$sUgh...{ $0I'm not here to stay!{ I don't have any luggage!
 	<1 idle_angry clever>Nonsense.{ You have a $wwealth $0of luggage.
 	<1 idle_angry clever>You just don't know where it is.
 }
