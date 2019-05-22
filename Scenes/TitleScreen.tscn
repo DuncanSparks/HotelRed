@@ -1,14 +1,15 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Scenes/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Opening/Opening1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Title/Hotel Red Logo small.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Audio/MUSIC/Title 2.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Audio/AMBIENCE/Darkness.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Thunderclap.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/Title/Smoke 1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Title/Smoke 2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Title/Smoke 3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Title/Hotel Red Logo small.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Audio/MUSIC/Title 2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/AMBIENCE/Darkness.ogg" type="AudioStream" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.562842, 1 )
@@ -63,7 +64,7 @@ shader = SubResource( 4 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="Shader" id=12]
 code = "shader_type canvas_item;
@@ -254,10 +255,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-UseTitleScreen = false
 StartScene = ExtResource( 2 )
 StartPosition = Vector2( -16, 185 )
 shaderWaveConst = 0.2
+thunderclapSound = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -273,7 +274,7 @@ amount = 4
 lifetime = 4.0
 preprocess = 2.0
 process_material = SubResource( 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -284,7 +285,7 @@ amount = 4
 lifetime = 4.0
 preprocess = 2.0
 process_material = SubResource( 3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -295,7 +296,7 @@ amount = 4
 lifetime = 4.0
 preprocess = 2.0
 process_material = SubResource( 3 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -328,7 +329,7 @@ margin_left = 140.0
 margin_top = 11.0
 margin_right = 459.0
 margin_bottom = 186.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -442,11 +443,11 @@ text = "Exit"
 align = 0
 
 [node name="MusicTitle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 autoplay = true
 
 [node name="AmbienceTitle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = -80.0
 pitch_scale = 0.6
 autoplay = true

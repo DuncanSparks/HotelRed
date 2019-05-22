@@ -44,7 +44,7 @@
 	<0 sad idle_serious>Why can't I remember?
 	<0 angry idle_serious>I was just thinking about them outside!
 	<0 idle_sad idle_annoyed>...
-	<1 idle_sad annoyed>Are you playing me as a fool,| Ravia?
+	<1 idle_sad annoyed>Are you playing me for a fool,| Ravia?
 }
 
 [6]
@@ -56,4 +56,10 @@
 	<0 angry idle_clever>$sUgh...{ $0I'm not here to stay!{ I don't have any luggage!
 	<1 idle_angry clever>Nonsense.{ You have a $wwealth $0of luggage.
 	<1 idle_angry clever>You just don't know where it is.
+}
+
+[7]
+{
+	<1 idle_angry clever>Here.
+	<1 idle_angry clever>I'll show you.
 }

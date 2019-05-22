@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -11,8 +11,7 @@
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Events/Event_opening_a2.cs" type="Script" id=10]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=11]
-[ext_resource path="res://Audio/Sound Effects/Dialogue/Exclamation.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Audio/Music/Front of Hotel.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Audio/Music/Front of Hotel.ogg" type="AudioStream" id=12]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -188,6 +187,7 @@ __meta__ = {
 position = Vector2( 0, -48 )
 texture = ExtResource( 5 )
 color = Color( 1, 0.866667, 0.552941, 1 )
+energy = 0.6
 shadow_enabled = true
 __meta__ = {
 "_edit_lock_": true
@@ -335,13 +335,13 @@ destroy = false
 autoStart = true
 
 [node name="AnimationPlayer" parent="Event" index="1"]
+playback_process_mode = 0
 anims/Event = SubResource( 9 )
 script = ExtResource( 10 )
 dialogueFile = "res://Dialogue/scene_intro_a2.txt"
 raviaPortrait = ExtResource( 11 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
-exclamation = ExtResource( 12 )
-music = ExtResource( 13 )
+music = ExtResource( 12 )
 
 
 [editable path="Event"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=19]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -49,7 +50,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Event"
-length = 12.0
+length = 20.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -57,8 +58,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.7, 11.5, 12.3, 12.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_FadeMusic"
@@ -140,6 +141,18 @@ tracks/0/keys = {
 }, {
 "args": [ 6 ],
 "method": "Event_Dialogue"
+}, {
+"args": [  ],
+"method": "Event_FadeMusic"
+}, {
+"args": [ 50.0, 0, 1, 1 ],
+"method": "Event_NeftaliWalk"
+}, {
+"args": [  ],
+"method": "Event_NeftaliStop"
+}, {
+"args": [ 7 ],
+"method": "Event_Dialogue"
 } ]
 }
 
@@ -151,6 +164,9 @@ extents = Vector2( 552, 240 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 87, 21 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 15, 11 )
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -285,6 +301,53 @@ position = Vector2( 240, 494 )
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 432, 609 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2( 432, 609 )
+z_index = 609
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2( 0, 25 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( 672, 609 )
+scale = Vector2( -1, 1 )
+z_index = 609
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D5"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 0, 25 )
+shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
