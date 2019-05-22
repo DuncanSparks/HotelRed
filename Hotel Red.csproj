@@ -56,6 +56,7 @@
     <Compile Include="Scripts\Events\Event_test.cs" />
     <Compile Include="Scripts\Globals\Controller.cs" />
     <Compile Include="Scripts\Globals\Player.cs" />
+    <Compile Include="Scripts\Scenes\Corridor.cs" />
     <Compile Include="Scripts\Scenes\TitleScreen.cs" />
     <Compile Include="Scripts\System\Bubble.cs" />
     <Compile Include="Scripts\System\Dialogue.cs" />

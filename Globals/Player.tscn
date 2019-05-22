@@ -41,7 +41,7 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "talk",
+"name": "annoyed",
 "speed": 5.0
 }, {
 "frames": [ null ],
@@ -51,7 +51,7 @@ animations = [ {
 }, {
 "frames": [ null, null ],
 "loop": true,
-"name": "annoyed",
+"name": "talk",
 "speed": 5.0
 } ]
 

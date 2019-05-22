@@ -12,8 +12,12 @@ public class Item : TextureButton
     [Export]
     private string itemDescription = "Item Description";
 
+    [Export]
+    private bool isPickedUp = false;
+
     public string ItemName { get { return itemName; } set { itemName = value; } }
     public string ItemDescription { get { return itemDescription; } set { itemDescription = value; } }
+    public bool IsPickedUp { get { return isPickedUp; } set { isPickedUp = value; } }
 
     public override void _Ready()
     {
