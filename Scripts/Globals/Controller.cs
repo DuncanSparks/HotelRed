@@ -230,7 +230,12 @@ public class Controller : Node
 		else
 			Controller.Main.GetNode<CanvasLayer>("CanvasLayer").GetNode<AnimationPlayer>("AnimationPlayer").Play(fadein ? "Fadein black" : "Fadeout black");
 	}
-
+	
+	public static void SetMusic(AudioStream music)
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Stream = music;
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = 0;
+	}
 
 	public static void PlayMusic(AudioStream music)
 	{
@@ -244,6 +249,13 @@ public class Controller : Node
 	{
 		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 1f / time;
 		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").Play("FadeMusic");
+	}
+	
+	public static void FadeInMusic(float time)
+	{
+		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").Play();
+		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 1f / time;
+		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").Play("FadeIn");	
 	}
 
 	

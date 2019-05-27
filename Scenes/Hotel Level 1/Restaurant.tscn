@@ -27,7 +27,7 @@ cameraLimitRight = 960
 position = Vector2( 144, 336 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
-targetPosition = Vector2( 950, 350 )
+targetPosition = Vector2( 950, 200 )
 targetDirection = 1
 walk = true
 

@@ -20,6 +20,12 @@ public class Transition : Area2D
 
 	[Export]
 	private int itemIndex = -1;
+
+	[Export]
+	private bool playsSoundOnEnter = false;
+
+	[Export]
+	private AudioStream getSound;
 	// Constants
 	private const int WalkOffset = 64;
 
@@ -100,6 +106,8 @@ public class Transition : Area2D
 
 	private void StartFadeOut()
 	{
+		if (playsSoundOnEnter)
+			Controller.PlaySoundBurst(getSound);
 		Controller.Fade(false, false, 0.25f);
 
 		TimerTransition.Start();
