@@ -90,6 +90,8 @@ public class Player : KinematicBody2D
 
 	private bool canViewInventory = false;
 
+	private bool depthControl = true;
+
 	private int numItems = 0;
 
 	public static bool[] itemsCollected = {false, false, false, false, false, false, false, false, false, false};
@@ -112,7 +114,8 @@ public class Player : KinematicBody2D
 	// public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
 	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
 	public static HBoxContainer Images { get { return Player.Main.images; } set { Player.Main.images = value; } }
-	
+	public static bool DepthControl { get => Player.Main.depthControl; set => Player.Main.depthControl = value; }
+
 	// Utility properties
 	public static Vector2 BubblePosition { get { return new Vector2(Player.Main.Position.x + 6, Player.Main.Position.y - 56); } }
 
@@ -168,7 +171,8 @@ public class Player : KinematicBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
-		ZIndex = (int)Position.y;
+		if (depthControl)
+			ZIndex = (int)Position.y;
 
 		switch (state)
 		{
@@ -189,9 +193,9 @@ public class Player : KinematicBody2D
 		Spr.Play(GetSprite(currentSpriteSet, face, walking));
 
 		if (!motionOverride)
-			motion = MoveAndSlide(motion * WalkSpeed * delta * 60f);
+			motion = MoveAndSlide(motion * WalkSpeed);
 		else
-			motion = MoveAndSlide(motionOverrideVec * walkSpeedOverride * delta * 60f);
+			motion = MoveAndSlide(motionOverrideVec * walkSpeedOverride);
 	}
 
 	// ================================================================

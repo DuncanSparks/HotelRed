@@ -32,6 +32,7 @@ public class EventNPC : KinematicBody2D
 	private SpriteDirection face = SpriteDirection.DOWN;
 	private bool walking = false;
 	private float walkSpeed = 0f;
+	private bool depthControl = true;
 
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
 
@@ -50,6 +51,7 @@ public class EventNPC : KinematicBody2D
 	public SpriteDirection Face { get { return face; } set { face = value; } }
 	public bool Walking { get { return walking; } set { walking = value; } }
 	public float WalkSpeed { get { return walkSpeed; } set { walkSpeed = value; } }
+	public bool DepthControl { get => depthControl; set => depthControl = value; }
 
 	// ================================================================
 
@@ -68,7 +70,8 @@ public class EventNPC : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		ZIndex = (int)Position.y;
+		if (depthControl)
+			ZIndex = (int)Position.y;
 
 		Animate();
 
@@ -83,7 +86,7 @@ public class EventNPC : KinematicBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
-		MoveAndSlide(motion * walkSpeed * delta * 60f);
+		MoveAndSlide(motion * walkSpeed);
 	}
 
 	// ================================================================

@@ -118,6 +118,22 @@ public class Event_chapter1_neftali : AnimationPlayer
 		Player.WalkSpeedOverride = 180f;
 	}
 
+
+	public void Event_SoulFadeIn()
+	{
+		Player.DepthControl = false;
+		Player.Main.ZIndex = 1600;
+
+		neftaliNPC.DepthControl = false;
+		neftaliNPC.ZIndex = 1600;
+	}
+
+
+	public void Event_SoulFadeOut()
+	{
+		neftaliNPC.Hide();
+	}
+
 	/* public void Event_Dialogue1()
 	{
 		GetParent<Event>().PauseEvent();

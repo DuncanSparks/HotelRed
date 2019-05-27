@@ -58,8 +58,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.7, 11.5, 12.3, 12.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.7, 11.5, 12.3, 12.9, 13.9, 16.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_FadeMusic"
@@ -153,7 +153,25 @@ tracks/0/keys = {
 }, {
 "args": [ 7 ],
 "method": "Event_Dialogue"
+}, {
+"args": [  ],
+"method": "Event_SoulFadeIn"
+}, {
+"args": [  ],
+"method": "Event_SoulFadeOut"
 } ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../SoulFade/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 14, 15.2, 16.2, 16.3 ),
+"transitions": PoolRealArray( 1, 1, 1.82676e-010, 3.84026e-011, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -351,6 +369,14 @@ shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SoulFade" type="Node2D" parent="."]
+z_index = 1500
+
+[node name="ColorRect" type="ColorRect" parent="SoulFade"]
+margin_right = 1104.0
+margin_bottom = 672.0
+color = Color( 1, 1, 1, 0 )
 
 
 [editable path="Event"]
