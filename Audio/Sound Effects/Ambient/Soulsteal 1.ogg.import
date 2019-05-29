@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Soulsteal 1.ogg-2833645e5dec8fd11a1d95878982c1d6.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Ambient/Soulsteal 1.ogg"
+dest_files=[ "res://.import/Soulsteal 1.ogg-2833645e5dec8fd11a1d95878982c1d6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
