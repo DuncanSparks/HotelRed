@@ -97,7 +97,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "FadeCharTheme"
 length = 2.0
 tracks/0/type = "value"
@@ -113,8 +113,7 @@ tracks/0/keys = {
 "values": [ 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "FadeIn"
+[sub_resource type="Animation" id=8]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("MUSIC:volume_db")
@@ -129,7 +128,7 @@ tracks/0/keys = {
 "values": [ -80.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("MUSIC:volume_db")
@@ -196,9 +195,9 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FadeCharTheme = SubResource( 9 )
-anims/FadeIn = SubResource( 7 )
-anims/FadeMusic = SubResource( 8 )
+anims/FadeCharTheme = SubResource( 7 )
+anims/FadeIn = SubResource( 8 )
+anims/FadeMusic = SubResource( 9 )
 
 [node name="TimerSceneGoto" type="Timer" parent="."]
 wait_time = 0.01

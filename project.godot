@@ -178,4 +178,5 @@ common/physics_fps=144
 [rendering]
 
 quality/2d/use_pixel_snap=true
+quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

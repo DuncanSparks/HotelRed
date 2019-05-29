@@ -25,6 +25,15 @@ public class Event_chapter1_neftali : AnimationPlayer
 	private PackedScene soulParts1;
 
 	[Export]
+	private PackedScene neftaliFace1;
+
+	[Export]
+	private PackedScene partsBackground;
+
+	[Export]
+	private PackedScene partsEnd;
+
+	[Export]
 	private AudioStream soulParts1Sound;
 
 	[Export]
@@ -36,11 +45,19 @@ public class Event_chapter1_neftali : AnimationPlayer
 	[Export]
 	private AudioStream soulStealSound4;
 
+	[Export]
+	private AudioStream soulStealSoundFinal;
+
+	// Instance refs
+	private Particles2D parts1;
+	private Particles2D parts2;
+	private Particles2D parts3;
+	private Sprite face1;
+	private Sprite face2;
+
 	// Refs
 	private EventNPC neftaliNPC;
 	private AudioStreamPlayer speaker;
-
-
 
 	// ================================================================
 
@@ -169,16 +186,71 @@ public class Event_chapter1_neftali : AnimationPlayer
 	public void Event_SoulParts1Appear()
 	{
 		Controller.PlaySoundBurst(soulStealSound3);
-		var parts = (Particles2D)soulParts1.Instance();
-		parts.Position = new Vector2(Player.Main.Position.x, Player.Main.Position.y + 80);
-		GetTree().GetRoot().AddChild(parts);
+		Controller.PlaySoundBurst(soulStealSound4, pitch: 0.6f);
+		//var parts = (Particles2D)soulParts1.Instance();
+		parts1 = (Particles2D)soulParts1.Instance();
+		parts1.Position = new Vector2(Player.Main.Position.x, Player.Main.Position.y + 36);
+		//parts.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Close in").TrackSetKeyValue(2, 0, new Vector2(Player.Main.Position.x, Player.Main.Position.y + 74));
+		//parts.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Close in").TrackSetKeyValue(2, 1, new Vector2(Player.Main.Position.x, Player.Main.Position.y + 74 - 56));
+		GetTree().GetRoot().AddChild(parts1);
 	}
 
 
 	public void Event_SoulParts1Sound()
 	{
-		//Controller.PlaySoundBurst(soulParts1Sound, pitch: (float)GD.RandRange(0.9, 1.1));
+		Controller.PlaySoundBurst(soulStealSound4);
 	}
+
+
+	public void Event_Particles2()
+	{
+		parts2 = (Particles2D)partsBackground.Instance();
+		//parts.Position = Player.Main.Position;
+		//GetTree().GetRoot().AddChild(parts);
+		Player.Main.AddChild(parts2);
+	}
+
+
+	public void Event_NeftaliFace1()
+	{
+		face1 = (Sprite)neftaliFace1.Instance();
+		face1.GetNode<AnimationPlayer>("AnimationPlayer").Play("Fade 2");
+		face1.Position = new Vector2(Player.Main.Position.x - 220, Player.Main.Position.y + 100);
+		GetTree().GetRoot().AddChild(face1);
+	}
+
+
+	public void Event_NeftaliFace2()
+	{
+		face2 = (Sprite)neftaliFace1.Instance();
+		face2.GetNode<AnimationPlayer>("AnimationPlayer").Play("Fade 1");
+		face2.Position = new Vector2(Player.Main.Position.x + 200, Player.Main.Position.y - 80);
+		//var mat = (ShaderMaterial)face.Material;
+		//mat.SetShaderParam("sinConst", -0.3f);
+		GetTree().GetRoot().AddChild(face2);
+		parts3 = (Particles2D)partsEnd.Instance();
+		Player.Main.AddChild(parts3);
+	}
+
+
+	public void Event_AnimationEnd()
+	{
+		//var parts = (Particles2D)partsEnd.Instance();
+		//Player.Main.AddChild(parts);
+		Controller.PlaySoundBurst(soulStealSoundFinal);
+	}
+
+
+	public void Event_AnimationCleanup()
+	{
+		parts1.QueueFree();
+		parts2.QueueFree();
+		parts3.QueueFree();
+		face1.QueueFree();
+		face2.QueueFree();
+		neftaliNPC.Show();
+	}
+
 
 	/* public void Event_Dialogue1()
 	{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -13,17 +13,21 @@
 [ext_resource path="res://Audio/MUSIC/Netfali's Office.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Instances/Particles/PartsSoulSteal.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 3.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 2.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 4.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=19]
-[ext_resource path="res://Sprites/Props/Candle 3.png" type="Texture" id=20]
-[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=24]
+[ext_resource path="res://Instances/Scenes/NeftaliFace1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Instances/Particles/PartsSoulSteal2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Instances/Particles/PartsSoulSteal3.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 3.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 2.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 4.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal final.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=23]
+[ext_resource path="res://Sprites/Props/Candle 3.png" type="Texture" id=24]
+[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=28]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -55,7 +59,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Event"
-length = 20.0
+length = 40.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -63,9 +67,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 17.4, 18 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "Event_FadeMusic"
+}, {
 "args": [  ],
 "method": "Event_PlayNeftaliMusic"
 }, {
@@ -164,6 +171,66 @@ tracks/0/keys = {
 }, {
 "args": [  ],
 "method": "Event_SoulParts1Appear"
+}, {
+"args": [  ],
+"method": "Event_Particles2"
+}, {
+"args": [ 1 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 2 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [  ],
+"method": "Event_NeftaliFace1"
+}, {
+"args": [ 3 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [  ],
+"method": "Event_NeftaliFace2"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [  ],
+"method": "Event_SoulParts1Sound"
+}, {
+"args": [ 1 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 2 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 3 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 3 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 2 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 1 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 3 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [  ],
+"method": "Event_AnimationEnd"
+}, {
+"args": [ 0 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [  ],
+"method": "Event_AnimationCleanup"
 } ]
 }
 tracks/1/type = "value"
@@ -173,10 +240,22 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 14, 17, 17.4, 17.5 ),
-"transitions": PoolRealArray( 1, 1, 1.82676e-010, 3.84026e-011, 1 ),
+"times": PoolRealArray( 0, 14, 17, 17.4, 17.5, 28.1, 28.2 ),
+"transitions": PoolRealArray( 1, 1, 1.82676e-010, 3.84026e-011, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../SoulFade2/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 22.6, 24, 28.3, 30.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -266,12 +345,16 @@ neftaliInstance = NodePath("../../../EventNPCNeftali")
 neftaliMusic = ExtResource( 11 )
 soulStealSound1 = ExtResource( 12 )
 soulParts1 = ExtResource( 13 )
-soulParts1Sound = ExtResource( 14 )
-soulStealSound2 = ExtResource( 15 )
-soulStealSound3 = ExtResource( 14 )
-soulStealSound4 = ExtResource( 16 )
+neftaliFace1 = ExtResource( 14 )
+partsBackground = ExtResource( 15 )
+partsEnd = ExtResource( 16 )
+soulParts1Sound = ExtResource( 17 )
+soulStealSound2 = ExtResource( 18 )
+soulStealSound3 = ExtResource( 17 )
+soulStealSound4 = ExtResource( 19 )
+soulStealSoundFinal = ExtResource( 20 )
 
-[node name="Transition" parent="." instance=ExtResource( 17 )]
+[node name="Transition" parent="." instance=ExtResource( 21 )]
 position = Vector2( 0, 192 )
 scale = Vector2( 1, 4 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor.tscn"
@@ -279,33 +362,33 @@ targetPosition = Vector2( 575, 175 )
 targetDirection = 2
 walk = true
 
-[node name="Transition2" parent="." instance=ExtResource( 17 )]
+[node name="Transition2" parent="." instance=ExtResource( 21 )]
 position = Vector2( 912, 95 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Restaurant.tscn"
 targetPosition = Vector2( 160, 170 )
 walk = true
 
-[node name="Transition3" parent="." instance=ExtResource( 17 )]
+[node name="Transition3" parent="." instance=ExtResource( 21 )]
 position = Vector2( 96, 0 )
 scale = Vector2( 5, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor2.tscn"
 targetPosition = Vector2( 175, 370 )
 walk = true
 
-[node name="WorldItem" parent="." instance=ExtResource( 18 )]
+[node name="WorldItem" parent="." instance=ExtResource( 22 )]
 position = Vector2( 749, 228 )
 itemName = "Candle Key"
 removeFlag = "test_item"
-getSound = ExtResource( 19 )
+getSound = ExtResource( 23 )
 
 [node name="Sprite" parent="WorldItem" index="0"]
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
 
 [node name="CollisionShape2D" parent="WorldItem/Hitbox" index="0"]
 shape = SubResource( 4 )
 
-[node name="FootstepSoundZone" parent="." instance=ExtResource( 21 )]
+[node name="FootstepSoundZone" parent="." instance=ExtResource( 25 )]
 visible = false
 position = Vector2( 552, 432 )
 sound = 2
@@ -319,7 +402,7 @@ z_index = 420
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 22 )
+texture = ExtResource( 26 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -336,7 +419,7 @@ position = Vector2( 240, 494 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 23 )
+texture = ExtResource( 27 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -350,7 +433,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D4"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 24 )
+texture = ExtResource( 28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2( 0, 25 )
@@ -369,7 +452,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D5"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 24 )
+texture = ExtResource( 28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2( 0, 25 )
@@ -387,10 +470,19 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="SoulFade"]
 margin_right = 1104.0
 margin_bottom = 672.0
-color = Color( 1, 1, 1, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SoulFade2" type="Node2D" parent="."]
+z_index = 2100
+z_as_relative = false
+
+[node name="ColorRect" type="ColorRect" parent="SoulFade2"]
+margin_right = 1104.0
+margin_bottom = 672.0
+color = Color( 1, 0, 0, 1 )
 
 
 [editable path="Event"]
