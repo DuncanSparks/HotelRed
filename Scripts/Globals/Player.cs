@@ -72,29 +72,21 @@ public class Player : KinematicBody2D
 
 	// Refs
 	private AnimatedSprite Spr;
-
 	private Timer TimerStepSound;
-
 	private Area2D Sight;
 
 	// Inventory refs
 	private Label CurrentItemName;
-
     private HBoxContainer images;
-
     private Label CurrentItemDescription;
-
 	private Control inventory;
-
 	private bool inventoryLock = true;
-
 	private bool canViewInventory = false;
-
 	private bool depthControl = true;
 
 	private int numItems = 0;
-
 	public static bool[] itemsCollected = {false, false, false, false, false, false, false, false, false, false};
+	private Control codeOverlay;
 	// private bool canViewInventory = true;
 
 	// ================================================================
@@ -113,6 +105,7 @@ public class Player : KinematicBody2D
 	public static bool InventoryLock { get { return Player.Main.inventoryLock; } set { Player.Main.inventoryLock = value; } }
 	// public static bool CanViewInventory { get { return Player.Main.canViewInventory; } set { Player.Main.canViewInventory = value; } }
 	public static Control Inventory { get { return Player.Main.inventory; } set { Player.Main.inventory = value; } }
+	public static Control CodeOverlay { get { return Player.Main.codeOverlay; } set { Player.Main.codeOverlay = value; } }
 	public static HBoxContainer Images { get { return Player.Main.images; } set { Player.Main.images = value; } }
 	public static bool DepthControl { get => Player.Main.depthControl; set => Player.Main.depthControl = value; }
 
@@ -129,6 +122,7 @@ public class Player : KinematicBody2D
 		TimerStepSound = GetNode<Timer>("TimerStepSound");
 		Sight = GetNode<Area2D>("Sight");
 		inventory = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory");
+		codeOverlay = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("CodeOverlay");
 		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
         Images = inventory.GetNode<HBoxContainer>("Container");
         CurrentItemDescription = inventory.GetNode<Label>("CurrentDescription");

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.cs" type="Script" id=1]
 [ext_resource path="res://Resources/Character Sprites/Character_Ravia.tres" type="SpriteFrames" id=2]
@@ -36,6 +36,17 @@
 [ext_resource path="res://Sprites/Items/ItemTextBox.png" type="Texture" id=34]
 [ext_resource path="res://Fonts/alagard.ttf" type="DynamicFontData" id=35]
 [ext_resource path="res://Sprites/Items/ItemBack.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/System/CodeOverlay.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Miscellaneous/Zero.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Miscellaneous/One.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Miscellaneous/Two.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Miscellaneous/Three.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Miscellaneous/Four.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Miscellaneous/Five.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Miscellaneous/Six.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Miscellaneous/Seven.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Miscellaneous/Eight.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Miscellaneous/Nine.png" type="Texture" id=47]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -91,13 +102,17 @@ tracks/0/keys = {
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 35 )
 
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 35 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
 z_index = 100
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 837.0 ]
+"_edit_horizontal_guides_": [ 837.0, 360.02 ],
+"_edit_vertical_guides_": [ 600.413 ]
 }
 debugSpriteFrames = SubResource( 1 )
 debugSpriteFrames2 = SubResource( 2 )
@@ -208,6 +223,7 @@ wait_time = 0.29
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -327,6 +343,7 @@ margin_left = 100.0
 margin_top = 75.0
 margin_right = 400.0
 margin_bottom = 300.0
+custom_fonts/font = SubResource( 6 )
 autowrap = true
 
 [node name="ItemCase" type="TextureRect" parent="CanvasLayer/Inventory"]
@@ -337,5 +354,246 @@ margin_right = 510.0
 margin_bottom = 360.0
 mouse_filter = 2
 texture = ExtResource( 36 )
+
+[node name="CodeOverlay" type="Control" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/CodeOverlay"]
+position = Vector2( 300, 180 )
+texture = ExtResource( 37 )
+
+[node name="Control" type="Control" parent="CanvasLayer/CodeOverlay"]
+editor/display_folded = true
+margin_left = 112.0
+margin_top = 112.0
+margin_right = 152.0
+margin_bottom = 152.0
+
+[node name="Zero" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 38 )
+centered = false
+
+[node name="One" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 39 )
+centered = false
+
+[node name="Two" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 40 )
+centered = false
+
+[node name="Three" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Four" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Five" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 43 )
+centered = false
+
+[node name="Six" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+position = Vector2( 0, 1 )
+texture = ExtResource( 44 )
+centered = false
+
+[node name="Seven" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 45 )
+centered = false
+
+[node name="Eight" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 46 )
+centered = false
+
+[node name="Nine" type="Sprite" parent="CanvasLayer/CodeOverlay/Control"]
+visible = false
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Control2" type="Control" parent="CanvasLayer/CodeOverlay"]
+editor/display_folded = true
+margin_left = 208.0
+margin_top = 112.0
+margin_right = 248.0
+margin_bottom = 152.0
+
+[node name="Zero" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 38 )
+centered = false
+
+[node name="One" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 39 )
+centered = false
+
+[node name="Two" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 40 )
+centered = false
+
+[node name="Three" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Four" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Five" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 43 )
+centered = false
+
+[node name="Six" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+position = Vector2( 0, 1 )
+texture = ExtResource( 44 )
+centered = false
+
+[node name="Seven" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 45 )
+centered = false
+
+[node name="Eight" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 46 )
+centered = false
+
+[node name="Nine" type="Sprite" parent="CanvasLayer/CodeOverlay/Control2"]
+visible = false
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Control3" type="Control" parent="CanvasLayer/CodeOverlay"]
+editor/display_folded = true
+margin_left = 304.0
+margin_top = 112.0
+margin_right = 344.0
+margin_bottom = 152.0
+
+[node name="Zero" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 38 )
+centered = false
+
+[node name="One" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 39 )
+centered = false
+
+[node name="Two" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 40 )
+centered = false
+
+[node name="Three" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Four" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Five" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 43 )
+centered = false
+
+[node name="Six" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+position = Vector2( 0, 1 )
+texture = ExtResource( 44 )
+centered = false
+
+[node name="Seven" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 45 )
+centered = false
+
+[node name="Eight" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 46 )
+centered = false
+
+[node name="Nine" type="Sprite" parent="CanvasLayer/CodeOverlay/Control3"]
+visible = false
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Control4" type="Control" parent="CanvasLayer/CodeOverlay"]
+editor/display_folded = true
+margin_left = 400.0
+margin_top = 112.0
+margin_right = 440.0
+margin_bottom = 152.0
+
+[node name="Zero" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 38 )
+centered = false
+
+[node name="One" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 39 )
+centered = false
+
+[node name="Two" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 40 )
+centered = false
+
+[node name="Three" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Four" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Five" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 43 )
+centered = false
+
+[node name="Six" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+position = Vector2( 0, 1 )
+texture = ExtResource( 44 )
+centered = false
+
+[node name="Seven" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 45 )
+centered = false
+
+[node name="Eight" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 46 )
+centered = false
+
+[node name="Nine" type="Sprite" parent="CanvasLayer/CodeOverlay/Control4"]
+visible = false
+texture = ExtResource( 47 )
+centered = false
 
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]
