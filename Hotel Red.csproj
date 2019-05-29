@@ -59,6 +59,7 @@
     <Compile Include="Scripts\Scenes\Corridor.cs" />
     <Compile Include="Scripts\Scenes\TitleScreen.cs" />
     <Compile Include="Scripts\System\Bubble.cs" />
+    <Compile Include="Scripts\System\CodeLock.cs" />
     <Compile Include="Scripts\System\Dialogue.cs" />
     <Compile Include="Scripts\System\Event.cs" />
     <Compile Include="Scripts\System\EventNPC.cs" />
