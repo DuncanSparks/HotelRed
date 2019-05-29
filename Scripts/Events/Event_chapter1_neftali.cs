@@ -18,14 +18,24 @@ public class Event_chapter1_neftali : AnimationPlayer
 	[Export]
 	private AudioStream neftaliMusic;
 
+	[Export]
+	private AudioStream soulStealSound1;
+
+	[Export]
+	private PackedScene soulParts1;
+
 	// Refs
 	private EventNPC neftaliNPC;
+	private AudioStreamPlayer speaker;
+
+
 
 	// ================================================================
 
 	public override void _Ready()
 	{
 		neftaliNPC = GetNode<EventNPC>(neftaliInstance);//GetNode<EventNPC>(neftaliInstance);
+		speaker = GetParent<Area2D>().GetNode<AudioStreamPlayer>("Speaker");
 	}
 
 	// ================================================================
@@ -116,6 +126,38 @@ public class Event_chapter1_neftali : AnimationPlayer
 		Player.Face = Player.SpriteDirection.LEFT;
 		Player.MotionOverride = true;
 		Player.WalkSpeedOverride = 180f;
+	}
+
+
+	public void Event_SoulFadeIn()
+	{
+		Player.DepthControl = false;
+		Player.Main.ZIndex = 1600;
+
+		neftaliNPC.DepthControl = false;
+		neftaliNPC.ZIndex = 1600;
+		speaker.Stream = soulStealSound1;
+		speaker.Play(0.8f);
+	}
+
+
+	public void Event_FadeCharTheme()
+	{
+		Controller.FadeCharacterTheme(3.5f);
+	}
+
+
+	public void Event_SoulFadeOut()
+	{
+		neftaliNPC.Hide();
+	}
+
+
+	public void Event_SoulParts1Appear()
+	{
+		var parts = (Particles2D)soulParts1.Instance();
+		parts.Position = new Vector2(Player.Main.Position.x, Player.Main.Position.y + 30);
+		GetTree().GetRoot().AddChild(parts);
 	}
 
 	/* public void Event_Dialogue1()

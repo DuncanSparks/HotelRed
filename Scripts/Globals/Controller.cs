@@ -277,12 +277,21 @@ public class Controller : Node
 		Controller.Main.GetNode<AudioStreamPlayer>("AMBIENCE").Stop();
 	}
 	
+
 	public static void PlayCharacterTheme(AudioStream characterTheme)
 	{
 		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = -60;
 		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Stream = characterTheme;
 		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Play();
 	}
+
+
+	public static void FadeCharacterTheme(float time)
+	{
+		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 1f / time;
+		Controller.Main.GetNode<AnimationPlayer>("AnimationPlayer").Play("FadeCharTheme");
+	}
+
 	
 	public static void StopCharacterTheme()
 	{
