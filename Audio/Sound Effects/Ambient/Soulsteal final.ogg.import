@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Soulsteal final.ogg-62d57d5550c527008a6bd3e0a2582d8f.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Ambient/Soulsteal final.ogg"
+dest_files=[ "res://.import/Soulsteal final.ogg-62d57d5550c527008a6bd3e0a2582d8f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

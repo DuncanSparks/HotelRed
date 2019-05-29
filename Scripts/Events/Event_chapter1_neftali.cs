@@ -24,6 +24,18 @@ public class Event_chapter1_neftali : AnimationPlayer
 	[Export]
 	private PackedScene soulParts1;
 
+	[Export]
+	private AudioStream soulParts1Sound;
+
+	[Export]
+	private AudioStream soulStealSound2;
+
+	[Export]
+	private AudioStream soulStealSound3;
+
+	[Export]
+	private AudioStream soulStealSound4;
+
 	// Refs
 	private EventNPC neftaliNPC;
 	private AudioStreamPlayer speaker;
@@ -150,14 +162,22 @@ public class Event_chapter1_neftali : AnimationPlayer
 	public void Event_SoulFadeOut()
 	{
 		neftaliNPC.Hide();
+		Controller.PlaySoundBurst(soulStealSound2);
 	}
 
 
 	public void Event_SoulParts1Appear()
 	{
+		Controller.PlaySoundBurst(soulStealSound3);
 		var parts = (Particles2D)soulParts1.Instance();
-		parts.Position = new Vector2(Player.Main.Position.x, Player.Main.Position.y + 30);
+		parts.Position = new Vector2(Player.Main.Position.x, Player.Main.Position.y + 80);
 		GetTree().GetRoot().AddChild(parts);
+	}
+
+
+	public void Event_SoulParts1Sound()
+	{
+		//Controller.PlaySoundBurst(soulParts1Sound, pitch: (float)GD.RandRange(0.9, 1.1));
 	}
 
 	/* public void Event_Dialogue1()

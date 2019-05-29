@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Exclamation 2.ogg-102624e51d20b1d45328c2c28489e28a.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Dialogue/Exclamation 2.ogg"
+dest_files=[ "res://.import/Exclamation 2.ogg-102624e51d20b1d45328c2c28489e28a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
