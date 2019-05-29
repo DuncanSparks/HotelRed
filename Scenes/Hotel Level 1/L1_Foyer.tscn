@@ -470,7 +470,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="SoulFade"]
 margin_right = 1104.0
 margin_bottom = 672.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -482,7 +482,7 @@ z_as_relative = false
 [node name="ColorRect" type="ColorRect" parent="SoulFade2"]
 margin_right = 1104.0
 margin_bottom = 672.0
-color = Color( 1, 0, 0, 1 )
+color = Color( 1, 0, 0, 0 )
 
 
 [editable path="Event"]
