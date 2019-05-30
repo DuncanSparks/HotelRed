@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Stolen Soul.ogg-8e741cd9cce24b7f6dced7684c722a09.oggstr"
+path="res://.import/Stolen Soul.ogg-195b0bb84ef7428aff1e1a1d2b277913.oggstr"
 
 [deps]
 
-source_file="res://Audio/MUSIC/Stolen Soul.ogg"
-dest_files=[ "res://.import/Stolen Soul.ogg-8e741cd9cce24b7f6dced7684c722a09.oggstr" ]
+source_file="res://Audio/Music/Stolen Soul.ogg"
+dest_files=[ "res://.import/Stolen Soul.ogg-195b0bb84ef7428aff1e1a1d2b277913.oggstr" ]
 
 [params]
 

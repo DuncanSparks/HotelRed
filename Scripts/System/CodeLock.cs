@@ -10,6 +10,7 @@ public class CodeLock : KinematicBody2D
     private bool isOpen = false;
     private int current = 0;
     private static int[] digitList = {-1, -1, -1, -1};
+	private AudioStream keyPadSound;
 	// ================================================================
 	// ================================================================
 
@@ -18,6 +19,7 @@ public class CodeLock : KinematicBody2D
         
 		spr = GetNode<AnimatedSprite>("Sprite");
 		interact = GetNode<Sprite>("Interact");
+		keyPadSound = GetNode<AudioStreamPlayer>("KeyPadSound").GetStream();
 		interact.Hide();
         
 	}
@@ -66,6 +68,7 @@ public class CodeLock : KinematicBody2D
                 setCell(8);
             else if (Input.IsActionJustPressed("Nine"))
                 setCell(9);
+			
         }
 		else if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
 		{
@@ -117,6 +120,7 @@ public class CodeLock : KinematicBody2D
         // }
         Player.CodeOverlay.GetChild<Control>(current+1).GetChild<Sprite>(digit).SetVisible(true);
         current++;
+		Controller.PlaySoundBurst(keyPadSound);
     }
 
     private void backSpace()
@@ -126,6 +130,7 @@ public class CodeLock : KinematicBody2D
            Player.CodeOverlay.GetChild<Control>(current).GetChild<Sprite>(digitList[current-1]).SetVisible(false);
            current--;
         }
+		Controller.PlaySoundBurst(keyPadSound);
     }
 
     private void clearCells()

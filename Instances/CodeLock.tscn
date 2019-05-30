@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/System/CodeLock.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/System/Interact.png" type="Texture" id=2]
+[ext_resource path="res://Audio/Sound Effects/Interactive/Keypad.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.4694, 33.8495 )
@@ -58,6 +59,9 @@ hframes = 4
 autoplay = "Interact"
 playback_speed = 0.8
 anims/Interact = SubResource( 2 )
+
+[node name="KeyPadSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="area_entered" from="InteractionArea" to="." method="InteractAreaEntered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="InteractAreaExited"]
