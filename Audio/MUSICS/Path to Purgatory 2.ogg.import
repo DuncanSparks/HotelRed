@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Path to Purgatory 2.ogg-6761ae3461ff911f3b39f73fcc107f24.oggstr"
+path="res://.import/Path to Purgatory 2.ogg-e538ddf12003fd9d06f3b8bc3fc303a3.oggstr"
 
 [deps]
 
-source_file="res://Audio/MUSIC/Path to Purgatory 2.ogg"
-dest_files=[ "res://.import/Path to Purgatory 2.ogg-6761ae3461ff911f3b39f73fcc107f24.oggstr" ]
+source_file="res://Audio/MUSICS/Path to Purgatory 2.ogg"
+dest_files=[ "res://.import/Path to Purgatory 2.ogg-e538ddf12003fd9d06f3b8bc3fc303a3.oggstr" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Front of Hotel.ogg-e655d43d89b00f67e480918c3856c45f.oggstr"
+path="res://.import/Front of Hotel.ogg-34c589cb7a5aa07218ddfe1274b65363.oggstr"
 
 [deps]
 
-source_file="res://Audio/MUSIC/Front of Hotel.ogg"
-dest_files=[ "res://.import/Front of Hotel.ogg-e655d43d89b00f67e480918c3856c45f.oggstr" ]
+source_file="res://Audio/MUSICS/Front of Hotel.ogg"
+dest_files=[ "res://.import/Front of Hotel.ogg-34c589cb7a5aa07218ddfe1274b65363.oggstr" ]
 
 [params]
 

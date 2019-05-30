@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Ravia's Room.ogg-9a6200b8de2933f997e226d1ddc23fad.oggstr"
+path="res://.import/Ravia's Room.ogg-d724f3bbbf4d3f2c4bd80832bc6bcefe.oggstr"
 
 [deps]
 
-source_file="res://Audio/MUSIC/Ravia's Room.ogg"
-dest_files=[ "res://.import/Ravia's Room.ogg-9a6200b8de2933f997e226d1ddc23fad.oggstr" ]
+source_file="res://Audio/MUSICS/Ravia's Room.ogg"
+dest_files=[ "res://.import/Ravia's Room.ogg-d724f3bbbf4d3f2c4bd80832bc6bcefe.oggstr" ]
 
 [params]
 

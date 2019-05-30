@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Title 2.ogg-682361974e42bdf8d38d6c0c14dbdf4d.oggstr"
+path="res://.import/Title 2.ogg-33c5f5c7207237685dc3ec2f8adad259.oggstr"
 
 [deps]
 
-source_file="res://Audio/MUSIC/Title 2.ogg"
-dest_files=[ "res://.import/Title 2.ogg-682361974e42bdf8d38d6c0c14dbdf4d.oggstr" ]
+source_file="res://Audio/MUSICS/Title 2.ogg"
+dest_files=[ "res://.import/Title 2.ogg-33c5f5c7207237685dc3ec2f8adad259.oggstr" ]
 
 [params]
 

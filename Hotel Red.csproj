@@ -57,6 +57,7 @@
     <Compile Include="Scripts\Globals\Controller.cs" />
     <Compile Include="Scripts\Globals\Player.cs" />
     <Compile Include="Scripts\Scenes\Corridor.cs" />
+    <Compile Include="Scripts\Scenes\RaviasRoom.cs" />
     <Compile Include="Scripts\Scenes\TitleScreen.cs" />
     <Compile Include="Scripts\System\Bubble.cs" />
     <Compile Include="Scripts\System\CodeLock.cs" />

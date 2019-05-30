@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Tilesets/TilesetAlley.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/MUSIC/Path to Purgatory 1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/MUSICS/Path to Purgatory 1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Audio/Rain loop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sprites/Props/Chalk tutorial 1.png" type="Texture" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]

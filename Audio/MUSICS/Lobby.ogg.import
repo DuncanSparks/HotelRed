@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Lobby.ogg-ddacef914b0a06d0328e4f112118192f.oggstr"
+path="res://.import/Lobby.ogg-e1578a8be4aae3a40538b1cb781af2fb.oggstr"
 
 [deps]
 
-source_file="res://Audio/MUSIC/Lobby.ogg"
-dest_files=[ "res://.import/Lobby.ogg-ddacef914b0a06d0328e4f112118192f.oggstr" ]
+source_file="res://Audio/MUSICS/Lobby.ogg"
+dest_files=[ "res://.import/Lobby.ogg-e1578a8be4aae3a40538b1cb781af2fb.oggstr" ]
 
 [params]
 

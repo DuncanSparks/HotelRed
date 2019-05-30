@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Corridor.cs" type="Script" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Audio/MUSIC/Lobby.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Audio/Sound Effects/Interactive/Door Open.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Sound Effects/Interactive/Door Open.ogg" type="AudioStream" id=6]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,7 +39,7 @@ targetScene = "res://Scenes/Hotel Level 1/RaviasRoom.tscn"
 targetPosition = Vector2( 105, 50 )
 targetDirection = 1
 playsSoundOnEnter = true
-getSound = ExtResource( 5 )
+getSound = ExtResource( 6 )
 
 [node name="SleeperRoom" parent="." instance=ExtResource( 5 )]
 position = Vector2( 96, 288 )
@@ -50,5 +49,5 @@ targetPosition = Vector2( 300, 50 )
 targetDirection = 1
 walk = true
 playsSoundOnEnter = true
-getSound = ExtResource( 5 )
+getSound = ExtResource( 6 )
 
