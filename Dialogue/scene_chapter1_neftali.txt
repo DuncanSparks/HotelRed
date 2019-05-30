@@ -5,7 +5,9 @@
 	<1 idle talk>We're delighted that you've decided to stay with us today.
 	<0 talk idle>Um{.|.|.{ Hello.
 	<0 talk idle>I'm sorry,| but I'm not-
-	<1 idle talk>My name is $bNeftali$0,| and I'm here to ensure your stay is a grand one.
+	<1 idle talk>My name is $bNeftali$0.{ I greet the new guests.
+	<0 talk idle>What...{ $ware $0you,| exactly?
+	<1 idle talk>What kind of question is that?{ I'm just a humble little bellhop,| here to ensure your stay is a grand one.
 	<0 idle_irked idle>...
 	<0 talk idle>I'm not interested in staying.{ I'm just here to see someone.
 	<0 talk idle>Two people,| actually.
@@ -62,4 +64,69 @@
 {
 	<1 idle_angry clever>Here.
 	<1 idle_angry clever>I'll show you.
+}
+
+[8]
+{
+	<0 hurt idle_clever>$s{.{.{.{Agh...
+	<0 hurt idle_clever>$sWhat...{ did you{ do?
+}
+
+[9]
+{
+	<1 idle_hurt clever>Do you see this?
+	<1 idle_hurt clever>It's your $gsoul$0.
+	<1 idle_hurt clever>The only form of payment we require.
+}
+
+[10]
+{
+	<0 hurt idle_clever>$s...
+	<0 hurt idle_clever>$sM-my...{ soul?
+	<1 idle_hurt talk>Precisely!
+	<1 idle_hurt talk>Your soul is but baggage weighing down your being.
+	<1 idle_hurt talk>So we do you the service of taking it off your hands.
+	<1 idle_hurt talk>And,| consequently,| it will remain out of your hands as long as you stay here.
+	<0 idle_sad idle>$s...
+}
+
+[11]
+{
+	<0 angry idle_serious>$sYOU CAN'T DO THAT!
+	<0 angry idle_serious>$sI just came here to see some people I haven't seen in a long time,| and you rip my soul out of my body?!
+	<0 hurt idle_serious>$sY-you're...{ horrible...
+	<1 idle_hurt annoyed>Ravia,| please calm down.{ You'll disturb the other guests.
+}
+
+[12]
+{
+	<0 idle_angry idle_annoyed>...!
+	<1 idle_angry annoyed>And then answer me this:
+	<1 idle_angry annoyed>If these people you're here to see are so important,| why can't you remember their names?
+	<0 sad idle_annoyed>I...
+	<0 sad idle_annoyed>Why can't I?
+	<0 sad idle_annoyed>I kept repeating their names over and over the entire way here.
+	<1 idle_sad annoyed>Are you really here to see someone?
+	<1 idle_sad annoyed>Are you sure you didn't stumble into this hotel by mistake?
+	<1 idle_sad clever>You certainly wouldn't be the first.
+	<0 angry idle_clever>$sYES!{ $0I'm sure!
+	<0 angry idle_serious>I'll prove it!{ I'll find them!
+	<0 angry idle_serious>And then you have to give me my soul back and let me leave!
+	<1 idle_angry idle_serious>...
+	<1 idle_angry clever>Fair enough.
+	<1 idle_angry talk>Find your...{ acquaintances,| and you're free to leave.
+	<1 idle_angry serious>Otherwise, you'll be staying with us for the indefinite future.
+	<0 sad idle_serious>...
+}
+
+[13]
+{
+	<1 idle delighted>In the meantime,| please make yourself at home!
+	<1 idle_irked talk>We've prepared room 121A for you.{ You'll find it in the hallway to the left.
+	<1 idle_irked talk>Sheets and toiletries are provided,| of course.
+	<1 idle_irked talk>And please feel free to make conversation with the other guests.
+	<1 idle_irked talk>You certainly look like you could use some new friends!
+	<0 idle_angry idle>...
+	<1 idle_irked talk>And,| above all...
+	<1 idle_irked talk>Please enjoy your stay at $rHotel Red$0!
 }

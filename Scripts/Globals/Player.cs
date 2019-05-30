@@ -1,3 +1,5 @@
+#define DEBUG_FAST_WALK
+
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -39,7 +41,7 @@ public class Player : KinematicBody2D
 	private float walkSpeedOverride = 180f;
 
 	// Sprite sets 
-	public enum SpriteSet {NORMAL, PAPER};
+	public enum SpriteSet {NORMAL, KNEEL};
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
 	public enum Items {Room_Key, Bat_Hearts, Sleeper_Key, Shredded_Paper, Water, Coin, uh, Tape1, Tape2, Tape3};
 	private SpriteSet currentSpriteSet = SpriteSet.NORMAL;
@@ -47,7 +49,8 @@ public class Player : KinematicBody2D
 	private static readonly string[] spriteSetNormal = {"up", "down", "left", "right"};
 	private static readonly string[] spriteSetNormalWalk = {"walkup", "walkdown", "walkleft", "walkright"};
 	private static readonly string[] spriteSetPaper = {"up", "down_paper", "left", "right_paper"};
-	private static readonly string[] spriteSetPaperWalk = {"walkup", "walkdown_paper", "walkleft", "walkright_paper"};
+	//private static readonly string[] spriteSetPaperWalk = {"walkup", "walkdown_paper", "walkleft", "walkright_paper"};
+	private static readonly string[] spriteSetKneel = {"up_kneel", "down_kneel", "left_kneel", "right_kneel"};
 
 	// Step sounds
 	private static readonly string[] stepSounds = {"SoundStep1", "SoundStep2", "SoundStep3", "SoundStep4", "SoundStep5"};
@@ -67,7 +70,12 @@ public class Player : KinematicBody2D
 	private ST state = ST.MOVE;
 
 	// Constants
-	private const float WalkSpeed = 300f; // Set back to 180f after testing
+	#if DEBUG_FAST_WALK
+		private const float WalkSpeed = 300f;
+	#else
+		private const float WalkSpeed = 180f;
+	#endif
+	
 	private const float StepSoundInterval = (1f / 7f) * 2f;
 
 	// Refs
@@ -316,8 +324,9 @@ public class Player : KinematicBody2D
 			case SpriteSet.NORMAL:
 				return walking ? spriteSetNormalWalk[(int)direction] : spriteSetNormal[(int)direction];
 
-			case SpriteSet.PAPER:
-				return walking ? spriteSetPaperWalk[(int)direction] : spriteSetPaper[(int)direction];
+			case SpriteSet.KNEEL:
+				//return walking ? spriteSetPaperWalk[(int)direction] : spriteSetPaper[(int)direction];
+				return spriteSetKneel[(int)direction];
 			
 			default:
 				return walking ? spriteSetNormalWalk[(int)direction] : spriteSetNormal[(int)direction];

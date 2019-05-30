@@ -1,34 +1,35 @@
-[gd_resource type="SpriteFrames" load_steps=19 format=2]
+[gd_resource type="SpriteFrames" load_steps=20 format=2]
 
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia left.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia right.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia left.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Ravia/Ravia up.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkup 1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkup 2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia right paper.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia down paper.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters/Ravia/Ravia walkleft 1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters/Ravia/Ravia walkleft 2.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters/Ravia/Ravia down.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown 1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown 2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia right paper.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright 1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright 2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia down paper.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown paper 1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown paper 2.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright paper 1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright paper 2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright paper 1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright paper 2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown paper 1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown paper 2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright 1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkright 2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown 1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkdown 2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkup 1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia walkup 2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Ravia/Ravia up kneel.png" type="Texture" id=19]
 
 [resource]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -41,17 +42,22 @@ animations = [ {
 "name": "up_paper",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "left_paper",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "walkup_paper",
-"speed": 7.0
+"name": "right_paper",
+"speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "down_paper",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walkleft_paper",
 "speed": 7.0
@@ -61,44 +67,44 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "walkup",
+"name": "walkright_paper",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walkdown",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walkleft",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "right_paper",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "walkright",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "down_paper",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walkdown_paper",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 1 ), ExtResource( 14 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "walkright_paper",
+"name": "walkright",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 16 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walkdown",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walkleft",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 3 ), ExtResource( 18 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walkup",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 3 ), ExtResource( 18 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walkup_paper",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "up_kneel",
+"speed": 5.0
 } ]
 
