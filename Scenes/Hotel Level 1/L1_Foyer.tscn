@@ -1,12 +1,12 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=4]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=5]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=6]
-[ext_resource path="res://Audio/MUSIC/Lobby.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Audio/MUSIC/Lobby.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=5]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=10]
@@ -20,14 +20,16 @@
 [ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 2.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 4.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal final.ogg" type="AudioStream" id=20]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=23]
-[ext_resource path="res://Sprites/Props/Candle 3.png" type="Texture" id=24]
-[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=28]
+[ext_resource path="res://Audio/MUSIC/Ratvia's Room.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=24]
+[ext_resource path="res://Sprites/Props/Candle 3.png" type="Texture" id=25]
+[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=30]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -38,9 +40,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.6, 1.8, 2.8, 3.45 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.6, 1.8, 2.8, 3.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "Event_StopMusic"
+}, {
 "args": [  ],
 "method": "Event_WalkUp"
 }, {
@@ -59,7 +64,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Event"
-length = 40.0
+length = 50.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -67,8 +72,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28, 32.7, 36, 37.1, 37.5, 38.7, 38.85, 39.4, 39.6, 40.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_FadeMusic"
@@ -231,6 +236,33 @@ tracks/0/keys = {
 }, {
 "args": [  ],
 "method": "Event_AnimationCleanup"
+}, {
+"args": [ 8 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 9 ],
+"method": "Event_Dialogue"
+}, {
+"args": [  ],
+"method": "Event_AfterMusic"
+}, {
+"args": [ 10 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 180.0, 0, -1, 0 ],
+"method": "Event_RaviaWalk"
+}, {
+"args": [  ],
+"method": "Event_RaviaStop"
+}, {
+"args": [ 11 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 12 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 13 ],
+"method": "Event_Dialogue"
 } ]
 }
 tracks/1/type = "value"
@@ -270,6 +302,32 @@ extents = Vector2( 87, 21 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 15, 11 )
 
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.507538, 1 )
+colors = PoolColorArray( 1, 0, 0, 0, 1, 0.0901961, 0, 1, 1, 0.188235, 0, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 552, 336, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.4
+angular_velocity = 50.0
+angular_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.2
+color_ramp = SubResource( 9 )
+hue_variation = 0.1
+hue_variation_random = 0.5
+
 [node name="Scene" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 101.0 ],
@@ -306,10 +364,11 @@ __meta__ = {
 [node name="SceneTag" parent="." instance=ExtResource( 2 )]
 text = "F1 - Foyer"
 sceneName = "Lobby"
+sceneMusic = ExtResource( 3 )
 cameraLimitRight = 1104
 cameraLimitBottom = 672
 
-[node name="Event" parent="." instance=ExtResource( 3 )]
+[node name="Event" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, 624 )
 scale = Vector2( 6, 2 )
 destroyFlag = "enter_foyer"
@@ -317,18 +376,18 @@ autoStart = true
 
 [node name="AnimationPlayer" parent="Event" index="1"]
 anims/Event = SubResource( 1 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 dialogueFile = "res://Dialogue/scene_chapter1_walkin.txt"
-raviaPortrait = ExtResource( 5 )
-neftaliPortrait = ExtResource( 6 )
-lobbyMusic = ExtResource( 7 )
+raviaPortrait = ExtResource( 6 )
+neftaliPortrait = ExtResource( 7 )
+lobbyMusic = ExtResource( 3 )
 
 [node name="EventNPCNeftali" parent="." instance=ExtResource( 8 )]
 position = Vector2( 984, 480 )
 npcName = "Neftali"
 npcColor = Color( 1, 0, 0, 1 )
 npcSprite = ExtResource( 9 )
-npcPortrait = ExtResource( 6 )
+npcPortrait = ExtResource( 7 )
 startDirection = 2
 
 [node name="CollisionShape2D" parent="EventNPCNeftali" index="1"]
@@ -338,8 +397,8 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" parent="EventNPCNeftali/Event" index="1"]
 anims/Event = SubResource( 3 )
 script = ExtResource( 10 )
-raviaFrames = ExtResource( 5 )
-neftaliFrames = ExtResource( 6 )
+raviaFrames = ExtResource( 6 )
+neftaliFrames = ExtResource( 7 )
 dialogueFile = "res://Dialogue/scene_chapter1_neftali.txt"
 neftaliInstance = NodePath("../../../EventNPCNeftali")
 neftaliMusic = ExtResource( 11 )
@@ -353,8 +412,9 @@ soulStealSound2 = ExtResource( 18 )
 soulStealSound3 = ExtResource( 17 )
 soulStealSound4 = ExtResource( 19 )
 soulStealSoundFinal = ExtResource( 20 )
+afterMusic = ExtResource( 21 )
 
-[node name="Transition" parent="." instance=ExtResource( 21 )]
+[node name="Transition" parent="." instance=ExtResource( 22 )]
 position = Vector2( 0, 192 )
 scale = Vector2( 1, 4 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor.tscn"
@@ -362,33 +422,33 @@ targetPosition = Vector2( 575, 175 )
 targetDirection = 2
 walk = true
 
-[node name="Transition2" parent="." instance=ExtResource( 21 )]
+[node name="Transition2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 912, 95 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Restaurant.tscn"
 targetPosition = Vector2( 160, 170 )
 walk = true
 
-[node name="Transition3" parent="." instance=ExtResource( 21 )]
+[node name="Transition3" parent="." instance=ExtResource( 22 )]
 position = Vector2( 96, 0 )
 scale = Vector2( 5, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor2.tscn"
 targetPosition = Vector2( 175, 370 )
 walk = true
 
-[node name="WorldItem" parent="." instance=ExtResource( 22 )]
+[node name="WorldItem" parent="." instance=ExtResource( 23 )]
 position = Vector2( 749, 228 )
 itemName = "Candle Key"
 removeFlag = "test_item"
-getSound = ExtResource( 23 )
+getSound = ExtResource( 24 )
 
 [node name="Sprite" parent="WorldItem" index="0"]
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 
 [node name="CollisionShape2D" parent="WorldItem/Hitbox" index="0"]
 shape = SubResource( 4 )
 
-[node name="FootstepSoundZone" parent="." instance=ExtResource( 25 )]
+[node name="FootstepSoundZone" parent="." instance=ExtResource( 26 )]
 visible = false
 position = Vector2( 552, 432 )
 sound = 2
@@ -402,7 +462,7 @@ z_index = 420
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -419,7 +479,7 @@ position = Vector2( 240, 494 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -433,7 +493,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D4"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2( 0, 25 )
@@ -452,7 +512,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D5"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2( 0, 25 )
@@ -460,6 +520,15 @@ shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PartsAmbient" type="Particles2D" parent="."]
+visible = false
+position = Vector2( 552, 336 )
+z_index = 800
+amount = 16
+visibility_rect = Rect2( -552, -336, 1104, 672 )
+process_material = SubResource( 10 )
+texture = ExtResource( 30 )
 
 [node name="SoulFade" type="Node2D" parent="."]
 z_index = 1500
@@ -470,7 +539,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="SoulFade"]
 margin_right = 1104.0
 margin_bottom = 672.0
-color = Color( 1, 1, 1, 0 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -478,11 +547,17 @@ __meta__ = {
 [node name="SoulFade2" type="Node2D" parent="."]
 z_index = 2100
 z_as_relative = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="SoulFade2"]
 margin_right = 1104.0
 margin_bottom = 672.0
 color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 
 [editable path="Event"]

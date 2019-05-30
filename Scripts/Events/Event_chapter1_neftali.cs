@@ -121,6 +121,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_RaviaWalk(float speed, int motionX, int motionY, int direction)
 	{
+		Player.CurrentSpriteSet = Player.SpriteSet.NORMAL;
 		Player.Walking = true;
 		Player.MotionOverrideVec = new Vector2(motionX, motionY);
 		Player.Face = (Player.SpriteDirection)direction;
@@ -252,6 +253,14 @@ public class Event_chapter1_neftali : AnimationPlayer
 		face1.QueueFree();
 		face2.QueueFree();
 		Player.CurrentSpriteSet = Player.SpriteSet.KNEEL;
+		Player.DepthControl = true;
+		neftaliNPC.DepthControl = true;
 		neftaliNPC.Show();
+	}
+
+
+	public void Event_AfterMusic()
+	{
+		Controller.PlayMusic(afterMusic);
 	}
 }

@@ -68,6 +68,7 @@ public class Dialogue : Node2D
 	private const int TextTop = 270;
 	private const int NametagTop = 252;
 
+	private Regex numberRegex = new Regex(@"\[(\d+)\]");
 	private Regex wordRegex = new Regex(@"\b\w*\b");
 	private Regex lineRegex = new Regex(@"<\s*([01])\s+(\w+)\s+(\w+)>(.*)");
 
@@ -380,7 +381,8 @@ public class Dialogue : Node2D
 			{
 				string line = file.GetLine();
 				if (line.Length > 0 && line[0] == '[')
-					currentIndex = line[1].ToString().ToInt();
+					//currentIndex = line[1].ToString().ToInt();
+					currentIndex = numberRegex.Match(line).Groups[1].ToString().ToInt();
 				
 				if (line.Length > 0 && line[0] == '}' && read)
 				{

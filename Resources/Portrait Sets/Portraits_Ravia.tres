@@ -1,13 +1,15 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=2]
+[gd_resource type="SpriteFrames" load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p 1.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p 2.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Sad 1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Sad 2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Angry 2.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Angry 1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Irked 2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Irked 1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Angry 1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Irked 2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Irked 1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Sad 2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Angry 2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Hurt 2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Portraits/Ravia/Ravia_p Hurt 1.png" type="Texture" id=10]
 
 [resource]
 animations = [ {
@@ -26,29 +28,39 @@ animations = [ {
 "name": "idle_sad",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "sad",
+"name": "idle_angry",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
 "name": "irked",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "idle_irked",
+"name": "sad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "idle_angry",
+"name": "idle_irked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "idle_hurt",
 "speed": 5.0
 } ]
 

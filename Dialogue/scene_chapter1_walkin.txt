@@ -1,5 +1,5 @@
 [0]
 {
-	<0 talk _>Hm...
-	<0 talk _>I guess I'll try to find someone who can give me directions.
+	<0 talk _>This is{ $winteresting $0decor...
+	<0 talk _>{.{.{.I guess I'll find someone who can give me directions.
 }

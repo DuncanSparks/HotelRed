@@ -25,6 +25,12 @@ public class Event_chapter1_a1 : AnimationPlayer
 
 	// ================================================================
 
+	public void Event_StopMusic()
+	{
+		Controller.StopMusic();
+	}
+
+
 	public void Event_WalkUp()
 	{
 		Player.Walking = true;

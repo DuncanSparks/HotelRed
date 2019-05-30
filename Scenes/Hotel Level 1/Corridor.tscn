@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Corridor.cs" type="Script" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Audio/MUSIC/Lobby.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,8 +21,9 @@ tile_data = PoolIntArray( 0, 1073741831, 0, 1, 1073741831, 0, 2, 1073741831, 0, 
 
 [node name="SceneTag" parent="." instance=ExtResource( 3 )]
 text = "Corridor"
+sceneMusic = ExtResource( 4 )
 
-[node name="Transition" parent="." instance=ExtResource( 4 )]
+[node name="Transition" parent="." instance=ExtResource( 5 )]
 position = Vector2( 576, 120 )
 scale = Vector2( 1, 5 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
@@ -29,14 +31,14 @@ targetPosition = Vector2( 40, 250 )
 targetDirection = 3
 walk = true
 
-[node name="RaviaRoom" parent="." instance=ExtResource( 4 )]
+[node name="RaviaRoom" parent="." instance=ExtResource( 5 )]
 position = Vector2( 432, 288 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/RaviasRoom.tscn"
 targetPosition = Vector2( 105, 50 )
 targetDirection = 1
 
-[node name="SleeperRoom" parent="." instance=ExtResource( 4 )]
+[node name="SleeperRoom" parent="." instance=ExtResource( 5 )]
 position = Vector2( 96, 288 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/SleepersRoom.tscn"
