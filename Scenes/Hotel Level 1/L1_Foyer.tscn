@@ -10,7 +10,7 @@
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=10]
-[ext_resource path="res://Audio/Music/Neftali's Office.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/MUSIC/Netfali's Office.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Instances/Particles/PartsSoulSteal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Instances/Scenes/NeftaliFace1.tscn" type="PackedScene" id=14]
@@ -30,7 +30,6 @@
 [ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=30]
-
 
 [sub_resource type="Animation" id=1]
 length = 3.5
