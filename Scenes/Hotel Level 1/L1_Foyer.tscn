@@ -31,8 +31,6 @@
 [ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=30]
 
-
-
 [sub_resource type="Animation" id=1]
 length = 3.5
 tracks/0/type = "method"
@@ -66,7 +64,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Event"
-length = 50.0
+length = 60.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -74,8 +72,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28, 32.7, 36, 37.1, 37.5, 38.7, 38.85, 39.4, 39.6, 40.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 15.2, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28, 32.7, 36, 37.1, 37.5, 38.7, 38.85, 39.1, 39.5, 40.1, 40.9, 41.4, 42.1, 43, 45.4, 45.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_FadeMusic"
@@ -173,6 +171,9 @@ tracks/0/keys = {
 "args": [  ],
 "method": "Event_SoulFadeIn"
 }, {
+"args": [ 0 ],
+"method": "Event_RaviaBubble"
+}, {
 "args": [  ],
 "method": "Event_SoulFadeOut"
 }, {
@@ -260,11 +261,29 @@ tracks/0/keys = {
 "args": [ 11 ],
 "method": "Event_Dialogue"
 }, {
+"args": [ 2 ],
+"method": "Event_RaviaBubble"
+}, {
+"args": [ 50.0, 0, 1 ],
+"method": "Event_RaviaWalkNoDirChange"
+}, {
+"args": [  ],
+"method": "Event_RaviaStop"
+}, {
 "args": [ 12 ],
 "method": "Event_Dialogue"
 }, {
 "args": [ 13 ],
 "method": "Event_Dialogue"
+}, {
+"args": [ 180.0, 1, 0, 3 ],
+"method": "Event_NeftaliWalk"
+}, {
+"args": [ 1 ],
+"method": "Event_RaviaTurn"
+}, {
+"args": [ 14 ],
+"method": "Event_DialogueSingle"
 } ]
 }
 tracks/1/type = "value"
@@ -290,6 +309,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../LogoFade/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 47.4, 49.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.580392 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -541,7 +572,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="SoulFade"]
 margin_right = 1104.0
 margin_bottom = 672.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -557,6 +588,20 @@ __meta__ = {
 margin_right = 1104.0
 margin_bottom = 672.0
 color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LogoFade" type="Node2D" parent="."]
+z_index = 1600
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="LogoFade"]
+margin_right = 1104.0
+margin_bottom = 672.0
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }

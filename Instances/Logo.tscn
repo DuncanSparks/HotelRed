@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Title/Hotel Red Logo small.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float timeConst = 3f;
+uniform float waveConst = 10f;
+uniform float sinConst = 0.1;
+
+void fragment() {
+	vec2 uvOffset;
+	uvOffset.x = cos(TIME * timeConst + UV.x + UV.y * waveConst) * sinConst;
+	uvOffset.y = sin(TIME * timeConst + UV.x * waveConst + UV.y) * sinConst;
+	
+	COLOR = texture(TEXTURE, UV + uvOffset);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/timeConst = 3.0
+shader_param/waveConst = 10.0
+shader_param/sinConst = 0.1
+
+[node name="Logo" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
+

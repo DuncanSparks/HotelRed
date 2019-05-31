@@ -100,7 +100,6 @@
 
 [12]
 {
-	<0 idle_angry idle_annoyed>...!
 	<1 idle_angry annoyed>And then answer me this:
 	<1 idle_angry annoyed>If these people you're here to see are so important,| why can't you remember their names?
 	<0 sad idle_annoyed>I...
@@ -129,4 +128,12 @@
 	<0 idle_angry idle>...
 	<1 idle_irked talk>And,| above all...
 	<1 idle talk>Please enjoy your stay at $rHotel Red$0!
+}
+
+[14]
+{
+	<0 idle_sad _>...
+	<0 sad _>This was a mistake.
+	<0 sad _>Why did I think this would change#anything?
+	<0 idle_sad _>...
 }

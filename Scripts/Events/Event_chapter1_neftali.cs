@@ -98,6 +98,13 @@ public class Event_chapter1_neftali : AnimationPlayer
 	}
 
 
+	public void Event_DialogueSingle(int set)
+	{
+		GetParent<Event>().PauseEvent();
+		Controller.Dialogue(dialogueFile, set, "Ravia", "#2391ef", raviaFrames, restoreMovement: false, signalConnection: this, signalMethod: "Resume");
+	}
+
+
 	public void Event_RaviaTurn(int direction)
 	{
 		Player.Face = (Player.SpriteDirection)direction;
@@ -125,6 +132,15 @@ public class Event_chapter1_neftali : AnimationPlayer
 		Player.Walking = true;
 		Player.MotionOverrideVec = new Vector2(motionX, motionY);
 		Player.Face = (Player.SpriteDirection)direction;
+		Player.MotionOverride = true;
+		Player.WalkSpeedOverride = speed;
+	}
+
+
+	public void Event_RaviaWalkNoDirChange(float speed, int motionX, int motionY)
+	{
+		Player.Walking = true;
+		Player.MotionOverrideVec = new Vector2(motionX, motionY);
 		Player.MotionOverride = true;
 		Player.WalkSpeedOverride = speed;
 	}
