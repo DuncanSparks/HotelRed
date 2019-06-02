@@ -1,11 +1,15 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=2]
+[gd_resource type="SpriteFrames" load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Characters/Neftali/Neftali left new.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Characters/Neftali/Neftali right new.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Neftali/Neftali back.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkdown 1.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkdown 2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkleft 1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkleft 2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkright 2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkright 1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkdown 1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Neftali/Neftali walkdown 2.png" type="Texture" id=10]
 
 [resource]
 animations = [ {
@@ -24,29 +28,29 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "walkleft",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "walkup",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walkleft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walkright",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walkdown",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "walkright",
+"name": "down",
 "speed": 5.0
 } ]
 
