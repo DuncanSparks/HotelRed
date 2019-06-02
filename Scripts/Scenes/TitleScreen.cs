@@ -22,6 +22,8 @@ public class TitleScreen : Control
 	private AudioStream thunderclapSound;
 
 	private bool passToShader = true;
+	private bool inCredits = false;
+	private bool buffer = false;
 
 	// Refs
 	private ShaderMaterial Shader;
@@ -49,6 +51,15 @@ public class TitleScreen : Control
 			Shader.SetShaderParam("waveConst", shaderWaveConst);
 			Shader.SetShaderParam("speed", ShaderWaveSpeed);
 		}
+
+		if (Input.IsActionJustPressed("sys_accept") && inCredits && !buffer)
+		{
+			inCredits = false;
+			GetNode<AnimationPlayer>("AnimationPlayerCredits").Play("Credits fade");
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("Credits back");
+			buffer = true;
+			GetNode<Timer>("TimerBuffer").Start();
+		}
 	}
 
 	// ================================================================
@@ -61,20 +72,34 @@ public class TitleScreen : Control
 
 	public void ClickNewGame()
 	{
-		/* Controller.PlaySystemSound(Controller.Sound.SELECT);
-		Player.EnableCamera(true);
-		Controller.SceneGoto(StartScene);
-		Player.Main.Position = StartPosition; */
-		Controller.PlaySystemSound(Controller.Sound.SELECT);
-		GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 0.6f;
-		GetNode<AnimationPlayer>("AnimationPlayer").Play("Fadeout");
+		if (!buffer)
+		{
+			Controller.PlaySystemSound(Controller.Sound.SELECT);
+			GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed = 0.6f;
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fadeout");
+		}
+	}
+
+
+	public void ClickCredits()
+	{
+		if (!buffer)
+		{
+			Controller.PlaySystemSound(Controller.Sound.SELECT);
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fadeout 2");
+			GetNode<AnimationPlayer>("AnimationPlayerCredits").Play("Credits roll");
+			inCredits = true;
+		}
 	}
 
 
 	public void ClickExit()
 	{
-		Controller.PlaySystemSound(Controller.Sound.SELECT);
-		GetNode<AnimationPlayer>("AnimationPlayer").Play("Exit");
+		if (!buffer)
+		{
+			Controller.PlaySystemSound(Controller.Sound.SELECT);
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("Exit");
+		}
 	}
 
 	// ================================================================
@@ -91,6 +116,7 @@ public class TitleScreen : Control
 		Player.EnableCamera(true);
 		Controller.SceneGoto(StartScene);
 		Player.Main.Position = StartPosition;
+		Player.State = Player.ST.MOVE;
 	}
 
 
@@ -117,5 +143,11 @@ public class TitleScreen : Control
 				GetTree().Quit();
 				break;
 		}
+	}
+
+
+	private void ResetBuffer()
+	{
+		buffer = false;
 	}
 }

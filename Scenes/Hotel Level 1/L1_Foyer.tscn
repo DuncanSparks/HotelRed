@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -22,14 +22,11 @@
 [ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal final.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Audio/MUSICS/Ravia's Room.ogg" type="AudioStream" id=21]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=24]
-[ext_resource path="res://Sprites/Props/Candle 3.png" type="Texture" id=25]
-[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=30]
+[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -324,25 +321,22 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 5, 12 )
-
-[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 552, 240 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 87, 21 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 15, 11 )
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.507538, 1 )
 colors = PoolColorArray( 1, 0, 0, 0, 1, 0.0901961, 0, 1, 1, 0.188235, 0, 0 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=9]
 emission_shape = 2
 emission_box_extents = Vector3( 552, 336, 1 )
 flag_disable_z = true
@@ -357,7 +351,7 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.2
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 8 )
 hue_variation = 0.1
 hue_variation_random = 0.5
 
@@ -469,25 +463,13 @@ targetScene = "res://Scenes/Hotel Level 1/Corridor2.tscn"
 targetPosition = Vector2( 175, 370 )
 walk = true
 
-[node name="WorldItem" parent="." instance=ExtResource( 23 )]
-position = Vector2( 749, 228 )
-itemName = "Candle Key"
-removeFlag = "test_item"
-getSound = ExtResource( 24 )
-
-[node name="Sprite" parent="WorldItem" index="0"]
-texture = ExtResource( 25 )
-
-[node name="CollisionShape2D" parent="WorldItem/Hitbox" index="0"]
-shape = SubResource( 4 )
-
-[node name="FootstepSoundZone" parent="." instance=ExtResource( 26 )]
+[node name="FootstepSoundZone" parent="." instance=ExtResource( 23 )]
 visible = false
 position = Vector2( 552, 432 )
 sound = 2
 
 [node name="CollisionShape2D" parent="FootstepSoundZone" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 240, 420 )
@@ -495,14 +477,14 @@ z_index = 420
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 27 )
+texture = ExtResource( 24 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, 30 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -512,7 +494,7 @@ position = Vector2( 240, 494 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 28 )
+texture = ExtResource( 25 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -526,11 +508,11 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D4"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 29 )
+texture = ExtResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2( 0, 25 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -545,11 +527,11 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D5"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 29 )
+texture = ExtResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2( 0, 25 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -560,8 +542,8 @@ position = Vector2( 552, 336 )
 z_index = 800
 amount = 16
 visibility_rect = Rect2( -552, -336, 1104, 672 )
-process_material = SubResource( 10 )
-texture = ExtResource( 30 )
+process_material = SubResource( 9 )
+texture = ExtResource( 27 )
 
 [node name="SoulFade" type="Node2D" parent="."]
 z_index = 1500
@@ -612,7 +594,5 @@ __meta__ = {
 [editable path="EventNPCNeftali"]
 
 [editable path="EventNPCNeftali/Event"]
-
-[editable path="WorldItem"]
 
 [editable path="FootstepSoundZone"]

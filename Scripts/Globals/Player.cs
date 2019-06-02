@@ -67,7 +67,7 @@ public class Player : KinematicBody2D
 
 	// States
 	public enum ST {MOVE, NO_INPUT};
-	private ST state = ST.MOVE;
+	private ST state = ST.NO_INPUT;
 
 	// Constants
 	#if DEBUG_FAST_WALK
