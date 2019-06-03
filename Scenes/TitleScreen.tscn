@@ -360,7 +360,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 10 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 380, -550 ]
+"values": [ 380, -630 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Credits:modulate")
@@ -382,6 +382,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+UseTitleScreen = false
 StartScene = ExtResource( 2 )
 StartPosition = Vector2( -16, 185 )
 shaderWaveConst = 0.2
@@ -728,6 +729,28 @@ margin_right = 362.0
 margin_bottom = 526.0
 custom_fonts/font = SubResource( 13 )
 text = "Character art"
+
+[node name="Credits21" type="Label" parent="Credits"]
+margin_top = 530.0
+margin_right = 362.0
+margin_bottom = 560.0
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 0.235294, 0, 1 )
+
+[node name="Credits22" type="Label" parent="Credits"]
+margin_top = 564.0
+margin_right = 362.0
+margin_bottom = 594.0
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 0.235294, 0, 1 )
+text = "Made in"
+
+[node name="Credits23" type="Label" parent="Credits"]
+margin_top = 598.0
+margin_right = 362.0
+margin_bottom = 613.0
+custom_fonts/font = SubResource( 13 )
+text = "Godot Engine, C#"
 
 [node name="MusicTitle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )

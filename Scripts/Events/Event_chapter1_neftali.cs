@@ -49,7 +49,13 @@ public class Event_chapter1_neftali : AnimationPlayer
 	private AudioStream soulStealSoundFinal;
 
 	[Export]
+	private PackedScene soulInstance;
+
+	[Export]
 	private AudioStream afterMusic;
+
+	[Export]
+	private AudioStream roomMusic;
 
 	// Instance refs
 	private Particles2D parts1;
@@ -57,6 +63,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 	private Particles2D parts3;
 	private Sprite face1;
 	private Sprite face2;
+	private Node2D soul;
 
 	// Refs
 	private EventNPC neftaliNPC;
@@ -66,7 +73,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public override void _Ready()
 	{
-		neftaliNPC = GetNode<EventNPC>(neftaliInstance);//GetNode<EventNPC>(neftaliInstance);
+		neftaliNPC = GetNode<EventNPC>(neftaliInstance);
 		speaker = GetParent<Area2D>().GetNode<AudioStreamPlayer>("Speaker");
 	}
 
@@ -207,11 +214,8 @@ public class Event_chapter1_neftali : AnimationPlayer
 	{
 		Controller.PlaySoundBurst(soulStealSound3);
 		Controller.PlaySoundBurst(soulStealSound4, pitch: 0.6f);
-		//var parts = (Particles2D)soulParts1.Instance();
 		parts1 = (Particles2D)soulParts1.Instance();
 		parts1.Position = new Vector2(Player.Main.Position.x, Player.Main.Position.y + 36);
-		//parts.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Close in").TrackSetKeyValue(2, 0, new Vector2(Player.Main.Position.x, Player.Main.Position.y + 74));
-		//parts.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Close in").TrackSetKeyValue(2, 1, new Vector2(Player.Main.Position.x, Player.Main.Position.y + 74 - 56));
 		GetTree().GetRoot().AddChild(parts1);
 	}
 
@@ -225,8 +229,6 @@ public class Event_chapter1_neftali : AnimationPlayer
 	public void Event_Particles2()
 	{
 		parts2 = (Particles2D)partsBackground.Instance();
-		//parts.Position = Player.Main.Position;
-		//GetTree().GetRoot().AddChild(parts);
 		Player.Main.AddChild(parts2);
 	}
 
@@ -245,8 +247,6 @@ public class Event_chapter1_neftali : AnimationPlayer
 		face2 = (Sprite)neftaliFace1.Instance();
 		face2.GetNode<AnimationPlayer>("AnimationPlayer").Play("Fade 1");
 		face2.Position = new Vector2(Player.Main.Position.x + 200, Player.Main.Position.y - 80);
-		//var mat = (ShaderMaterial)face.Material;
-		//mat.SetShaderParam("sinConst", -0.3f);
 		GetTree().GetRoot().AddChild(face2);
 		parts3 = (Particles2D)partsEnd.Instance();
 		Player.Main.AddChild(parts3);
@@ -255,8 +255,6 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_AnimationEnd()
 	{
-		//var parts = (Particles2D)partsEnd.Instance();
-		//Player.Main.AddChild(parts);
 		Controller.PlaySoundBurst(soulStealSoundFinal);
 	}
 
@@ -275,8 +273,49 @@ public class Event_chapter1_neftali : AnimationPlayer
 	}
 
 
+	public void Event_NeftaliAnimation()
+	{
+		neftaliNPC.SpriteOverride = true;
+		neftaliNPC.PlayAnimation("down_hold");
+	}
+
+
+	public void Event_SoulAppear()
+	{
+		soul = (Node2D)soulInstance.Instance();
+		soul.Position = new Vector2(neftaliNPC.Position.x + 20, neftaliNPC.Position.y - 26);
+		GetTree().GetRoot().AddChild(soul);
+	}
+
+
+	public void Event_SoulDisappear()
+	{
+		neftaliNPC.SpriteOverride = false;
+		soul.GetNode<AnimationPlayer>("AnimationPlayer2").Play("Fadeout");
+	}
+
+
 	public void Event_AfterMusic()
 	{
 		Controller.PlayMusic(afterMusic);
+	}
+
+
+	public void Event_FadeMusic2()
+	{
+		Controller.FadeMusic(3);
+	}
+
+
+	public void Event_PlayEndMusic()
+	{
+		Controller.PlayMusic(roomMusic);
+	}
+
+
+	public void Event_FinalCleanup()
+	{
+		soul.QueueFree();
+		Controller.SetFlag("neftali_cutscene", 1);
 	}
 }

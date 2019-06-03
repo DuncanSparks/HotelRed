@@ -11,6 +11,12 @@ public class Event_opening_a2 : AnimationPlayer
 
 	[Export(PropertyHint.File, "*.tscn")]
 	private string targetScene = string.Empty;
+
+	[Export]
+	private AudioStream openSound1;
+
+	[Export]
+	private AudioStream openSound2;
 	
 	/* [Export]
 	AudioStream exclamation;*/
@@ -81,8 +87,23 @@ public class Event_opening_a2 : AnimationPlayer
 	}
 
 
+	public void Event_RaviaAnim()
+	{
+		Player.SpriteOverride = true;
+		Player.PlayDoorAnimation();
+	}
+
+
+	public void Event_OpenSounds()
+	{
+		Controller.PlaySoundBurst(openSound1);
+		Controller.PlaySoundBurst(openSound2);
+	}
+
+
 	public void Event_Transition()
 	{
+		Player.SpriteOverride = false;
 		Player.State = Player.ST.MOVE;
 		Controller.SceneGoto(targetScene);
 		Player.Main.Position = new Vector2(552, 652);

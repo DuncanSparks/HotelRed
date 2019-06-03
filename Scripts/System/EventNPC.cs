@@ -35,6 +35,7 @@ public class EventNPC : KinematicBody2D
 	private bool depthControl = true;
 
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
+	private bool spriteOverride;
 
 	private int dialogueSet = 0;
 	private string npcColorStr;
@@ -52,6 +53,7 @@ public class EventNPC : KinematicBody2D
 	public bool Walking { get { return walking; } set { walking = value; } }
 	public float WalkSpeed { get { return walkSpeed; } set { walkSpeed = value; } }
 	public bool DepthControl { get => depthControl; set => depthControl = value; }
+	public bool SpriteOverride { get => spriteOverride; set => spriteOverride = value; }
 
 	// ================================================================
 
@@ -73,7 +75,8 @@ public class EventNPC : KinematicBody2D
 		if (depthControl)
 			ZIndex = (int)Position.y;
 
-		Animate();
+		if (!spriteOverride)
+			Animate();
 
 		if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
 		{
@@ -87,6 +90,13 @@ public class EventNPC : KinematicBody2D
 	public override void _PhysicsProcess(float delta)
 	{
 		MoveAndSlide(motion * walkSpeed);
+	}
+
+	// ================================================================
+
+	public void PlayAnimation(string animation)
+	{
+		spr.Play(animation);
 	}
 
 	// ================================================================

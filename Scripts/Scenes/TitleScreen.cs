@@ -37,6 +37,7 @@ public class TitleScreen : Control
 			Player.EnableCamera(true);
 			Controller.SceneGoto(StartScene);
 			Player.Main.Position = StartPosition;
+			Player.State = Player.ST.MOVE;
 		}
 		
 

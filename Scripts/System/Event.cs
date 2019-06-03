@@ -21,10 +21,13 @@ public class Event : Area2D
 
 	public override void _Ready()
 	{
-		if (destroy && Controller.Flag(destroyFlag) == 1)
-			QueueFree();
-		if (destroy && Controller.Flag(destroyFlag) == 0)
-			Controller.SetFlag("enter_foyer", 1);
+		if (destroy)
+		{
+			if (Controller.Flag(destroyFlag) == 1)
+				QueueFree();
+			//else
+				//Controller.SetFlag(destroyFlag, 1);
+		}
 
 		AnimPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
@@ -40,6 +43,13 @@ public class Event : Area2D
 			running = true;
 			SetProcess(false);
 		}
+	}
+
+
+	public override void _ExitTree()
+	{
+		if (destroy)
+			Controller.SetFlag(destroyFlag, 1);
 	}
 
 	// ================================================================

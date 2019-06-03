@@ -45,6 +45,7 @@ public class Player : KinematicBody2D
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
 	public enum Items {Room_Key, Bat_Hearts, Sleeper_Key, Shredded_Paper, Water, Coin, uh, Tape1, Tape2, Tape3};
 	private SpriteSet currentSpriteSet = SpriteSet.NORMAL;
+	private bool spriteOverride = false;
 
 	private static readonly string[] spriteSetNormal = {"up", "down", "left", "right"};
 	private static readonly string[] spriteSetNormalWalk = {"walkup", "walkdown", "walkleft", "walkright"};
@@ -105,6 +106,7 @@ public class Player : KinematicBody2D
 	public static Vector2 MotionOverrideVec { get { return Player.Main.motionOverrideVec; } set { Player.Main.motionOverrideVec = value; } }
 	public static float WalkSpeedOverride { get { return Player.Main.walkSpeedOverride; } set {Player.Main.walkSpeedOverride = value; } }
 	public static SpriteDirection Face { get { return Player.Main.face; } set { Player.Main.face = value; } }
+	public static bool SpriteOverride { get => Player.Main.spriteOverride; set => Player.Main.spriteOverride = value; }
 	public static bool Walking { get { return Player.Main.walking; } set { Player.Main.walking = value; } }
 	public static bool Teleporting { get { return Player.Main.teleporting; } set { Player.Main.teleporting = value; } }
 	public static Sound StepSound{ get { return Player.Main.stepSound; } set { Player.Main.stepSound = value; } }
@@ -192,7 +194,8 @@ public class Player : KinematicBody2D
 			}
 		}
 
-		Spr.Play(GetSprite(currentSpriteSet, face, walking));
+		if (!spriteOverride)
+			Spr.Play(GetSprite(currentSpriteSet, face, walking));
 
 		if (!motionOverride)
 			motion = MoveAndSlide(motion * WalkSpeed);
@@ -215,6 +218,17 @@ public class Player : KinematicBody2D
 	{
 		Player.State = Player.ST.MOVE;
 		Player.MotionOverride = false;
+	}
+
+
+	public static void PlayDoorAnimation()
+	{
+		switch (Face)
+		{
+			case SpriteDirection.UP:
+				Player.Main.Spr.Play("up_door");
+				break;
+		}
 	}
 
 
