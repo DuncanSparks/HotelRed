@@ -27,6 +27,9 @@ public class EventNPC : KinematicBody2D
 	[Export(PropertyHint.File, "*.txt")]
 	private string dialogueFile = string.Empty;
 
+	[Export]
+	private bool destroyAfterEvent = false;
+
 	// Motion
 	private Vector2 motion = new Vector2(0, 0);
 	private SpriteDirection face = SpriteDirection.DOWN;
@@ -140,5 +143,12 @@ public class EventNPC : KinematicBody2D
 				spr.Play(walking ? "walkright" : "right");
 				break;
 		}
+	}
+
+
+	private void EndEventParent(string anim_name)
+	{
+		if (destroyAfterEvent)
+			QueueFree();
 	}
 }

@@ -46,17 +46,20 @@ public class NPC : KinematicBody2D
 	private string npcColorStr;
 	private SpriteFrames raviaPortrait = GD.Load<SpriteFrames>("res://Resources/Portrait Sets/Portraits_Ravia.tres");
 
+	private bool disabled = false;
+
 	// Refs
 	private AnimatedSprite spr;
 	private Sprite interact;
 
 	// ================================================================
 
-	public Vector2 Motion { get; set; }
-	public SpriteDirection Face { get; set; }
-	public bool Walking { get; set; }
-	public float WalkSpeed { get; set; }
-
+	public Vector2 Motion { get => motion; set => motion = value; }
+	public SpriteDirection Face { get => face; set => face = value; }
+	public bool Walking { get => walking; set => walking = value; }
+	public float WalkSpeed { get => walkSpeed; set => walkSpeed = value; }
+	public bool Disabled { get => disabled; set => disabled = value; }
+	
 	// ================================================================
 
 	public override void _Ready()
@@ -73,17 +76,21 @@ public class NPC : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		ZIndex = (int)Position.y;
+		spr.Visible = !disabled;
 
-		Animate();
-
-		if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
+		if (!disabled)
 		{
-			Player.State = Player.ST.NO_INPUT;
-			interact.Hide();
-			Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue");
-			if (itemGiver)
-				Player.AddItem(itemIndex);
+			ZIndex = (int)Position.y;
+			Animate();
+
+			if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
+			{
+				Player.State = Player.ST.NO_INPUT;
+				interact.Hide();
+				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue");
+				if (itemGiver)
+					Player.AddItem(itemIndex);
+			}
 		}
 	}
 
@@ -99,7 +106,7 @@ public class NPC : KinematicBody2D
 
 	private void InteractAreaEntered(Area2D area)
 	{
-		if (area.IsInGroup("PlayerSight") && Player.State == Player.ST.MOVE)
+		if (!disabled && area.IsInGroup("PlayerSight") && Player.State == Player.ST.MOVE)
 		{
 			interact.Show();
 		}
@@ -108,7 +115,7 @@ public class NPC : KinematicBody2D
 
 	private void InteractAreaExited(Area2D area)
 	{
-		if (area.IsInGroup("PlayerSight"))
+		if (!disabled && area.IsInGroup("PlayerSight"))
 		{
 			interact.Hide();
 		}

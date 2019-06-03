@@ -79,5 +79,6 @@ shape = SubResource( 3 )
 
 [connection signal="area_entered" from="InteractionArea" to="." method="InteractAreaEntered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="InteractAreaExited"]
+[connection signal="animation_finished" from="Event/AnimationPlayer" to="." method="EndEventParent"]
 
 [editable path="Event"]

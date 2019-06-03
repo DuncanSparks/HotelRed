@@ -283,7 +283,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 	public void Event_SoulAppear()
 	{
 		soul = (Node2D)soulInstance.Instance();
-		soul.Position = new Vector2(neftaliNPC.Position.x + 20, neftaliNPC.Position.y - 26);
+		soul.Position = new Vector2(neftaliNPC.Position.x + 20, neftaliNPC.Position.y - 10);
 		GetTree().GetRoot().AddChild(soul);
 	}
 
@@ -303,7 +303,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_FadeMusic2()
 	{
-		Controller.FadeMusic(3);
+		Controller.FadeMusic(1f);
 	}
 
 
@@ -315,6 +315,7 @@ public class Event_chapter1_neftali : AnimationPlayer
 
 	public void Event_FinalCleanup()
 	{
+		GetParent<Area2D>().GetParent<EventNPC>().GetParent<Node2D>().GetNode<NPC>("NPCNeftali").Disabled = false;
 		soul.QueueFree();
 		Controller.SetFlag("neftali_cutscene", 1);
 	}

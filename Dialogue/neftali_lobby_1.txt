@@ -1,0 +1,5 @@
+[0]
+{
+	<1 idle talk>Hello,| Ravia!
+	<1 idle talk>This is some placeholder text.{ How about that?
+}

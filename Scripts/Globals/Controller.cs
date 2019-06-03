@@ -18,6 +18,7 @@ public class Controller : Node
 	private Dictionary<string, int> flag = new Dictionary<string, int>()
 	{
 		{"test_item", 0}, {"enter_foyer", 0},
+		{"neftali_cutscene", 0},
 	};
 
 	public enum Sound {HOVER, SELECT, BUBBLE_EXCLAMATION};
@@ -280,7 +281,7 @@ public class Controller : Node
 
 	public static void PlayCharacterTheme(AudioStream characterTheme)
 	{
-		Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = -60;
+		//Controller.Main.GetNode<AudioStreamPlayer>("MUSIC").VolumeDb = -60;
 		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Stream = characterTheme;
 		Controller.Main.GetNode<AudioStreamPlayer>("CHARACTERTHEME").Play();
 	}

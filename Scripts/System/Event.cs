@@ -73,6 +73,7 @@ public class Event : Area2D
 			Player.FreePlayer();
 			QueueFree();
 		}
+		
 		Player.InventoryLock = false;
 	}
 

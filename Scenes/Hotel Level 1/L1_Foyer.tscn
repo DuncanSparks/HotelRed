@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scripts/Scenes/L1_Foyer.cs" type="Script" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
@@ -8,27 +8,28 @@
 [ext_resource path="res://Scripts/Events/Event_chapter1_a1.cs" type="Script" id=6]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=8]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=10]
-[ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=11]
-[ext_resource path="res://Audio/MUSICS/Neftali's Office.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 1.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Instances/Particles/PartsSoulSteal.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Instances/Scenes/NeftaliFace1.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Instances/Particles/PartsSoulSteal2.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Instances/Particles/PartsSoulSteal3.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 3.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 2.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 4.ogg" type="AudioStream" id=20]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal final.ogg" type="AudioStream" id=21]
-[ext_resource path="res://Instances/Scenes/RaviaSoul.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Audio/MUSICS/Ravia's Room.ogg" type="AudioStream" id=23]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=29]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Events/Event_chapter1_neftali.cs" type="Script" id=12]
+[ext_resource path="res://Audio/MUSICS/Neftali's Office.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 1.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Instances/Particles/PartsSoulSteal.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Instances/Scenes/NeftaliFace1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Instances/Particles/PartsSoulSteal2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Instances/Particles/PartsSoulSteal3.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 3.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 2.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 4.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal final.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Instances/Scenes/RaviaSoul.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Audio/MUSICS/Ravia's Room.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Instances/FootstepSoundZone.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Sprites/Props/couch 2.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Props/Table 1 Rotated.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Particles/Circle.png" type="Texture" id=30]
 
 [sub_resource type="Animation" id=1]
 length = 3.5
@@ -65,10 +66,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -83,8 +84,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 15.2, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28, 32.7, 34, 35, 36, 37.1, 37.5, 38.7, 38.8, 38.85, 39.1, 39.5, 40.1, 40.9, 41.4, 42.1, 43, 45.4, 45.8, 46.8, 50 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1, 1.2, 1.6, 2.1, 2.4, 2.7, 3, 3.2, 3.4, 3.65, 3.7, 4.4, 4.8, 5.8, 5.9, 7.8, 7.9, 8.3, 8.4, 8.5, 9.8, 9.9, 10, 10.2, 10.3, 10.9, 11.5, 12.3, 12.9, 13.9, 15.2, 17.4, 18, 18.4, 18.8, 19.4, 19.5, 20.1, 20.5, 21, 21.5, 21.7, 22, 22.3, 22.6, 22.9, 23.2, 23.4, 23.6, 23.8, 23.9, 27.9, 28, 32.7, 34, 35, 36, 37.1, 37.5, 38.7, 38.8, 38.85, 39.1, 39.5, 40.1, 40.9, 41.4, 42.1, 43, 45.4, 45.8, 47, 49.8, 49.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "Event_FadeMusic"
@@ -309,6 +310,9 @@ tracks/0/keys = {
 "method": "Event_FadeMusic2"
 }, {
 "args": [  ],
+"method": "Event_PlayEndMusic"
+}, {
+"args": [  ],
 "method": "Event_FinalCleanup"
 } ]
 }
@@ -448,13 +452,22 @@ raviaPortrait = ExtResource( 7 )
 neftaliPortrait = ExtResource( 8 )
 lobbyMusic = ExtResource( 4 )
 
-[node name="EventNPCNeftali" parent="." instance=ExtResource( 9 )]
+[node name="NPCNeftali" parent="." instance=ExtResource( 9 )]
+position = Vector2( 984, 480 )
+npcName = "Neftali"
+npcColor = Color( 1, 0, 0, 1 )
+npcSprite = ExtResource( 10 )
+npcPortrait = ExtResource( 8 )
+dialogueFile = "res://Dialogue/neftali_lobby_1.txt"
+
+[node name="EventNPCNeftali" parent="." instance=ExtResource( 11 )]
 position = Vector2( 984, 480 )
 npcName = "Neftali"
 npcColor = Color( 1, 0, 0, 1 )
 npcSprite = ExtResource( 10 )
 npcPortrait = ExtResource( 8 )
 startDirection = 2
+destroyAfterEvent = true
 
 [node name="CollisionShape2D" parent="EventNPCNeftali" index="1"]
 position = Vector2( 0, 26 )
@@ -462,27 +475,27 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="EventNPCNeftali/Event" index="1"]
 anims/Event = SubResource( 3 )
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 raviaFrames = ExtResource( 7 )
 neftaliFrames = ExtResource( 8 )
 dialogueFile = "res://Dialogue/scene_chapter1_neftali.txt"
 neftaliInstance = NodePath("../../../EventNPCNeftali")
-neftaliMusic = ExtResource( 12 )
-soulStealSound1 = ExtResource( 13 )
-soulParts1 = ExtResource( 14 )
-neftaliFace1 = ExtResource( 15 )
-partsBackground = ExtResource( 16 )
-partsEnd = ExtResource( 17 )
-soulParts1Sound = ExtResource( 18 )
-soulStealSound2 = ExtResource( 19 )
-soulStealSound3 = ExtResource( 18 )
-soulStealSound4 = ExtResource( 20 )
-soulStealSoundFinal = ExtResource( 21 )
-soulInstance = ExtResource( 22 )
-afterMusic = ExtResource( 23 )
+neftaliMusic = ExtResource( 13 )
+soulStealSound1 = ExtResource( 14 )
+soulParts1 = ExtResource( 15 )
+neftaliFace1 = ExtResource( 16 )
+partsBackground = ExtResource( 17 )
+partsEnd = ExtResource( 18 )
+soulParts1Sound = ExtResource( 19 )
+soulStealSound2 = ExtResource( 20 )
+soulStealSound3 = ExtResource( 19 )
+soulStealSound4 = ExtResource( 21 )
+soulStealSoundFinal = ExtResource( 22 )
+soulInstance = ExtResource( 23 )
+afterMusic = ExtResource( 24 )
 roomMusic = ExtResource( 4 )
 
-[node name="Transition" parent="." instance=ExtResource( 24 )]
+[node name="Transition" parent="." instance=ExtResource( 25 )]
 position = Vector2( 0, 192 )
 scale = Vector2( 1, 4 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor.tscn"
@@ -490,21 +503,21 @@ targetPosition = Vector2( 575, 175 )
 targetDirection = 2
 walk = true
 
-[node name="Transition2" parent="." instance=ExtResource( 24 )]
+[node name="Transition2" parent="." instance=ExtResource( 25 )]
 position = Vector2( 912, 95 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Restaurant.tscn"
 targetPosition = Vector2( 160, 170 )
 walk = true
 
-[node name="Transition3" parent="." instance=ExtResource( 24 )]
+[node name="Transition3" parent="." instance=ExtResource( 25 )]
 position = Vector2( 96, 0 )
 scale = Vector2( 5, 1 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor2.tscn"
 targetPosition = Vector2( 175, 370 )
 walk = true
 
-[node name="FootstepSoundZone" parent="." instance=ExtResource( 25 )]
+[node name="FootstepSoundZone" parent="." instance=ExtResource( 26 )]
 visible = false
 position = Vector2( 552, 432 )
 sound = 2
@@ -538,7 +551,7 @@ z_index = 420
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -556,7 +569,7 @@ z_index = 494
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -577,7 +590,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D4"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2( 0, 25 )
@@ -596,7 +609,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D5"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2( 0, 25 )
@@ -612,7 +625,7 @@ z_index = 800
 amount = 16
 visibility_rect = Rect2( -552, -336, 1104, 672 )
 process_material = SubResource( 10 )
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 
 [node name="SoulFade" type="Node2D" parent="."]
 z_index = 1500
@@ -623,7 +636,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="SoulFade"]
 margin_right = 1104.0
 margin_bottom = 672.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_lock_": true
 }

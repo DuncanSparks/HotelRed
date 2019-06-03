@@ -104,14 +104,15 @@ tracks/1/keys = {
 }
 
 [node name="RaviaSoul" type="Node2D"]
-position = Vector2( 0, -19.7175 )
+position = Vector2( 0, 20 )
 z_index = 1250
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 6.1282
+self_modulate = Color( 1, 1, 1, 0 )
+rotation = 3.14159
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
@@ -122,7 +123,6 @@ lifetime = 2.0
 process_material = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 anims/Idle = SubResource( 1 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]

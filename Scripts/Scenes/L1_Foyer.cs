@@ -7,5 +7,10 @@ public class L1_Foyer : Node2D
 	{
 		if (Controller.Flag("enter_foyer") == 1)
 			GetNode<Node2D>("SoulFade2").GetNode<ColorRect>("ColorRect").QueueFree();
+		else
+			GetNode<NPC>("NPCNeftali").Disabled = true;
+
+		if (Controller.Flag("neftali_cutscene") == 1)
+			GetNode<EventNPC>("EventNPCNeftali").QueueFree();
 	}
 }
