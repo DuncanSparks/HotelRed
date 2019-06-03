@@ -87,6 +87,7 @@ public class NPC : KinematicBody2D
 			{
 				Player.State = Player.ST.NO_INPUT;
 				interact.Hide();
+				ChangeDirection();
 				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue");
 				if (itemGiver)
 					Player.AddItem(itemIndex);
@@ -137,6 +138,26 @@ public class NPC : KinematicBody2D
 				break;
 			case SpriteDirection.RIGHT:
 				spr.Play(walking ? "walkright" : "right");
+				break;
+		}
+	}
+
+
+	private void ChangeDirection()
+	{
+		switch (Player.Face)
+		{
+			case Player.SpriteDirection.UP:
+				face = SpriteDirection.DOWN;
+				break;
+			case Player.SpriteDirection.DOWN:
+				face = SpriteDirection.UP;
+				break;
+			case Player.SpriteDirection.LEFT:
+				face = SpriteDirection.RIGHT;
+				break;
+			case Player.SpriteDirection.RIGHT:
+				face = SpriteDirection.LEFT;
 				break;
 		}
 	}

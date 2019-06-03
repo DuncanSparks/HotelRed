@@ -106,7 +106,7 @@
 	<0 sad idle_annoyed>I...
 	<0 sad idle_annoyed>Why can't I?
 	<0 sad idle_annoyed>I kept repeating their names over and over the entire way here.
-	<1 idle_sad annoyed>Is that really why you're here?
+	<1 idle_sad annoyed>Is that $wreally $0why you're here?
 	<1 idle_sad annoyed>Are you sure you didn't stumble into this hotel by mistake?
 	<1 idle_sad clever>You certainly wouldn't be the first.
 	<0 angry idle_clever>$sYES!{ $0I'm sure!

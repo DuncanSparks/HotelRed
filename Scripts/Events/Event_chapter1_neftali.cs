@@ -89,6 +89,16 @@ public class Event_chapter1_neftali : AnimationPlayer
 	public void Event_FadeMusic()
 	{
 		Controller.FadeMusic(0.5f);
+		Controller.Fade(false, false, 0.5f);
+	}
+
+
+	public void Event_MoveRavia()
+	{
+		neftaliNPC.Face = EventNPC.SpriteDirection.LEFT;
+		Player.Main.Position = new Vector2(neftaliNPC.Position.x - 86, neftaliNPC.Position.y);
+		Player.Face = Player.SpriteDirection.RIGHT;
+		Controller.Fade(true, false, 0.5f);
 	}
 
 

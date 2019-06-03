@@ -1,4 +1,4 @@
-#define DEBUG_FAST_WALK
+//#define DEBUG_FAST_WALK
 
 using Godot;
 using System;
