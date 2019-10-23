@@ -1,4 +1,5 @@
 //#define DEBUG_FAST_WALK
+#define DEBUG_ENABLE_MOVE
 
 using Godot;
 using System;
@@ -68,7 +69,12 @@ public class Player : KinematicBody2D
 
 	// States
 	public enum ST {MOVE, NO_INPUT};
-	private ST state = ST.NO_INPUT;
+
+	#if DEBUG_ENABLE_MOVE
+		private ST state = ST.MOVE;
+	#else
+		private ST state = ST.NO_INPUT;
+	#endif
 
 	// Constants
 	#if DEBUG_FAST_WALK
@@ -136,7 +142,11 @@ public class Player : KinematicBody2D
 		CurrentItemName = inventory.GetNode<Label>("CurrentItem");
         Images = inventory.GetNode<HBoxContainer>("Container");
         CurrentItemDescription = inventory.GetNode<Label>("CurrentDescription");
-		AddItem(0);
+		//AddItem(0);
+
+		#if DEBUG_ENABLE_MOVE
+			EnableCamera(true);
+		#endif
 	}
 
 	public override void _Process(float delta)

@@ -454,7 +454,6 @@ cameraLimitBottom = 672
 position = Vector2( 480, 624 )
 scale = Vector2( 6, 2 )
 destroyFlag = "enter_foyer"
-autoStart = true
 
 [node name="AnimationPlayer" parent="Event" index="1"]
 anims/Event = SubResource( 1 )
