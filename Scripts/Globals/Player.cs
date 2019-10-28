@@ -96,7 +96,7 @@ public class Player : KinematicBody2D
     private Label CurrentItemDescription;
 	private Control inventory;
 	private bool inventoryLock = true;
-	private bool canViewInventory = false;
+	private bool canViewInventory = true;
 	private bool depthControl = true;
 
 	private int numItems = 0;

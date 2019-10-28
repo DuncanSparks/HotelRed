@@ -5,12 +5,18 @@ using System;
 public class CodeLock : KinematicBody2D
 {
 	// Refs
+    [Export]
+    private string doorCode;
+
 	private AnimatedSprite spr;
 	private Sprite interact;
     private bool isOpen = false;
     private int current = 0;
     private static int[] digitList = {-1, -1, -1, -1};
 	private AudioStream keyPadSound;
+    private AudioStream UnlockedDoorSound;
+    private AudioStream WrongCodeSound;
+    private int ownerID;
 	// ================================================================
 	// ================================================================
 
@@ -20,6 +26,8 @@ public class CodeLock : KinematicBody2D
 		spr = GetNode<AnimatedSprite>("Sprite");
 		interact = GetNode<Sprite>("Interact");
 		keyPadSound = GetNode<AudioStreamPlayer>("KeyPadSound").GetStream();
+        UnlockedDoorSound = GetNode<AudioStreamPlayer>("UnlockedDoorSound").GetStream();
+        WrongCodeSound = GetNode<AudioStreamPlayer>("WrongCodeSound").GetStream();
 		interact.Hide();
         
 	}
@@ -40,11 +48,20 @@ public class CodeLock : KinematicBody2D
             }
             else if (current == 4)
             {
-                clearCells();
+                if(isCorrectCode())
+                {
+                    GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+                    Controller.PlaySoundBurst(UnlockedDoorSound);
+                }
+                else
+                {
+                    Controller.PlaySoundBurst(WrongCodeSound);
+                }
                 Player.State = Player.ST.MOVE;
                 isOpen = false;
                 Player.InventoryLock = false;
                 Player.CodeOverlay.SetVisible(false);
+                clearCells();
             }
             else if (Input.IsActionJustPressed("Backspace"))
                 backSpace();
@@ -82,7 +99,19 @@ public class CodeLock : KinematicBody2D
     }
 	// ================================================================
 
-
+    private bool isCorrectCode()
+    {
+       // for(auto & d: doorCode)
+        for (int i = 0; i < 4; i++)
+        {
+            string temp = doorCode[i].ToString();
+            if(temp != digitList[i].ToString())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 	private void InteractAreaEntered(Area2D area)
 	{
 		if (area.IsInGroup("PlayerSight") && Player.State == Player.ST.MOVE)
