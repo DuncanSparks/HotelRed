@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
+[ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 648.0, 324.0 ],
-"_edit_vertical_guides_": [ 816.0, 408.0 ]
+"_edit_horizontal_guides_": [ 647.0, 324.0, 610.0 ],
+"_edit_vertical_guides_": [ 817.0, 408.0 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -33,4 +35,16 @@ tile_data = PoolIntArray( 0, -1610612696, 0, 1, 536870950, 0, 2, 536870951, 0, 3
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SceneTag" parent="." instance=ExtResource( 2 )]
+text = "Center"
+cameraLimitRight = 817
+cameraLimitBottom = 647
+
+[node name="Balcony" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, 624 )
+scale = Vector2( 4, 1 )
+targetScene = "res://Scenes/Hotel Level 1/L1_Balcony.tscn"
+targetPosition = Vector2( 550, 115 )
+targetDirection = 1
 

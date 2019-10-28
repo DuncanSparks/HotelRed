@@ -13,8 +13,8 @@ extents = Vector2( 10, 60 )
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [  ],
-"_edit_vertical_guides_": [  ]
+"_edit_horizontal_guides_": [ 250.0, 270.0 ],
+"_edit_vertical_guides_": [ 128.0, 470.0 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -36,22 +36,21 @@ targetPosition = Vector2( 40, 250 )
 targetDirection = 3
 walk = true
 
-[node name="RaviaRoom" parent="." instance=ExtResource( 5 )]
-position = Vector2( 432, 288 )
-scale = Vector2( 3, 1 )
-targetScene = "res://Scenes/Hotel Level 1/RaviasRoom.tscn"
-targetPosition = Vector2( 105, 50 )
-targetDirection = 1
-playsSoundOnEnter = true
-getSound = ExtResource( 6 )
-
 [node name="SleeperRoom" parent="." instance=ExtResource( 5 )]
-position = Vector2( 96, 288 )
+position = Vector2( 432, 288 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/SleepersRoom.tscn"
 targetPosition = Vector2( 300, 50 )
 targetDirection = 1
-walk = true
+playsSoundOnEnter = true
+getSound = ExtResource( 6 )
+
+[node name="RaviaRoom2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 96, 288 )
+scale = Vector2( 3, 1 )
+targetScene = "res://Scenes/Hotel Level 1/RaviasRoom.tscn"
+targetPosition = Vector2( 108, 50 )
+targetDirection = 1
 playsSoundOnEnter = true
 getSound = ExtResource( 6 )
 

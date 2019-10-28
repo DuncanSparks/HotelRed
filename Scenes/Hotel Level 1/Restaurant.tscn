@@ -6,8 +6,8 @@
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 330.0 ],
-"_edit_vertical_guides_": [ 960.0 ]
+"_edit_horizontal_guides_": [ 325.0 ],
+"_edit_vertical_guides_": [ 960.0, 181.0 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -29,5 +29,4 @@ scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
 targetPosition = Vector2( 950, 200 )
 targetDirection = 1
-walk = true
 

@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=4]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_vertical_guides_": [ 1104.0, 553.0 ]
+"_edit_horizontal_guides_": [ 359.003, 115.0 ],
+"_edit_vertical_guides_": [ 1104.69, 550.0 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -42,3 +46,24 @@ tile_data = PoolIntArray( 0, 6, 0, 1, 6, 0, 2, 6, 0, 3, 6, 0, 4, -1073741810, 0,
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Foyer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 466.852, 335.344 )
+scale = Vector2( 7, 1 )
+targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
+targetPosition = Vector2( 550, 100 )
+targetDirection = 1
+walk = true
+
+[node name="Center" parent="." instance=ExtResource( 2 )]
+position = Vector2( 504, 49 )
+scale = Vector2( 4, 1 )
+targetScene = "res://Scenes/Hotel Level 2/L2_Center.tscn"
+targetPosition = Vector2( 550, 610 )
+
+[node name="SceneTag" parent="." instance=ExtResource( 3 )]
+text = "Balcony"
+sceneMusic = ExtResource( 4 )
+cameraLimitRight = 1104
+cameraLimitBottom = 359
+
