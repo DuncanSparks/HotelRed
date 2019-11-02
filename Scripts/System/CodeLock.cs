@@ -14,7 +14,6 @@ public class CodeLock : KinematicBody2D
     [Export]
     private int yScale;
 
-	private AnimatedSprite spr;
 	private Sprite interact;
     private bool isOpen = false;
     private int current = 0;
@@ -28,8 +27,6 @@ public class CodeLock : KinematicBody2D
 
 	public override void _Ready()
 	{
-        
-		spr = GetNode<AnimatedSprite>("Sprite");
 		interact = GetNode<Sprite>("Interact");
 		keyPadSound = GetNode<AudioStreamPlayer>("KeyPadSound").GetStream();
         UnlockedDoorSound = GetNode<AudioStreamPlayer>("UnlockedDoorSound").GetStream();
