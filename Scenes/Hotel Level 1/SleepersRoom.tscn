@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/Sound Effects/Interactive/Door Open.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=5]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -33,3 +34,9 @@ targetScene = "res://Scenes/Hotel Level 1/Corridor.tscn"
 targetPosition = Vector2( 470, 270 )
 getSound = ExtResource( 4 )
 
+[node name="NPC" parent="." instance=ExtResource( 5 )]
+position = Vector2( 85.2634, 250.527 )
+startDirection = 3
+
+
+[editable path="NPC"]
