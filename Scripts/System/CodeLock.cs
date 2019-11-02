@@ -139,21 +139,6 @@ public class CodeLock : KinematicBody2D
     private void setCell(int digit)
     {
         digitList[current] = digit;
-        // switch(current)
-        // {
-        //     case 0:
-        //         Player.CodeOverlay.GetNode<Control>("Control").GetChild<Sprite>(digit).SetVisible(true);
-        //         break;
-        //     case 1:
-        //         Player.CodeOverlay.GetNode<Control>("Control2").GetChild<Sprite>(digit).SetVisible(true);
-        //         break;
-        //     case 2:
-        //         Player.CodeOverlay.GetNode<Control>("Control3").GetChild<Sprite>(digit).SetVisible(true);
-        //         break;
-        //     case 3:
-        //         Player.CodeOverlay.GetNode<Control>("Control4").GetChild<Sprite>(digit).SetVisible(true);
-        //         break;
-        // }
         Player.CodeOverlay.GetChild<Control>(current+1).GetChild<Sprite>(digit).SetVisible(true);
         current++;
 		Controller.PlaySoundBurst(keyPadSound);
@@ -173,21 +158,6 @@ public class CodeLock : KinematicBody2D
     {
         for (int i = 0; i < current; i++)
         {
-            // switch(current)
-            // {
-            //     case 0:
-            //         Player.CodeOverlay.GetNode<Control>("Control").GetChild<Sprite>(digitList[i]).SetVisible(false);
-            //         break;
-            //     case 1:
-            //         Player.CodeOverlay.GetNode<Control>("Control1").GetChild<Sprite>(digitList[i]).SetVisible(false);
-            //         break;
-            //     case 2:
-            //         Player.CodeOverlay.GetNode<Control>("Control2").GetChild<Sprite>(digitList[i]).SetVisible(false);
-            //         break;
-            //     case 3:
-            //         Player.CodeOverlay.GetNode<Control>("Control3").GetChild<Sprite>(digitList[i]).SetVisible(false);
-            //         break;
-            // }
             Player.CodeOverlay.GetChild<Control>(i+1).GetChild<Sprite>(digitList[i]).SetVisible(false);
         }
         current = 0;
