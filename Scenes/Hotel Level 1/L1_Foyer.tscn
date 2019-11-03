@@ -510,7 +510,7 @@ roomMusic = ExtResource( 4 )
 position = Vector2( 0, 192 )
 scale = Vector2( 1, 4 )
 targetScene = "res://Scenes/Hotel Level 1/Corridor.tscn"
-targetPosition = Vector2( 575, 175 )
+targetPosition = Vector2( 570, 175 )
 targetDirection = 2
 walk = true
 
@@ -532,6 +532,14 @@ position = Vector2( 468, 3 )
 scale = Vector2( 7, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Balcony.tscn"
 targetPosition = Vector2( 550, 270 )
+walk = true
+
+[node name="Transition5" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1080, 240 )
+scale = Vector2( 1, 4 )
+targetScene = "res://Scenes/Hotel Level 1/RecRoom.tscn"
+targetPosition = Vector2( 36, 210 )
+targetDirection = 3
 walk = true
 
 [node name="FootstepSoundZone" parent="." instance=ExtResource( 26 )]

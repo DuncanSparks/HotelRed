@@ -1,0 +1,25 @@
+[0]
+{
+	<1 idle talk>$sOooooooooog...
+	<1 idle talk>$sOh,| so hot...{ So much pain...{ Ow.
+	<1 idle talk>$sNeed...{ water...{ Like,| right now,| please...
+}
+
+[1]
+{
+	<1 idle talk>$sSo| hot...{ Need| water...
+}
+
+[2]
+{
+	<1 idle talk>$sOooooog...{ Ugh.
+	<1 idle talk>Oh,| that's some nice water...
+	<1 idle talk>$wMmmmm...{ $0That's better.
+}
+
+[3]
+{
+	<1 idle talk>Thanks,| missy!{ If you hadn't brought that water,| I'd have been done for.
+	<1 idle talk>Don't push yourself too hard while exercising,| or that'll happen!
+	<1 idle talk>I'm gonna go grab a bite to eat now.{ Later!
+}
