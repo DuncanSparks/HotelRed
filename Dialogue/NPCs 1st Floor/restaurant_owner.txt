@@ -1,0 +1,21 @@
+[0]
+{
+	<1 idle talk>Hi,| honey.{ Welcome to the Joker's Jive.
+	<1 idle talk>What can I get for you today?
+	<1 idle talk>Wanna try a Jumbo Joker?{ Maybe a Sinner's Sandwich?
+	<0 talk idle>Hm...{ I $wam $0a bit hungry.{ Do you have any salads?
+	<1 idle talk>Of course.{ How's the kale and mushroom salad sound?
+	<0 talk idle>Sure.
+	<1 idle talk>Wonderful choice.{ That'll be eight dollars and thirty-seven cents.{ Cash only.{ No change.
+	<0 angry idle>What?!{ Ugh...| I don't have any cash on me.
+	<1 idle_angry talk>Well,| that's just too bad.{ Looks like you aren't havin' a salad.
+	<1 idle_angry talk>We don't give anythin' out for free here.
+	<1 idle talk>'Cept water.{ You look thirsty.{ Have some water.
+	<0 irked idle>O.|.|.|kay?
+}
+
+[1]
+{
+	<1 idle talk>Look,| honey:{ if you don't have any cash,| I can't sell you anything.
+	<1 idle_irked talk>Drink that water,| okay?{ You look dehydrated.
+}

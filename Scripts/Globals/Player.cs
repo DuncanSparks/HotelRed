@@ -95,7 +95,7 @@ public class Player : KinematicBody2D
     private HBoxContainer images;
     private Label CurrentItemDescription;
 	private Control inventory;
-	private bool inventoryLock = true;
+	private bool inventoryLock = false;
 	private bool canViewInventory = true;
 	private bool depthControl = true;
 

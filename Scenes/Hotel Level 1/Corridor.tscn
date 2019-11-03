@@ -40,7 +40,7 @@ walk = true
 position = Vector2( 432, 288 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/SleepersRoom.tscn"
-targetPosition = Vector2( 300, 50 )
+targetPosition = Vector2( 290, 160 )
 targetDirection = 1
 playsSoundOnEnter = true
 getSound = ExtResource( 6 )
@@ -49,7 +49,7 @@ getSound = ExtResource( 6 )
 position = Vector2( 96, 288 )
 scale = Vector2( 3, 1 )
 targetScene = "res://Scenes/Hotel Level 1/RaviasRoom.tscn"
-targetPosition = Vector2( 108, 50 )
+targetPosition = Vector2( 290, 160 )
 targetDirection = 1
 playsSoundOnEnter = true
 getSound = ExtResource( 6 )
@@ -59,4 +59,3 @@ getSound = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -10, 180 )
 shape = SubResource( 1 )
-
