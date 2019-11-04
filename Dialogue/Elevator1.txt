@@ -1,0 +1,9 @@
+[0]
+{
+    <1 idle talk> No Level 1 Card Key Detected, You Shall Not Pass.
+}
+
+[1]
+{
+    <1 idle talk> Level 1 Card Key Detected, You may pass.
+}

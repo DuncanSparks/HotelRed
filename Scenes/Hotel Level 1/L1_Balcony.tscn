@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Elevator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=7]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -66,4 +69,14 @@ text = "Balcony"
 sceneMusic = ExtResource( 4 )
 cameraLimitRight = 1104
 cameraLimitBottom = 359
+
+[node name="Elevator" parent="." instance=ExtResource( 5 )]
+position = Vector2( 552, 62 )
+npcName = "Elevator One"
+npcColor = Color( 0, 0.843137, 1, 1 )
+npcSprite = ExtResource( 6 )
+npcPortrait = ExtResource( 7 )
+maxDialogueSet = 1
+dialogueFile = "res://Dialogue/Elevator1.txt"
+elevatorNumber = 1
 

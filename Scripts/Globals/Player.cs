@@ -100,7 +100,7 @@ public class Player : KinematicBody2D
 	private bool depthControl = true;
 
 	private int numItems = 0;
-	public static bool[] itemsCollected = {false, false, false, false, false, false, false, false, false, false};
+	
 	private Control codeOverlay;
 	// private bool canViewInventory = true;
 
@@ -124,7 +124,8 @@ public class Player : KinematicBody2D
 	public static Control CodeOverlay { get { return Player.Main.codeOverlay; } set { Player.Main.codeOverlay = value; } }
 	public static HBoxContainer Images { get { return Player.Main.images; } set { Player.Main.images = value; } }
 	public static bool DepthControl { get => Player.Main.depthControl; set => Player.Main.depthControl = value; }
-
+	
+	public static bool[] itemsCollected = {false, false, false, false, false, false, false, false, false, false};
 	// Utility properties
 	public static Vector2 BubblePosition { get { return new Vector2(Player.Main.Position.x + 6, Player.Main.Position.y - 56); } }
 

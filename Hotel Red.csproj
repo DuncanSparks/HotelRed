@@ -49,6 +49,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Scripts\Events\ElevatorEvent.cs" />
     <Compile Include="Scripts\Events\Event_chapter1_a1.cs" />
     <Compile Include="Scripts\Events\Event_chapter1_neftali.cs" />
     <Compile Include="Scripts\Events\Event_generic.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Scripts\System\Bubble.cs" />
     <Compile Include="Scripts\System\CodeLock.cs" />
     <Compile Include="Scripts\System\Dialogue.cs" />
+    <Compile Include="Scripts\System\Elevator.cs" />
     <Compile Include="Scripts\System\Event.cs" />
     <Compile Include="Scripts\System\EventNPC.cs" />
     <Compile Include="Scripts\System\FootstepSoundZone.cs" />

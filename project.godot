@@ -21,10 +21,6 @@ boot_splash/image="res://Splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Logo.png"
 
-[audio]
-
-mix_rate=48000
-
 [autoload]
 
 Controller="*res://Globals/Controller.tscn"
