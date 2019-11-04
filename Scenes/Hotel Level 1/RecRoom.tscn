@@ -1,10 +1,54 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=3]
 [ext_resource path="res://Sprites/Props/Door.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Scripts/Events/Event_generic.cs" type="Script" id=9]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=10]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18, 33 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "Event"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0, "Exhausted Demon", "#ffffff", "res://Resources/Portrait Sets/Portraits_Neftali.tres" ],
+"method": "Event_Dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Event2"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1, "Exhausted Demon", "#ffffff", "res://Resources/Portrait Sets/Portraits_Neftali.tres" ],
+"method": "Event_Dialogue"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -64,3 +108,27 @@ targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
 targetPosition = Vector2( 1068, 286 )
 targetDirection = 2
 walk = true
+
+[node name="EventNPCWater" parent="." instance=ExtResource( 6 )]
+position = Vector2( 648, 109 )
+npcName = "Exhausted Demon"
+npcColor = Color( 0.764706, 0.764706, 0.764706, 1 )
+npcSprite = ExtResource( 7 )
+npcPortrait = ExtResource( 8 )
+maxDialogueSet = 1
+autoAdvanceSet = true
+
+[node name="CollisionShape2D" parent="EventNPCWater" index="1"]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="EventNPCWater/Event" index="1"]
+anims/Event = SubResource( 1 )
+anims/Event2 = SubResource( 3 )
+script = ExtResource( 9 )
+dialogueFile = "res://Dialogue/NPCs 1st Floor/water_person.txt"
+raviaPortrait = ExtResource( 10 )
+
+[editable path="EventNPCWater"]
+
+[editable path="EventNPCWater/Event"]

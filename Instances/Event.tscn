@@ -19,6 +19,5 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Speaker" type="AudioStreamPlayer" parent="."]
-
 [connection signal="body_entered" from="." to="." method="BodyEntered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="EndEvent"]

@@ -4,7 +4,13 @@ using System;
 public class Event : Area2D
 {
 	[Export]
+	private bool destroyOnEnd = true;
+
+	[Export]
 	private bool destroy = true;
+
+	[Export]
+	private bool npc = false;
 
 	[Export]
 	private string destroyFlag = string.Empty;
@@ -39,7 +45,7 @@ public class Event : Area2D
 	{
 		if (Player.State == Player.ST.MOVE)
 		{
-			StartEvent();
+			StartEvent(0);
 			running = true;
 			SetProcess(false);
 		}
@@ -68,10 +74,15 @@ public class Event : Area2D
 
 	public void EndEvent(string anim_name)
 	{
-		if (anim_name == "Event")
+		if (anim_name.Substr(0, 5) == "Event")
 		{
 			Player.FreePlayer();
-			QueueFree();
+
+			if (npc)
+				GetParent<EventNPC>().EndDialogue();
+			
+			if (destroyOnEnd)
+				QueueFree();
 		}
 		
 		Player.InventoryLock = false;
@@ -85,18 +96,19 @@ public class Event : Area2D
 
 	// ================================================================
 
-	public void StartEvent()
+	public void StartEvent(int index)
 	{
 		StopPlayer(Player.Face);
-		AnimPlayer.Play("Event");
+		AnimPlayer.Play("Event" + (index > 0 ? (index + 1).ToString() : ""));
 		Player.InventoryLock = true;
 	}
+
 
 	private void BodyEntered(PhysicsBody2D body)
 	{
 		if (!autoStart && !running && body.IsInGroup("Player") && Player.State == Player.ST.MOVE)
 		{
-			StartEvent();
+			StartEvent(0);
 			running = true;
 		}
 	}

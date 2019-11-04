@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Scripts\Events\Event_chapter1_a1.cs" />
     <Compile Include="Scripts\Events\Event_chapter1_neftali.cs" />
+    <Compile Include="Scripts\Events\Event_generic.cs" />
     <Compile Include="Scripts\Events\Event_opening_a1.cs" />
     <Compile Include="Scripts\Events\Event_opening_a2.cs" />
     <Compile Include="Scripts\Events\Event_test.cs" />

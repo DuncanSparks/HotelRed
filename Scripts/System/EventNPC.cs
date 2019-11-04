@@ -85,7 +85,7 @@ public class EventNPC : KinematicBody2D
 		{
 			Player.State = Player.ST.NO_INPUT;
 			interact.Hide();
-			ev.StartEvent();
+			ev.StartEvent(dialogueSet);
 		}
 	}
 
@@ -102,15 +102,15 @@ public class EventNPC : KinematicBody2D
 		spr.Play(animation);
 	}
 
-	// ================================================================
 
-	private void EndDialogue()
+	public void EndDialogue()
 	{
 		Player.State = Player.ST.MOVE;
 		interact.Show();
-		dialogueSet = Mathf.Min(dialogueSet + 1, maxDialogueSet);
+		dialogueSet = Mathf.Min(++dialogueSet, maxDialogueSet);
 	}
 
+	// ================================================================
 
 	private void InteractAreaEntered(Area2D area)
 	{

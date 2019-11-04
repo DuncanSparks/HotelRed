@@ -406,6 +406,7 @@ __meta__ = {
 }
 
 [node name="TileMap2c" type="TileMap" parent="."]
+z_index = -50
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 24, 24 )
 format = 1
@@ -415,6 +416,7 @@ __meta__ = {
 }
 
 [node name="TileMap2" type="TileMap" parent="."]
+z_index = -50
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 24, 24 )
 format = 1
@@ -434,7 +436,7 @@ __meta__ = {
 }
 
 [node name="TileMap3" type="TileMap" parent="."]
-z_as_relative = false
+z_index = -50
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 24, 24 )
 format = 1
@@ -528,8 +530,8 @@ targetPosition = Vector2( 175, 370 )
 walk = true
 
 [node name="Transition4" parent="." instance=ExtResource( 25 )]
-position = Vector2( 468, 3 )
-scale = Vector2( 7, 1 )
+position = Vector2( 456, 0 )
+scale = Vector2( 8, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Balcony.tscn"
 targetPosition = Vector2( 550, 270 )
 walk = true

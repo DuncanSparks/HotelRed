@@ -53,7 +53,7 @@ public class Event_opening_a1 : AnimationPlayer
 	}
 
 
-    public void Event_Dialogue()
+	public void Event_Dialogue()
 	{
 		GetParent<Event>().PauseEvent();
 		Controller.Dialogue(dialogueFile, 0, "Ravia", "#2391ef",  raviaPortrait, signalConnection: this, signalMethod: "Resume", restoreMovement: false);
