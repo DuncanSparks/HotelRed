@@ -19,7 +19,7 @@
 
 [3]
 {
-	<1 idle talk>Thanks,| missy!{ If you hadn't brought that water,| I'd have been done for.
-	<1 idle talk>Don't push yourself too hard while exercising,| or that'll happen!
+	<1 idle talk>Thanks,| missy!{ If you hadn't#brought that water,| I'd have been done for.
+	<1 idle talk>Don't push yourself too hard while exercising.{ You don't want that to happen to you.
 	<1 idle talk>I'm gonna go grab a bite to eat now.{ Later!
 }

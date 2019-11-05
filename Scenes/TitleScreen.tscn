@@ -765,7 +765,7 @@ margin_right = 362.0
 margin_bottom = 666.0
 custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 0.235294, 0, 1 )
-text = "Ramie Shreim"
+text = "Rami Shreim"
 
 [node name="Credits20" type="Label" parent="Credits"]
 margin_top = 670.0

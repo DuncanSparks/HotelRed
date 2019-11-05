@@ -1,15 +1,20 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=3]
 [ext_resource path="res://Sprites/Props/Door.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=7]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=8]
-[ext_resource path="res://Scripts/Events/Event_generic.cs" type="Script" id=9]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Paper.png" type="Texture" id=7]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://Scripts/Events/Event_generic.cs" type="Script" id=11]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=12]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 12, 8 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 33 )
@@ -51,7 +56,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "Event3"
-length = 0.1
+length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -59,10 +64,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ 2, "Exhausted Demon", "#ffffff", "res://Resources/Portrait Sets/Portraits_Neftali.tres" ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 3, "Exhausted Demon", "#ffffff", "res://Resources/Portrait Sets/Portraits_Neftali.tres" ],
 "method": "Event_Dialogue"
 } ]
 }
@@ -126,12 +134,27 @@ targetPosition = Vector2( 1068, 286 )
 targetDirection = 2
 walk = true
 
-[node name="EventNPCWater" parent="." instance=ExtResource( 6 )]
-position = Vector2( 648, 109 )
+[node name="ItemPaper" parent="." instance=ExtResource( 6 )]
+position = Vector2( 645, 168 )
+startActive = false
+itemName = "Slip of paper"
+itemId = 3
+removeFlag = "item_paper"
+
+[node name="Sprite" parent="ItemPaper" index="0"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" parent="ItemPaper/Hitbox" index="0"]
+position = Vector2( 0, -2 )
+shape = SubResource( 5 )
+
+[node name="EventNPCWater" parent="." instance=ExtResource( 8 )]
+position = Vector2( 645, 157 )
 npcName = "Exhausted Demon"
 npcColor = Color( 0.764706, 0.764706, 0.764706, 1 )
-npcSprite = ExtResource( 7 )
-npcPortrait = ExtResource( 8 )
+npcSprite = ExtResource( 9 )
+npcPortrait = ExtResource( 10 )
 maxDialogueSet = 1
 autoAdvanceSet = true
 wantsItem = true
@@ -146,9 +169,11 @@ shape = SubResource( 1 )
 anims/Event = SubResource( 2 )
 anims/Event2 = SubResource( 3 )
 anims/Event3 = SubResource( 4 )
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 dialogueFile = "res://Dialogue/NPCs 1st Floor/water_person.txt"
-raviaPortrait = ExtResource( 10 )
+raviaPortrait = ExtResource( 12 )
+
+[editable path="ItemPaper"]
 
 [editable path="EventNPCWater"]
 
