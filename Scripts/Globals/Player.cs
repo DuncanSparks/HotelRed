@@ -267,6 +267,12 @@ public class Player : KinematicBody2D
 		itemsCollected[(int)item] = true;
 	}
 
+
+	public static bool HasItem(Items item)
+	{
+		return itemsCollected[(int)item];
+	}
+
 	// ================================================================
 
 	private void Movement()

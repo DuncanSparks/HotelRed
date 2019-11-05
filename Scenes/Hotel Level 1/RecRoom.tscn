@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=2]
@@ -11,11 +11,10 @@
 [ext_resource path="res://Scripts/Events/Event_generic.cs" type="Script" id=9]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=10]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 33 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Event"
+[sub_resource type="Animation" id=2]
 length = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -46,6 +45,24 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 1, "Exhausted Demon", "#ffffff", "res://Resources/Portrait Sets/Portraits_Neftali.tres" ],
+"method": "Event_Dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Event3"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 2, "Exhausted Demon", "#ffffff", "res://Resources/Portrait Sets/Portraits_Neftali.tres" ],
 "method": "Event_Dialogue"
 } ]
 }
@@ -117,14 +134,18 @@ npcSprite = ExtResource( 7 )
 npcPortrait = ExtResource( 8 )
 maxDialogueSet = 1
 autoAdvanceSet = true
+wantsItem = true
+requiredItem = 4
+requiredItemEvent = 3
 
 [node name="CollisionShape2D" parent="EventNPCWater" index="1"]
 position = Vector2( 0, 3 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="EventNPCWater/Event" index="1"]
-anims/Event = SubResource( 1 )
+anims/Event = SubResource( 2 )
 anims/Event2 = SubResource( 3 )
+anims/Event3 = SubResource( 4 )
 script = ExtResource( 9 )
 dialogueFile = "res://Dialogue/NPCs 1st Floor/water_person.txt"
 raviaPortrait = ExtResource( 10 )

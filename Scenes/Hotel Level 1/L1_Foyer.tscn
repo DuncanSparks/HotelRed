@@ -486,6 +486,10 @@ destroyAfterEvent = true
 position = Vector2( 0, 26 )
 shape = SubResource( 2 )
 
+[node name="Event" parent="EventNPCNeftali" index="5"]
+destroyOnEnd = true
+npc = false
+
 [node name="AnimationPlayer" parent="EventNPCNeftali/Event" index="1"]
 anims/Event = SubResource( 3 )
 script = ExtResource( 12 )

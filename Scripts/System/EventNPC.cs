@@ -30,6 +30,15 @@ public class EventNPC : KinematicBody2D
 	[Export]
 	private bool destroyAfterEvent = false;
 
+	[Export]
+	private bool wantsItem = false;
+
+	[Export]
+	private Player.Items requiredItem;
+
+	[Export]
+	private int requiredItemEvent;
+
 	// Motion
 	private Vector2 motion = new Vector2(0, 0);
 	private SpriteDirection face = SpriteDirection.DOWN;
@@ -85,7 +94,8 @@ public class EventNPC : KinematicBody2D
 		{
 			Player.State = Player.ST.NO_INPUT;
 			interact.Hide();
-			ev.StartEvent(dialogueSet);
+			
+			ev.StartEvent(wantsItem && Player.HasItem(requiredItem) ? requiredItemEvent - 1 : dialogueSet);
 		}
 	}
 
