@@ -391,7 +391,7 @@ hue_variation_random = 0.5
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 669.0 ],
+"_edit_horizontal_guides_": [ 669.0, 482.0 ],
 "_edit_vertical_guides_": [ 551.106, 946.33, 150.0, 1104.0, 0.0 ]
 }
 
