@@ -95,7 +95,13 @@ public class EventNPC : KinematicBody2D
 			Player.State = Player.ST.NO_INPUT;
 			interact.Hide();
 			
-			ev.StartEvent(wantsItem && Player.HasItem(requiredItem) ? requiredItemEvent - 1 : dialogueSet);
+			if (wantsItem && Player.HasItem(requiredItem))
+			{
+				Player.RemoveItem(requiredItem);
+				ev.StartEvent(requiredItemEvent - 1);
+			}
+			else
+				ev.StartEvent(dialogueSet);
 		}
 	}
 

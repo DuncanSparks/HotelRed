@@ -263,8 +263,15 @@ public class Player : KinematicBody2D
 
 	public static void AddItem(Items item)
 	{
-		Player.Images.GetChild<TextureButton>((int)item).SetVisible(true);
+		Player.Images.GetChild<TextureButton>((int)item).Visible = true;
 		itemsCollected[(int)item] = true;
+	}
+
+
+	public static void RemoveItem(Items item)
+	{
+		Player.Images.GetChild<TextureButton>((int)item).Visible = false;
+		itemsCollected[(int)item] = false;
 	}
 
 

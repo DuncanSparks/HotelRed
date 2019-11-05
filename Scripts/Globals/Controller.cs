@@ -5,12 +5,15 @@ using System.Text.RegularExpressions;
 
 public class Controller : Node
 {
-	private static Controller inst;
+	private static Controller inst = null;
 	private static Controller Main { get { return inst; } }
 
 	Controller()
 	{
-		inst = this;
+		if (inst == null)
+			inst = this;
+		else
+			QueueFree();
 	}
 
 	// ================================================================
@@ -23,6 +26,8 @@ public class Controller : Node
 		{"enter_foyer", 0},
 		{"neftali_cutscene", 0},
 	};
+
+	private int doorCode = 0;
 
 	public enum Sound {HOVER, SELECT, BUBBLE_EXCLAMATION};
 	public enum BubbleType {EXCLAMATION, QUESTION, SILENCE};
@@ -51,6 +56,7 @@ public class Controller : Node
 	public static AudioStream CurrentMusic { get { return Controller.Main.currentMusic; } set { Controller.Main.currentMusic = value; } }
 	public static AudioStream CurrentAmbience { get { return Controller.Main.currentAmbience; } set { Controller.Main.currentAmbience = value; } }
 	public static AudioStream CurrentCharacterTheme { get { return Controller.Main.currentCharacterTheme; } set { Controller.Main.currentCharacterTheme = value; } }
+	public static int DoorCode { get => Controller.Main.doorCode; }
 
 	// ================================================================
 
@@ -66,6 +72,8 @@ public class Controller : Node
     
 		// Other stuff
 		GD.Randomize();
+
+		doorCode = Mathf.RoundToInt((float)GD.RandRange(0, 9999));
 	}
 
 	// ================================================================
