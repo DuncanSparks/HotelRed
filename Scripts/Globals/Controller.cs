@@ -8,6 +8,8 @@ public class Controller : Node
 	private static Controller inst = null;
 	private static Controller Main { get { return inst; } }
 
+	public static string SleeperText = "<1 idle talk>$wZZZ...#%...ZZZ...#^...";
+
 	Controller()
 	{
 		if (inst == null)
@@ -76,6 +78,9 @@ public class Controller : Node
 		GD.Randomize();
 
 		doorCode = Mathf.RoundToInt((float)GD.RandRange(0, 9999));
+		string codeString = doorCode.ToString();
+		Controller.SleeperText = Controller.SleeperText.Replace('%', codeString[0]);
+		Controller.SleeperText = Controller.SleeperText.Replace('^', codeString[1]);
 	}
 
 	// ================================================================
@@ -170,13 +175,14 @@ public class Controller : Node
 	}
 
 
-	public static void Dialogue(string sourceFile, int dialogueSet, string leftClientName, string leftClientColor, SpriteFrames leftClientPortrait, string rightClientName = "NULL", string rightClientColor = "#ffffff", SpriteFrames rightClientPortrait = null, bool restoreMovement = true, Node signalConnection = null, string signalMethod = "")
+	public static void Dialogue(string sourceFile, int dialogueSet, string leftClientName, string leftClientColor, SpriteFrames leftClientPortrait, string rightClientName = "NULL", string rightClientColor = "#ffffff", SpriteFrames rightClientPortrait = null, bool restoreMovement = true, Node signalConnection = null, string signalMethod = "", string textOverride = "")
 	{
 		Player.State = Player.ST.NO_INPUT;
-		var dlg = Controller.Main.DialogueRef.Instance() as Dialogue;
+		var dlg = (Dialogue)Controller.Main.DialogueRef.Instance();
 		dlg.SourceFile = sourceFile;
 		dlg.TextSet = dialogueSet;
 		dlg.SecondClient = rightClientPortrait != null;
+		dlg.TextOverride = textOverride;
 
 		dlg.LeftClientName = leftClientName;
 		dlg.LeftClientColor = new Color(leftClientColor);

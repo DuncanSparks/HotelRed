@@ -25,6 +25,8 @@ public class Dialogue : Node2D
 	private List<string> clientExpressionsRight = new List<string>();
 	private int textPage = 0;
 
+	private string textOverride = "";
+
 	// File info
 	private string sourceFile;
 	private int textSet;
@@ -98,6 +100,7 @@ public class Dialogue : Node2D
 
 	// ================================================================
 
+	public string TextOverride { set => textOverride = value; }
 	public int TextLeft { get { return textLeft; } set { textLeft = value; } }
 	public int LineEnd { set { lineEnd = value; } }
 	public bool SecondClient { set { secondClient = value; } }
@@ -341,7 +344,20 @@ public class Dialogue : Node2D
 	private void Start()
 	{
 		// Load text
-		LoadTextFromFile(sourceFile);
+		if (textOverride == "")
+			LoadTextFromFile(sourceFile);
+		else
+		{
+			foreach (string s in textOverride.Split("\n"))
+			{
+				var currentLine = lineRegex.Match(s);
+				clients.Add(currentLine.Groups[1].ToString() == "1");
+				clientExpressionsLeft.Add(currentLine.Groups[2].ToString());
+				clientExpressionsRight.Add(currentLine.Groups[3].ToString());
+				text.Add(currentLine.Groups[4].ToString());
+			}
+		}
+
 		textPage = 0;
 		disp = 0;
 
