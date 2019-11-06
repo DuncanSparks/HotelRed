@@ -22,6 +22,8 @@ public class Controller : Node
 	{
 		{"item_paper", 0},
 
+		{"npc_cashier", 0},
+		{"npc_waterperson", 0},
 
 		{"enter_foyer", 0},
 		{"neftali_cutscene", 0},

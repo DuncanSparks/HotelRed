@@ -39,6 +39,9 @@ public class EventNPC : KinematicBody2D
 	[Export]
 	private int requiredItemEvent;
 
+	[Export]
+	private string indexFlag = string.Empty;
+
 	// Motion
 	private Vector2 motion = new Vector2(0, 0);
 	private SpriteDirection face = SpriteDirection.DOWN;
@@ -79,6 +82,9 @@ public class EventNPC : KinematicBody2D
 		spr.Frames = npcSprite;
 		face = startDirection;
 		interact.Hide();
+
+		if (indexFlag != string.Empty)
+			dialogueSet = Controller.Flag(indexFlag);
     }
 
 
@@ -124,6 +130,9 @@ public class EventNPC : KinematicBody2D
 		Player.State = Player.ST.MOVE;
 		interact.Show();
 		dialogueSet = Mathf.Min(++dialogueSet, maxDialogueSet);
+
+		if (indexFlag != string.Empty)
+			Controller.SetFlag(indexFlag, dialogueSet);
 	}
 
 	// ================================================================
