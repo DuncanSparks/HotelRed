@@ -8,7 +8,7 @@ public class Controller : Node
 	private static Controller inst = null;
 	private static Controller Main { get { return inst; } }
 
-	public static string SleeperText = "<1 idle talk>$wZZZ...#%...ZZZ...#^...";
+	public static string SleeperText = "<1 idle talk>$wZZZ...#%...#ZZZ...#^...";
 
 	Controller()
 	{
@@ -77,10 +77,12 @@ public class Controller : Node
 		// Other stuff
 		GD.Randomize();
 
-		doorCode = Mathf.RoundToInt((float)GD.RandRange(0, 9999));
+		doorCode = Mathf.RoundToInt((float)GD.RandRange(1000, 9999));
 		string codeString = doorCode.ToString();
-		Controller.SleeperText = Controller.SleeperText.Replace('%', codeString[0]);
-		Controller.SleeperText = Controller.SleeperText.Replace('^', codeString[1]);
+		Controller.SleeperText = Controller.SleeperText.Replace('%', codeString[2]);
+		Controller.SleeperText = Controller.SleeperText.Replace('^', codeString[3]);
+
+		GD.Print(doorCode.ToString());
 	}
 
 	// ================================================================

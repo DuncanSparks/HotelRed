@@ -5,7 +5,7 @@ using System;
 public class CodeLock : KinematicBody2D
 {
 	// Refs
-    [Export]
+   // [Export]
     private string doorCode;
 
     [Export]
@@ -34,6 +34,8 @@ public class CodeLock : KinematicBody2D
 		interact.Hide();
         GetNode<CollisionShape2D>("CollisionArea").SetScale(new Vector2(xScale, yScale));
         GetNode<Area2D>("InteractionArea").SetScale(new Vector2(xScale, yScale));
+
+		doorCode = Controller.DoorCode.ToString();
 	}
 
 

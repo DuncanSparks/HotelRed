@@ -186,7 +186,6 @@ autoAdvanceSet = true
 wantsItem = true
 requiredItem = 4
 requiredItemEvent = 3
-indexFlag = "npc_waterperson"
 
 [node name="CollisionShape2D" parent="EventNPCWater" index="1"]
 position = Vector2( 0, 3 )

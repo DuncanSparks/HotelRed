@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Keypad2.ogg-b3dfb5cb5f0ec91e112f40d2b9d0baed.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Interactive/Keypad2.ogg"
+dest_files=[ "res://.import/Keypad2.ogg-b3dfb5cb5f0ec91e112f40d2b9d0baed.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

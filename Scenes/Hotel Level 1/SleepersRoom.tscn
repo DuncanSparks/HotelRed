@@ -65,6 +65,7 @@ npcSprite = ExtResource( 7 )
 npcPortrait = ExtResource( 8 )
 startDirection = 3
 dialogueFile = "res://Dialogue/sleeper.txt"
+sleeper = true
 
 [node name="Door" type="Sprite" parent="."]
 position = Vector2( 264, 72 )
