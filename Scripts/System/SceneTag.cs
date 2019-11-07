@@ -31,7 +31,10 @@ public class SceneTag : Label
 	public override void _Ready()
 	{
 		if (sceneMusic == null)
+		{
 			Controller.StopMusic();
+			Controller.CurrentMusic = null;
+		}
 		else if (sceneMusic != Controller.CurrentMusic)
 		{
 			Controller.PlayMusic(sceneMusic);
@@ -39,7 +42,10 @@ public class SceneTag : Label
 		}
 
 		if (sceneAmbience == null)
+		{
 			Controller.StopAmbience();
+			Controller.CurrentAmbience = null;
+		}
 		else if (sceneAmbience != Controller.CurrentAmbience)
 		{
 			Controller.PlayAmbience(sceneAmbience);

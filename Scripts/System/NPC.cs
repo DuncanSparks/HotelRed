@@ -79,6 +79,8 @@ public class NPC : KinematicBody2D
 
 		if (indexFlag != string.Empty)
 			dialogueSet = Controller.Flag(indexFlag);
+
+		ZIndex = (int)Position.y;
 	}
 
 
@@ -88,7 +90,6 @@ public class NPC : KinematicBody2D
 
 		if (!disabled)
 		{
-			ZIndex = (int)Position.y;
 			Animate();
 
 			if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
