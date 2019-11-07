@@ -51,8 +51,8 @@ __meta__ = {
 }
 
 [node name="Foyer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 466.852, 335.344 )
-scale = Vector2( 7, 1 )
+position = Vector2( 461.852, 336.344 )
+scale = Vector2( 8, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Foyer.tscn"
 targetPosition = Vector2( 550, 100 )
 targetDirection = 1

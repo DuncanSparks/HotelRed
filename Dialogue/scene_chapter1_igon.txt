@@ -1,0 +1,60 @@
+[0]
+{
+    <1 idle _>You must be the new guest I've been hearing about.
+}
+
+[1]
+{
+    <0 angry _>Who's there?
+}
+
+[2]
+{
+    <1 idle_angry talk>Interesting.
+    <1 idle_angry talk>Our guests aren't usually humans.
+    <0 angry idle>Who are you?
+    <1 idle_angry talk>I'm the owner and manager of this hotel.{ My name is Igon.
+    <0 idle idle>...
+    <0 talk idle>Igon...
+    <1 idle talk>Did your parents not teach you basic manners?
+    <1 idle talk>I told you my name.{ Tell me yours.{ Now.
+    <0 talk idle>$sM-$0my name is-
+    <1 idle talk>Ravia.{ I know.
+    <0 angry idle>How do you-
+    <1 idle_angry talk>I've heard a lot about you.{ You're allegedly becoming popular.
+    <1 idle_angry talk>I assume Neftali has already done his job.
+    <0 idle_sad idle>...
+    <0 sad idle>Do you mean my-
+    <1 idle_sad talk>Yes.{ Your soul.
+    <0 idle_sad idle>...
+    <0 sad idle>Yes.{ He took it.
+    <0 angry idle>But he said I could have it back if I find the people I'm looking for.
+    <1 idle_angry talk>Excuse me?{ I gave him no permission to allow that.
+    <0 sad idle>Look...{ I'm not here to cause trouble.{ I just came here to find two people.
+    <1 idle talk>Whom,| exactly?
+}
+
+[3]
+{
+    <1 idle_sad talk>TALK.{ $sNOW.
+    <0 sad idle>.|.|.|I don't remember.
+    <1 idle_sad talk>Stop playing with me if you don't want to get hurt.
+    <0 angry idle>I'm $sSORRY!{ $0I just know I have to find them!
+    <1 idle_angry talk>Why,| exactly?
+    <0 sad idle>Because...
+    <0 sad idle>I said some things I didn't mean.
+}
+
+[4]
+{
+    <1 idle_sad talk>I want you to remember one thing.{ Actually,| I'm telling you to remember one thing.
+    <1 idle talk>You're staying in my hotel.{ My hotel has a very important rule.
+    <1 idle talk>Don't overstep your boundaries.
+    <1 idle talk>If you do,| I'll make sure you're sorry.
+}
+
+[5]
+{
+    <0 idle_sad _>...
+    <0 sad _>Igon...
+}

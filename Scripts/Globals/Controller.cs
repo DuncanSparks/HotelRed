@@ -30,6 +30,8 @@ public class Controller : Node
 		{"enter_foyer", 0},
 		{"neftali_cutscene", 0},
 		{"unlock_office", 0},
+		{"get_keycard", 1},
+		{"scene_igon_1", 0},
 	};
 
 	private int doorCode = 0;
@@ -178,7 +180,7 @@ public class Controller : Node
 	}
 
 
-	public static void Dialogue(string sourceFile, int dialogueSet, string leftClientName, string leftClientColor, SpriteFrames leftClientPortrait, string rightClientName = "NULL", string rightClientColor = "#ffffff", SpriteFrames rightClientPortrait = null, bool restoreMovement = true, Node signalConnection = null, string signalMethod = "", string textOverride = "")
+	public static void Dialogue(string sourceFile, int dialogueSet, string leftClientName, string leftClientColor, SpriteFrames leftClientPortrait, string rightClientName = "???", string rightClientColor = "#ffffff", SpriteFrames rightClientPortrait = null, bool restoreMovement = true, Node signalConnection = null, string signalMethod = "", string textOverride = "")
 	{
 		Player.State = Player.ST.NO_INPUT;
 		var dlg = (Dialogue)Controller.Main.DialogueRef.Instance();
