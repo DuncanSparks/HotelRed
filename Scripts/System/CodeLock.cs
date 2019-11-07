@@ -36,6 +36,9 @@ public class CodeLock : KinematicBody2D
         GetNode<Area2D>("InteractionArea").SetScale(new Vector2(xScale, yScale));
 
 		doorCode = Controller.DoorCode.ToString();
+
+        if (Controller.Flag("unlock_office") == 1)
+            GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
 	}
 
 
@@ -58,6 +61,7 @@ public class CodeLock : KinematicBody2D
                 {
                     GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
                     Controller.PlaySoundBurst(UnlockedDoorSound);
+                    Controller.SetFlag("unlock_office", 1);
                 }
                 else
                 {

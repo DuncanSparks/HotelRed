@@ -29,6 +29,7 @@ public class Controller : Node
 
 		{"enter_foyer", 0},
 		{"neftali_cutscene", 0},
+		{"unlock_office", 0},
 	};
 
 	private int doorCode = 0;

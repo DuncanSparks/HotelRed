@@ -302,7 +302,7 @@ public class Player : KinematicBody2D
 		// Change face direction
 		if (motion.x == 0)
 		{
-			switch (motion.y)
+			switch ((int)motion.y)
 			{
 				case -1:
 					face = SpriteDirection.UP;
@@ -314,7 +314,7 @@ public class Player : KinematicBody2D
 		}
 		else if (motion.y == 0)
 		{
-			switch (motion.x)
+			switch ((int)motion.x)
 			{
 				case -1:
 					face = SpriteDirection.LEFT;
