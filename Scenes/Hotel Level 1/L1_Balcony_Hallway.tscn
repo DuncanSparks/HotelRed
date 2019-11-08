@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Scenes/L1_Balcony_Hallway.cs" type="Script" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Events/Event_chapter1_igon.cs" type="Script" id=6]
 [ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Event"
-length = 10.0
+length = 12.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
@@ -18,8 +19,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.2, 5.3, 5.6, 6.6, 8.2, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 0 ],
 "method": "Event_DialogueSingle"
@@ -40,6 +41,21 @@ tracks/0/keys = {
 "method": "Event_RaviaTurn"
 }, {
 "args": [ 1 ],
+"method": "Event_DialogueSingle"
+}, {
+"args": [ 2 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 2 ],
+"method": "Event_RaviaBubble"
+}, {
+"args": [ 3 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 4 ],
+"method": "Event_Dialogue"
+}, {
+"args": [ 5 ],
 "method": "Event_DialogueSingle"
 } ]
 }
@@ -82,5 +98,6 @@ anims/Event = SubResource( 1 )
 script = ExtResource( 6 )
 dialogueFile = "res://Dialogue/scene_chapter1_igon.txt"
 raviaFrames = ExtResource( 7 )
+igonFrames = ExtResource( 8 )
 
 [editable path="Event"]
