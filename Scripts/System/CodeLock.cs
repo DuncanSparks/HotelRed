@@ -14,7 +14,8 @@ public class CodeLock : KinematicBody2D
     [Export]
     private int yScale;
 
-	private Sprite interact;
+	//private Sprite interact;
+	private bool inArea = false;
     private bool isOpen = false;
     private int current = 0;
     private static int[] digitList = {-1, -1, -1, -1};
@@ -22,23 +23,27 @@ public class CodeLock : KinematicBody2D
     private AudioStream UnlockedDoorSound;
     private AudioStream WrongCodeSound;
     private int ownerID;
-	// ================================================================
+
 	// ================================================================
 
 	public override void _Ready()
 	{
-		interact = GetNode<Sprite>("Interact");
+		//interact = GetNode<Sprite>("Interact");
 		keyPadSound = GetNode<AudioStreamPlayer>("KeyPadSound").GetStream();
         UnlockedDoorSound = GetNode<AudioStreamPlayer>("UnlockedDoorSound").GetStream();
         WrongCodeSound = GetNode<AudioStreamPlayer>("WrongCodeSound").GetStream();
-		interact.Hide();
+		//interact.Hide();
         GetNode<CollisionShape2D>("CollisionArea").SetScale(new Vector2(xScale, yScale));
         GetNode<Area2D>("InteractionArea").SetScale(new Vector2(xScale, yScale));
 
 		doorCode = Controller.DoorCode.ToString();
 
         if (Controller.Flag("unlock_office") == 1)
-            GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+		{
+			GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+			GetNode<Sprite>("Keypad").Frame = 1;
+		}
+            
 	}
 
 
@@ -60,13 +65,19 @@ public class CodeLock : KinematicBody2D
                 if(isCorrectCode())
                 {
                     GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+					GetNode<Sprite>("Keypad").Frame = 1;
                     Controller.PlaySoundBurst(UnlockedDoorSound);
                     Controller.SetFlag("unlock_office", 1);
+					inArea = false;
+					//Player.ShowInteract(true);
+					//Player.ShowInteract(false);
                 }
                 else
-                {
-                    Controller.PlaySoundBurst(WrongCodeSound);
-                }
+				{
+					Controller.PlaySoundBurst(WrongCodeSound);
+					Player.ShowInteract(true);
+				}
+                
                 Player.State = Player.ST.MOVE;
                 isOpen = false;
                 Player.InventoryLock = false;
@@ -97,10 +108,11 @@ public class CodeLock : KinematicBody2D
                 setCell(9);
 			
         }
-		else if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && interact.Visible)
+		else if (Input.IsActionJustPressed("sys_accept") && Player.State == Player.ST.MOVE && inArea)
 		{
 			Player.State = Player.ST.NO_INPUT;
-			interact.Hide();
+			Player.ShowInteract(false);
+			//interact.Hide();
             isOpen = true;
             Player.InventoryLock = true;
             Player.CodeOverlay.SetVisible(true);
@@ -122,11 +134,15 @@ public class CodeLock : KinematicBody2D
         }
         return true;
     }
+
+
 	private void InteractAreaEntered(Area2D area)
 	{
-		if (area.IsInGroup("PlayerSight") && Player.State == Player.ST.MOVE)
+		if (area.IsInGroup("PlayerSight") && Player.State == Player.ST.MOVE && Controller.Flag("unlock_office") == 0)
 		{
-			interact.Show();
+			inArea = true;
+			Player.ShowInteract(true);
+			//interact.Show();
 		}
 	}
 
@@ -135,9 +151,12 @@ public class CodeLock : KinematicBody2D
 	{
 		if (area.IsInGroup("PlayerSight"))
 		{
-			interact.Hide();
+			inArea = false;
+			Player.ShowInteract(false);
+			//interact.Hide();
 		}
 	}
+
 
     private void setCell(int digit)
     {
@@ -146,6 +165,7 @@ public class CodeLock : KinematicBody2D
         current++;
 		Controller.PlaySoundBurst(keyPadSound);
     }
+
 
     private void backSpace()
     {
@@ -156,6 +176,7 @@ public class CodeLock : KinematicBody2D
         }
 		Controller.PlaySoundBurst(keyPadSound);
     }
+
 
     private void clearCells()
     {

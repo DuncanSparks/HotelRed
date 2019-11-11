@@ -261,16 +261,22 @@ public class Player : KinematicBody2D
 	}
 
 
-	public static void AddItem(Items item)
+	public static void AddItem(Items item, string displayName)
 	{
 		Player.Images.GetChild<TextureButton>((int)item).Visible = true;
 		itemsCollected[(int)item] = true;
+		
 		if (item == Items.Shredded_Paper)
 		{
 			var paperItem = Player.Main.GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Inventory").GetNode<HBoxContainer>("Container").GetNode<Item>("ShreddedPaper");
 			string desc = paperItem.ItemDescription;
 			paperItem.ItemDescription = desc.Replace("%", Controller.DoorCode.ToString().Substr(0, 2));
 		}
+
+		var name = (ItemName)GD.Load<PackedScene>("res://Instances/ItemName.tscn").Instance();
+		name.SetItemName(displayName);
+		name.SetPosition(Player.Main.Position);
+		Player.Main.GetTree().GetRoot().AddChild(name);
 	}
 
 

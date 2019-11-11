@@ -21,7 +21,7 @@ public class WorldItem : StaticBody2D
 	private bool active = false;
 	private bool inSight = false;
 
-	private PackedScene itemNameRef = GD.Load<PackedScene>("res://Instances/ItemName.tscn");
+	//private PackedScene itemNameRef = GD.Load<PackedScene>("res://Instances/ItemName.tscn");
 
 	// Refs
 	private Sprite spr;
@@ -57,14 +57,14 @@ public class WorldItem : StaticBody2D
 	private void Collect()
 	{
 		Controller.PlaySoundBurst(getSound);
-		Player.AddItem(itemId);
+		Player.AddItem(itemId, itemName);
 		Controller.SetFlag(removeFlag, 1);
 		spr.Hide();
 		Player.ShowInteract(false);
-		var name = (ItemName)itemNameRef.Instance();
+		/*var name = (ItemName)itemNameRef.Instance();
 		name.SetItemName(itemName);
 		name.SetPosition(Position);
-		GetTree().GetRoot().AddChild(name);
+		GetTree().GetRoot().AddChild(name);*/
 		QueueFree();
 		//SetVisible(false);
 	}
@@ -87,5 +87,12 @@ public class WorldItem : StaticBody2D
 			inSight = false;
 			Player.ShowInteract(false);
 		}
+	}
+
+
+	private void SightEnteredOverride()
+	{
+		inSight = true;
+		Player.ShowInteract(true);
 	}
 }

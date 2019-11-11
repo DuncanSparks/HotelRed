@@ -99,6 +99,7 @@ autoAdvanceSet = true
 dialogueFile = "res://Dialogue/NPCs 1st Floor/restaurant_owner.txt"
 itemGiver = true
 itemIndex = 4
+itemName = "Bottle of Water"
 indexFlag = "npc_cashier"
 
 [node name="Door" type="Sprite" parent="."]

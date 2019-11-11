@@ -268,7 +268,7 @@ margin_bottom = 40.0
 texture_normal = ExtResource( 26 )
 texture_pressed = ExtResource( 27 )
 texture_hover = ExtResource( 27 )
-itemName = "Torn Note"
+itemName = "Slip of Paper"
 itemDescription = "A torn piece of paper. It has the number \"%\" on it."
 
 [node name="Water" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 19 )]

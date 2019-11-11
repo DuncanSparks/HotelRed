@@ -34,6 +34,9 @@ public class NPC : KinematicBody2D
 	private Player.Items itemIndex;
 
 	[Export]
+	private string itemName = string.Empty;
+
+	[Export]
 	private string indexFlag = string.Empty;
 
 	[Export]
@@ -98,8 +101,6 @@ public class NPC : KinematicBody2D
 				interact.Hide();
 				ChangeDirection();
 				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue", textOverride: sleeper ? Controller.SleeperText : "");
-				if (itemGiver && dialogueSet == 0)
-					Player.AddItem(itemIndex);
 			}
 		}
 	}
@@ -108,6 +109,9 @@ public class NPC : KinematicBody2D
 
 	private void EndDialogue()
 	{
+		if (itemGiver && dialogueSet == 0)
+			Player.AddItem(itemIndex, itemName);
+			
 		Player.State = Player.ST.MOVE;
 		interact.Show();
 		dialogueSet = Mathf.Min(++dialogueSet, maxDialogueSet);

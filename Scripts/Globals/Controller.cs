@@ -12,10 +12,10 @@ public class Controller : Node
 
 	Controller()
 	{
-		if (inst == null)
+		//if (inst == null)
 			inst = this;
-		else
-			QueueFree();
+	//	else
+		//	QueueFree();
 	}
 
 	// ================================================================
