@@ -44,7 +44,7 @@ public class Player : KinematicBody2D
 	// Sprite sets 
 	public enum SpriteSet {NORMAL, KNEEL};
 	public enum SpriteDirection {UP, DOWN, LEFT, RIGHT};
-	public enum Items {Room_Key, Bat_Hearts, Sleeper_Key, Shredded_Paper, Water, Coin, uh, Tape1, Tape2, Tape3};
+	public enum Items {Room_Key, Bat_Hearts, Sleeper_Key, Shredded_Paper, Water, Coin, Keycard1, Keycard2, Tape1, Tape2, Tape3};
 	private SpriteSet currentSpriteSet = SpriteSet.NORMAL;
 	private bool spriteOverride = false;
 

@@ -289,12 +289,15 @@ texture_normal = ExtResource( 30 )
 texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
 
-[node name="Item5" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 19 )]
+[node name="Keycard" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 19 )]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 28 )
-texture_hover = ExtResource( 29 )
+texture_normal = ExtResource( 30 )
+texture_pressed = ExtResource( 31 )
+texture_hover = ExtResource( 31 )
+itemName = "Keycard"
+itemDescription = "A keycard for the first floor elevator."
 
 [node name="Tape1" parent="CanvasLayer/Inventory/Container" instance=ExtResource( 19 )]
 visible = false

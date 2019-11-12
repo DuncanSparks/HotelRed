@@ -1,9 +1,11 @@
 [0]
 {
-    <1 idle talk> No Level 1 Card Key Detected, You Shall Not Pass.
+	<1 idle _>Restricted access beyond this point.{#Please scan your keycard.
+	<1 idle _>No keycard detected.{ Access denied.
 }
 
 [1]
 {
-    <1 idle talk> Level 1 Card Key Detected, You may pass.
+	<1 idle _>Restricted access beyond this point.{#Please scan your keycard.
+	<1 idle _>Access granted.
 }

@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/MUSICS/Neftali's Office.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=3]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Audio/Sound Effects/Interactive/Door Open.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Instances/WorldItem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Keycard.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 79 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -75,3 +79,18 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 108, 233 )
 shape = SubResource( 1 )
+
+[node name="WorldItem" parent="." instance=ExtResource( 6 )]
+position = Vector2( 120, 264 )
+itemName = "Keycard"
+itemId = 6
+removeFlag = "item_keycard1"
+
+[node name="Sprite" parent="WorldItem" index="0"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" parent="WorldItem/Hitbox" index="0"]
+shape = SubResource( 2 )
+
+[editable path="WorldItem"]

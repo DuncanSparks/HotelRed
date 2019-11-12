@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/System/Elevator.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/System/Interact.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 12, 12 )
+extents = Vector2( 15, 20 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
@@ -39,6 +39,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -10, -53 ), Vector2( -10, -63 ), Vector2( -10, -53 ) ]
 }
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12.5, 10 )
 
 [node name="Elevator" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -72,11 +75,13 @@ anims/Interact = SubResource( 3 )
 stream = ExtResource( 3 )
 
 [node name="Event" parent="." instance=ExtResource( 4 )]
-position = Vector2( -48, -15 )
+position = Vector2( -48, -12 )
 scale = Vector2( 4, 1 )
 destroyOnEnd = false
 destroy = false
 
+[node name="CollisionShape2D" parent="Event" index="0"]
+shape = SubResource( 4 )
 [connection signal="area_entered" from="InteractionArea" to="." method="InteractAreaEntered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="InteractAreaExited"]
 

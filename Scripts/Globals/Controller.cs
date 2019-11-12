@@ -23,6 +23,7 @@ public class Controller : Node
 	private Dictionary<string, int> flag = new Dictionary<string, int>()
 	{
 		{"item_paper", 0},
+		{"item_keycard1", 0},
 
 		{"npc_cashier", 0},
 		{"npc_waterperson", 0},
@@ -30,8 +31,8 @@ public class Controller : Node
 		{"enter_foyer", 0},
 		{"neftali_cutscene", 0},
 		{"unlock_office", 0},
-		{"get_keycard", 1},
 		{"scene_igon_1", 0},
+		{"unlock_elevator", 0},
 	};
 
 	private int doorCode = 0;
@@ -85,7 +86,7 @@ public class Controller : Node
 		Controller.SleeperText = Controller.SleeperText.Replace('%', codeString[2]);
 		Controller.SleeperText = Controller.SleeperText.Replace('^', codeString[3]);
 
-		GD.Print(doorCode.ToString());
+		//GD.Print(doorCode.ToString());
 	}
 
 	// ================================================================

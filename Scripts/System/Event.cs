@@ -19,6 +19,7 @@ public class Event : Area2D
 	private bool autoStart = false;
 
 	private bool running = false;
+	private bool eventStarted = false;
 
 	// Refs
 	private AnimationPlayer AnimPlayer;
@@ -54,7 +55,7 @@ public class Event : Area2D
 
 	public override void _ExitTree()
 	{
-		if (destroy)
+		if (destroy && eventStarted)
 			Controller.SetFlag(destroyFlag, 1);
 	}
 
@@ -110,6 +111,7 @@ public class Event : Area2D
 		{
 			StartEvent(0);
 			running = true;
+			eventStarted = true;
 		}
 	}
 }

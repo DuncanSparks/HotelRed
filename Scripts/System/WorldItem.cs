@@ -16,12 +16,10 @@ public class WorldItem : StaticBody2D
 	private string removeFlag = string.Empty;
 
 	[Export]
-	private AudioStream getSound;
+	private AudioStream getSound = null;
 
 	private bool active = false;
 	private bool inSight = false;
-
-	//private PackedScene itemNameRef = GD.Load<PackedScene>("res://Instances/ItemName.tscn");
 
 	// Refs
 	private Sprite spr;
@@ -56,17 +54,14 @@ public class WorldItem : StaticBody2D
 
 	private void Collect()
 	{
-		Controller.PlaySoundBurst(getSound);
+		if (getSound != null)
+			Controller.PlaySoundBurst(getSound);
+
 		Player.AddItem(itemId, itemName);
 		Controller.SetFlag(removeFlag, 1);
 		spr.Hide();
 		Player.ShowInteract(false);
-		/*var name = (ItemName)itemNameRef.Instance();
-		name.SetItemName(itemName);
-		name.SetPosition(Position);
-		GetTree().GetRoot().AddChild(name);*/
 		QueueFree();
-		//SetVisible(false);
 	}
 
 

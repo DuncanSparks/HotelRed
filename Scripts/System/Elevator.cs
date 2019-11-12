@@ -46,6 +46,9 @@ public class Elevator : KinematicBody2D
 		npcColorStr = $"#{npcColor.ToArgb32().ToString("X").Substring(2)}";
 
 		interact.Hide();
+
+		if (Controller.Flag("unlock_elevator") == 1)
+			QueueFree();
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,12 +62,16 @@ public class Elevator : KinematicBody2D
 			{
 				Player.State = Player.ST.NO_INPUT;
 				interact.Hide();
-                // if(Player.itemsCollected[elevatorNumber+2])
-                // {
-                    dialogueSet = 1;
-                    GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
-                // }
-				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef",  raviaPortrait, npcName, npcColorStr, npcPortrait, signalConnection: this, signalMethod: "EndDialogue");
+                
+				//if (Controller.Flag("item_keycard1") == 1)
+				//	dialogueSet = 1;
+					//GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+				
+				dialogueSet = Controller.Flag("item_keycard1");
+				if (Controller.Flag("item_keycard1") == 1)
+					GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+
+				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef", raviaPortrait, rightClientName: npcName, signalConnection: this, signalMethod: "EndDialogue");
 			}
 		}
     }
@@ -74,6 +81,12 @@ public class Elevator : KinematicBody2D
 		Player.State = Player.ST.MOVE;
 		interact.Show();
 		dialogueSet = Mathf.Min(dialogueSet + 1, maxDialogueSet);
+		if (Controller.Flag("item_keycard1") == 1)
+		{
+			Controller.SetFlag("unlock_elevator", 1);
+			QueueFree();
+		}
+			
 	}
 
 
