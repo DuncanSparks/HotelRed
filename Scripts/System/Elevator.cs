@@ -3,7 +3,7 @@ using System;
 
 
 public class Elevator : KinematicBody2D
-{
+{ 
     [Export]
 	private string npcName = string.Empty;
 
@@ -11,10 +11,10 @@ public class Elevator : KinematicBody2D
 	private Color npcColor = new Color(1, 1, 1);
 
 	[Export]
-	private SpriteFrames npcSprite;
+	private SpriteFrames spriteClosed;
 
 	[Export]
-	private SpriteFrames npcPortrait;
+	private SpriteFrames spriteOpen;
 
 	[Export]
 	private int maxDialogueSet;
