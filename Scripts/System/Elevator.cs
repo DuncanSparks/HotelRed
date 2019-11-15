@@ -11,12 +11,6 @@ public class Elevator : KinematicBody2D
 	private Color npcColor = new Color(1, 1, 1);
 
 	[Export]
-	private SpriteFrames spriteClosed;
-
-	[Export]
-	private SpriteFrames spriteOpen;
-
-	[Export]
 	private int maxDialogueSet;
 
 	[Export]
@@ -69,7 +63,9 @@ public class Elevator : KinematicBody2D
 				
 				dialogueSet = Controller.Flag("item_keycard1");
 				if (Controller.Flag("item_keycard1") == 1)
+				{
 					GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
+				}
 
 				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef", raviaPortrait, rightClientName: npcName, signalConnection: this, signalMethod: "EndDialogue");
 			}
