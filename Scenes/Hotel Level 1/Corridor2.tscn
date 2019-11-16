@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Corridor.cs" type="Script" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
@@ -8,8 +8,12 @@
 [ext_resource path="res://Audio/Sound Effects/Interactive/Door Open.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Instances/CodeLock.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 64, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 12, 59 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -47,13 +51,20 @@ targetDirection = 2
 playsSoundOnEnter = true
 getSound = ExtResource( 6 )
 
-[node name="CodeLock" parent="." instance=ExtResource( 7 )]
-position = Vector2( 65, 60 )
-xScale = 1
-yScale = 4
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 180, -10 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
+
+[node name="CodeLock" parent="." instance=ExtResource( 7 )]
+position = Vector2( 71, 60 )
+
+[node name="CollisionArea" parent="CodeLock" index="0"]
+position = Vector2( -11, 23 )
+shape = SubResource( 4 )
+
+[node name="InteractionArea" parent="CodeLock" index="2"]
+position = Vector2( 23, -2 )
+
+[editable path="CodeLock"]
