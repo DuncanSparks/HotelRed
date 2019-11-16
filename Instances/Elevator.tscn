@@ -55,9 +55,18 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
+"times": PoolRealArray( 0, 0.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "Event_DoorClose"
+}, {
+"args": [  ],
+"method": "Event_ElevatorSound"
+}, {
+"args": [  ],
+"method": "Event_Transition"
+} ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../Fade/ColorRect:color")
@@ -66,7 +75,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2, 3.9 ),
+"times": PoolRealArray( 0, 1.5, 2.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]

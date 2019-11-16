@@ -596,4 +596,5 @@ centered = false
 visible = false
 texture = ExtResource( 47 )
 centered = false
+
 [connection signal="timeout" from="TimerStepSound" to="." method="FootstepSound"]

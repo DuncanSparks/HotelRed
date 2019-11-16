@@ -23,7 +23,7 @@ public class Controller : Node
 	private Dictionary<string, int> flag = new Dictionary<string, int>()
 	{
 		{"item_paper", 0},
-		{"item_keycard1", 0},
+		{"item_keycard1", 1},
 
 		{"npc_cashier", 0},
 		{"npc_waterperson", 0},
