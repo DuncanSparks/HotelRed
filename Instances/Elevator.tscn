@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/System/Elevator.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/System/Interact.png" type="Texture" id=2]
 [ext_resource path="res://Audio/Sound Effects/Interactive/Item get TEMP.wav" type="AudioStream" id=3]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Events/ElevatorEvent.cs" type="Script" id=5]
-[ext_resource path="res://Sprites/Props/Elevator.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Props/ElevatorOpen.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Elevator.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/ElevatorOpen.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -43,44 +41,6 @@ tracks/1/keys = {
 "values": [ Vector2( -10, -53 ), Vector2( -10, -63 ), Vector2( -10, -53 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 12.5, 10 )
-
-[sub_resource type="Animation" id=5]
-resource_name = "Elevator"
-tracks/0/type = "method"
-tracks/0/path = NodePath("AnimationPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "Event_DoorClose"
-}, {
-"args": [  ],
-"method": "Event_ElevatorSound"
-}, {
-"args": [  ],
-"method": "Event_Transition"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../Fade/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
 [node name="Elevator" type="KinematicBody2D"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -111,19 +71,6 @@ anims/Interact = SubResource( 3 )
 [node name="UnlockedDoorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="Event" parent="." instance=ExtResource( 4 )]
-position = Vector2( -50, -40 )
-scale = Vector2( 4, 1 )
-destroyOnEnd = false
-destroy = false
-
-[node name="CollisionShape2D" parent="Event" index="0"]
-shape = SubResource( 4 )
-
-[node name="AnimationPlayer" parent="Event" index="1"]
-anims/Elevator = SubResource( 5 )
-script = ExtResource( 5 )
-
 [node name="Fade" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Fade"]
@@ -134,15 +81,13 @@ color = Color( 0, 0, 0, 0 )
 [node name="Closed" type="Sprite" parent="."]
 position = Vector2( 0, -40 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Open" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -40 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
 [connection signal="area_entered" from="InteractionArea" to="." method="InteractAreaEntered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="InteractAreaExited"]
-
-[editable path="Event"]

@@ -1,17 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Scenes/L1_Balcony_Hallway.cs" type="Script" id=1]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=3]
 [ext_resource path="res://Instances/Elevator.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Audio/MUSICS/Neftali's Office.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Audio/Sound Effects/Interactive/Door Open.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Audio/Sound Effects/Ambient/Soulsteal 4.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/Events/Event_chapter1_igon.cs" type="Script" id=10]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=11]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Events/Event_chapter1_igon.cs" type="Script" id=7]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Ravia.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -120,65 +117,54 @@ shape = SubResource( 2 )
 [node name="Interact" parent="Elevator" index="2"]
 position = Vector2( -15, -80 )
 
-[node name="Event" parent="Elevator" index="5"]
-autoStart = true
-
-[node name="CollisionShape2D" parent="Elevator/Event" index="0"]
-position = Vector2( 11.6, 12 )
-
-[node name="AnimationPlayer" parent="Elevator/Event" index="1"]
-newMusic = ExtResource( 5 )
-targetScene = "res://Scenes/Hotel Level 2/L2_Center.tscn"
-targetPosition = Vector2( 408, 610 )
-doorSound = ExtResource( 6 )
-elevatorSound = ExtResource( 7 )
-
 [node name="ColorRect" parent="Elevator/Fade" index="0"]
 margin_right = 600.0
 margin_bottom = 624.0
 
-[node name="Closed" parent="Elevator" index="7"]
+[node name="Closed" parent="Elevator" index="6"]
 position = Vector2( -2, -40 )
 scale = Vector2( 3.2, 3 )
 z_index = -40
 z_as_relative = false
 
-[node name="Open" parent="Elevator" index="8"]
+[node name="Open" parent="Elevator" index="7"]
 position = Vector2( -2, -40 )
 scale = Vector2( 3.2, 3 )
 z_index = -40
 z_as_relative = false
 
-[node name="Transition" parent="." instance=ExtResource( 8 )]
+[node name="Transition" parent="." instance=ExtResource( 5 )]
 position = Vector2( 264, 624 )
 scale = Vector2( 4, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Balcony.tscn"
 targetPosition = Vector2( 552, 120 )
 targetDirection = 1
 
-[node name="Event" parent="." instance=ExtResource( 9 )]
+[node name="Event" parent="." instance=ExtResource( 6 )]
 position = Vector2( 73.8848, 276.157 )
 scale = Vector2( 4, 1 )
 destroyFlag = "scene_igon_1"
 
 [node name="AnimationPlayer" parent="Event" index="1"]
 anims/Event = SubResource( 3 )
-script = ExtResource( 10 )
+script = ExtResource( 7 )
 dialogueFile = "res://Dialogue/scene_chapter1_igon.txt"
-raviaFrames = ExtResource( 11 )
-igonFrames = ExtResource( 12 )
+raviaFrames = ExtResource( 8 )
+igonFrames = ExtResource( 9 )
 
-[node name="Transition2" parent="." instance=ExtResource( 8 )]
+[node name="Transition2" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
 position = Vector2( 50, 98.157 )
 scale = Vector2( 4, 1 )
 targetScene = "res://Scenes/Hotel Level 2/L2_Center.tscn"
 targetPosition = Vector2( 408, 610 )
 
+[node name="Event2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 265, 50 )
+scale = Vector2( 4, 1 )
+
 
 [editable path="Elevator"]
-
-[editable path="Elevator/Event"]
 
 [editable path="Event"]
 
