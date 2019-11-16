@@ -8,11 +8,11 @@ public class CodeLock : KinematicBody2D
    // [Export]
     private string doorCode;
 
-    [Export]
-    private int xScale;
+    // [Export]
+    // private int xScale;
 
-    [Export]
-    private int yScale;
+    // [Export]
+    // private int yScale;
 
 	//private Sprite interact;
 	private bool inArea = false;
@@ -33,8 +33,8 @@ public class CodeLock : KinematicBody2D
         UnlockedDoorSound = GetNode<AudioStreamPlayer>("UnlockedDoorSound").GetStream();
         WrongCodeSound = GetNode<AudioStreamPlayer>("WrongCodeSound").GetStream();
 		//interact.Hide();
-        GetNode<CollisionShape2D>("CollisionArea").SetScale(new Vector2(xScale, yScale));
-        GetNode<Area2D>("InteractionArea").SetScale(new Vector2(xScale, yScale));
+        // GetNode<CollisionShape2D>("CollisionArea").SetScale(new Vector2(xScale, yScale));
+        // GetNode<Area2D>("InteractionArea").SetScale(new Vector2(xScale, yScale));
 
 		doorCode = Controller.DoorCode.ToString();
 
