@@ -115,6 +115,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 744.936 ]
 }
 npc = NodePath("EventNPCWater")
+paper = NodePath("ItemPaper")
 
 [node name="SceneTag" parent="." instance=ExtResource( 2 )]
 margin_bottom = 109.0
