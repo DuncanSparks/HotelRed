@@ -59,3 +59,4 @@ getSound = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -10, 180 )
 shape = SubResource( 1 )
+

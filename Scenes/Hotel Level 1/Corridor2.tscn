@@ -71,6 +71,7 @@ shape = SubResource( 2 )
 
 [node name="InteractionArea" parent="CodeLock" index="1"]
 position = Vector2( 23, -2 )
+scale = Vector2( 1, 2 )
 
 [node name="CollisionShape2D" parent="CodeLock/InteractionArea" index="0"]
 position = Vector2( 0, -20 )

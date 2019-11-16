@@ -41,8 +41,8 @@ public class Elevator : KinematicBody2D
 
 		interact.Hide();
 
-		if (Controller.Flag("unlock_elevator") == 1)
-			QueueFree();
+		// if (Controller.Flag("unlock_elevator") == 1)
+		// 	QueueFree();
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,7 +82,7 @@ public class Elevator : KinematicBody2D
 		if (Controller.Flag("item_keycard1") == 1)
 		{
 			Controller.SetFlag("unlock_elevator", 1);
-			QueueFree();
+			//QueueFree();
 		}
 			
 	}
