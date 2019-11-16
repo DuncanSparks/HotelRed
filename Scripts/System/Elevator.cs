@@ -67,6 +67,7 @@ public class Elevator : KinematicBody2D
 					GetNode<CollisionShape2D>("CollisionArea").SetDisabled(true);
 					GetNode<Sprite>("Closed").SetVisible(false);
 					GetNode<Sprite>("Open").SetVisible(true);
+					GetNode<Sprite>("Interact").SetVisible(true);
 				}
 
 				Controller.Dialogue(dialogueFile, dialogueSet, "Ravia", "#2391ef", raviaPortrait, rightClientName: npcName, signalConnection: this, signalMethod: "EndDialogue");
