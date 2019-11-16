@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/System/SceneTag.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/MUSICS/Lobby.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Instances/Elevator.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/Character Sprites/Character_Neftali.tres" type="SpriteFrames" id=6]
-[ext_resource path="res://Resources/Portrait Sets/Portraits_Neftali.tres" type="SpriteFrames" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 60 )
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -74,8 +75,16 @@ cameraLimitBottom = 359
 position = Vector2( 421.474, -100.105 )
 npcName = "Elevator One"
 npcColor = Color( 0, 0.843137, 1, 1 )
-npcSprite = ExtResource( 6 )
-npcPortrait = ExtResource( 7 )
 maxDialogueSet = 1
 dialogueFile = "res://Dialogue/Elevator1.txt"
 elevatorNumber = 1
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( -10, 180 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 1114, 180 )
+shape = SubResource( 1 )

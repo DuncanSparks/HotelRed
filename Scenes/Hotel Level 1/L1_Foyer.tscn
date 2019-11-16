@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scripts/Scenes/L1_Foyer.cs" type="Script" id=1]
 [ext_resource path="res://Tilesets/TilesetHotel.tres" type="TileSet" id=2]
@@ -388,6 +388,12 @@ color_ramp = SubResource( 11 )
 hue_variation = 0.1
 hue_variation_random = 0.5
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 96, 10 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 11, 17 )
+
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -705,6 +711,20 @@ color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 552, 707 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 445, 686 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 659, 686 )
+shape = SubResource( 14 )
 
 [editable path="Event"]
 
