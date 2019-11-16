@@ -853,6 +853,7 @@ one_shot = true
 
 [node name="TimerBuffer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="mouse_entered" from="VBoxContainer/New Game/Button" to="." method="ButtonHover"]
 [connection signal="pressed" from="VBoxContainer/New Game/Button" to="." method="ClickNewGame"]
 [connection signal="mouse_entered" from="VBoxContainer/Continue/Button" to="." method="ButtonHover"]
