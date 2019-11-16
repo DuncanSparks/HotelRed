@@ -92,7 +92,6 @@ scale = Vector2( 4, 1 )
 shape = SubResource( 1 )
 
 [node name="InteractionArea" type="Area2D" parent="."]
-scale = Vector2( 1e-005, 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource( 2 )

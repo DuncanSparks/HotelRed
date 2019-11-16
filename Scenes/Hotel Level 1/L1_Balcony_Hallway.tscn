@@ -103,9 +103,12 @@ elevatorNumber = 1
 position = Vector2( -4, 0 )
 shape = SubResource( 1 )
 
+[node name="InteractionArea" parent="Elevator" index="1"]
+scale = Vector2( 4, 1 )
+
 [node name="CollisionShape2D" parent="Elevator/InteractionArea" index="0"]
 modulate = Color( 0.894489, 0.953125, 0.0186157, 1 )
-scale = Vector2( 3, 1 )
+position = Vector2( -1, 0 )
 shape = SubResource( 2 )
 
 [node name="Interact" parent="Elevator" index="2"]
