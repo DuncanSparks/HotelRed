@@ -6,8 +6,8 @@
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 647.0, 324.0, 610.0, 570.0 ],
-"_edit_vertical_guides_": [ 817.0, 408.0 ]
+"_edit_horizontal_guides_": [ 647.0, 324.0, 610.0, 570.0, 130.6 ],
+"_edit_vertical_guides_": [ 817.0, 405.882 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -48,3 +48,4 @@ scale = Vector2( 4, 1 )
 targetScene = "res://Scenes/Hotel Level 1/L1_Balcony_Hallway.tscn"
 targetPosition = Vector2( 312, 120 )
 targetDirection = 1
+
