@@ -21,15 +21,15 @@ public class ElevatorEvent : AnimationPlayer
     public void Event_DoorClose()
 	{	
 		Controller.PlaySoundBurst(doorSound);
-        GetTree().GetRoot().GetNode<Sprite>("Closed").SetVisible(true);
-        GetTree().GetRoot().GetNode<Sprite>("Closed").SetZIndex(101);
+        GetParent<Event>().GetParent<KinematicBody2D>().GetNode<Sprite>("Closed").SetVisible(true);
+        GetParent<Event>().GetParent<KinematicBody2D>().GetNode<Sprite>("Closed").SetZIndex(101);
 	}
 
     public void Event_DoorOpen()
 	{	
 		Controller.PlaySoundBurst(doorSound);
-        GetTree().GetRoot().GetNode<Sprite>("Closed").SetVisible(false);
-        GetTree().GetRoot().GetNode<Sprite>("Open").SetVisible(true);
+        GetParent<Event>().GetParent<KinematicBody2D>().GetNode<Sprite>("Closed").SetVisible(false);
+        GetParent<Event>().GetParent<KinematicBody2D>().GetNode<Sprite>("Open").SetVisible(true);
 	}
 
     public void Event_ElevatorSound()

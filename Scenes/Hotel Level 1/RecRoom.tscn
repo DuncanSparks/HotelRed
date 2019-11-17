@@ -223,6 +223,7 @@ shape = SubResource( 6 )
 position = Vector2( 648, 84 )
 shape = SubResource( 6 )
 
+
 [editable path="ItemPaper"]
 
 [editable path="EventNPCWater"]

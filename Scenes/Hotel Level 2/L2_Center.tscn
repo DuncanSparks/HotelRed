@@ -103,8 +103,8 @@ tracks/3/keys = {
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 647.0, 324.0, 610.0, 570.0 ],
-"_edit_vertical_guides_": [ 817.0, 408.0 ]
+"_edit_horizontal_guides_": [ 647.0, 324.0, 610.0, 570.0, 130.6 ],
+"_edit_vertical_guides_": [ 817.0, 405.882 ]
 }
 child = NodePath("Child")
 

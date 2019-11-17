@@ -35,6 +35,7 @@ public class Controller : Node
 		
 		{"scene_child_1", 0},
 		//{"unlock_elevator", 0},
+		{"unlock_elevator", 0},
 	};
 
 	private int doorCode = 0;
