@@ -53,6 +53,7 @@
     <Compile Include="Scripts\Events\Event_chapter1_a1.cs" />
     <Compile Include="Scripts\Events\Event_chapter1_igon.cs" />
     <Compile Include="Scripts\Events\Event_chapter1_neftali.cs" />
+    <Compile Include="Scripts\Events\Event_chapter2_child.cs" />
     <Compile Include="Scripts\Events\Event_generic.cs" />
     <Compile Include="Scripts\Events\Event_opening_a1.cs" />
     <Compile Include="Scripts\Events\Event_opening_a2.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Scripts\Scenes\Corridor.cs" />
     <Compile Include="Scripts\Scenes\L1_Balcony_Hallway.cs" />
     <Compile Include="Scripts\Scenes\L1_Foyer.cs" />
+    <Compile Include="Scripts\Scenes\L2_Center.cs" />
     <Compile Include="Scripts\Scenes\RaviasRoom.cs" />
     <Compile Include="Scripts\Scenes\RecRoom.cs" />
     <Compile Include="Scripts\Scenes\TitleScreen.cs" />

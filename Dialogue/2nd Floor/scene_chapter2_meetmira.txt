@@ -1,0 +1,23 @@
+[0]
+{
+	<1 idle glare>Oh.{ It's you.
+	<1 idle glare>I was wondering when you'd show up.
+}
+
+[1]
+{
+	<0 talk idle>Hello.
+	<1 idle talk>Hello,| Ravia.
+	<0 angry idle>You know my name,| too?
+	<1 idle glare>Yes.{ That's not important right now.
+	<1 idle talk>Did you see a child a few moments ago?
+	<0 talk idle>Yes.
+	<1 idle glare>I knew it.
+	<1 idle glare>Why don't you make yourself useful for once and go find her?
+	<0 irked idle_glare>Wait... what?
+	<1 idle_irked talk>You can't just sit around and wait for things to happen on their own.
+	<1 idle_irked talk>That child is my daughter.
+	<0 sad idle>Oh...
+	<0 talk idle>Then,| of course I'll help you find her.
+	<1 idle talk>Good.
+}

@@ -32,6 +32,8 @@ public class Controller : Node
 		{"neftali_cutscene", 0},
 		{"unlock_office", 0},
 		{"scene_igon_1", 0},
+		
+		{"scene_child_1", 0},
 		//{"unlock_elevator", 0},
 	};
 

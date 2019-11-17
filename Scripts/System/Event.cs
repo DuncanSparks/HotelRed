@@ -48,6 +48,7 @@ public class Event : Area2D
 		{
 			StartEvent(0);
 			running = true;
+			eventStarted = true;
 			SetProcess(false);
 		}
 	}

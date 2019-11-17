@@ -582,61 +582,61 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Couch" type="StaticBody2D" parent="."]
 position = Vector2( 240, 420 )
 z_index = 420
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="Couch"]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 27 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Couch"]
 position = Vector2( 0, 30 )
 shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Table" type="StaticBody2D" parent="."]
 position = Vector2( 240, 494 )
 z_index = 494
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+[node name="Sprite" type="Sprite" parent="Table"]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 28 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
 position = Vector2( 0, 11 )
 shape = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="Plant1" type="StaticBody2D" parent="."]
 position = Vector2( 432, 609 )
 z_index = 609
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
+[node name="Sprite" type="Sprite" parent="Plant1"]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 29 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant1"]
 position = Vector2( 0, 25 )
 shape = SubResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="Plant2" type="StaticBody2D" parent="."]
 position = Vector2( 672, 609 )
 scale = Vector2( -1, 1 )
 z_index = 609
@@ -644,11 +644,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D5"]
+[node name="Sprite" type="Sprite" parent="Plant2"]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 29 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant2"]
 position = Vector2( 0, 25 )
 shape = SubResource( 9 )
 __meta__ = {

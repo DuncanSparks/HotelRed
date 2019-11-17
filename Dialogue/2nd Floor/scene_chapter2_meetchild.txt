@@ -1,0 +1,22 @@
+[0]
+{
+	<1 idle talk>Oh,| hello,| missy!
+}
+
+[1]
+{
+	<0 irked idle>Who are you?
+	<1 idle_irked talk>There's another elevator on this floor.{ You need a keycard to open it!
+	<0 angry idle>Ugh...{ are you kidding me?{ I $wjust $0went to the trouble of finding a keycard to get to this floor.
+	<1 idle_angry talk>Don't worry,| missy!{ I have the keycard right here!
+	<0 talk idle>Really?
+	<0 talk idle>Could I...{ please have it?
+	<1 idle talk>Not unless you catch me first!
+	<1 idle talk>Let's play a game.{ I'll hide,| you seek!
+}
+
+[2]
+{
+	<0 angry _>What?!{ Come back!
+	<0 angry _>$sUgh...| $0I don't have time for this...
+}
